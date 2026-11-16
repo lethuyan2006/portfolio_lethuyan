@@ -71,51 +71,84 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 5. Interactive Audio Player Simulation
+  // 5. Interactive Real Audio Player
   const playBtn = document.querySelector('.play-toggle-btn');
+  const audioElement = document.getElementById('audio-player-element');
+  const progressTrack = document.querySelector('.progress-track');
   const progressFill = document.querySelector('.progress-fill');
   const timeCurrent = document.querySelector('.time-current');
+  const timeTotal = document.querySelector('.time-total');
   const visualizerBars = document.querySelectorAll('.music-visualizer .bar');
-  let isPlaying = false;
-  let progress = 35;
-  let intervalId = null;
 
   if (playBtn) {
-    playBtn.addEventListener('click', () => {
-      isPlaying = !isPlaying;
-      if (isPlaying) {
-        playBtn.innerHTML = '❚❚';
-        playBtn.style.background = 'linear-gradient(135deg, #EF4444 0%, #DC2626 100%)';
-        showToast('Đang phát bản phối thử nghiệm AI: Lí kéo chài (108 BPM)');
-        
-        // Start simulated progress
-        intervalId = setInterval(() => {
-          progress += 0.5;
-          if (progress > 100) progress = 0;
-          if (progressFill) progressFill.style.width = progress + '%';
-          
-          if (timeCurrent) {
-            const totalSec = Math.floor((progress / 100) * 165);
-            const mins = Math.floor(totalSec / 60);
-            const secs = totalSec % 60;
-            timeCurrent.innerText = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
-          }
-        }, 500);
+    // If audio element is available
+    if (audioElement) {
+      audioElement.addEventListener('loadedmetadata', () => {
+        if (timeTotal && audioElement.duration) {
+          const m = Math.floor(audioElement.duration / 60);
+          const s = Math.floor(audioElement.duration % 60);
+          timeTotal.innerText = `${m}:${s < 10 ? '0' : ''}${s}`;
+        }
+      });
 
-        // Animate visualizer
-        visualizerBars.forEach(bar => {
-          bar.style.animationPlayState = 'running';
-        });
-      } else {
+      audioElement.addEventListener('timeupdate', () => {
+        if (audioElement.duration) {
+          const percent = (audioElement.currentTime / audioElement.duration) * 100;
+          if (progressFill) progressFill.style.width = percent + '%';
+
+          if (timeCurrent) {
+            const m = Math.floor(audioElement.currentTime / 60);
+            const s = Math.floor(audioElement.currentTime % 60);
+            timeCurrent.innerText = `${m}:${s < 10 ? '0' : ''}${s}`;
+          }
+        }
+      });
+
+      audioElement.addEventListener('ended', () => {
         playBtn.innerHTML = '▶';
         playBtn.style.background = '';
-        clearInterval(intervalId);
-        showToast('Đã tạm dừng bản phối');
+        if (progressFill) progressFill.style.width = '0%';
+        if (timeCurrent) timeCurrent.innerText = '0:00';
         visualizerBars.forEach(bar => {
           bar.style.animationPlayState = 'paused';
         });
+      });
+
+      // Seeking when clicking progress bar
+      if (progressTrack) {
+        progressTrack.addEventListener('click', (e) => {
+          const rect = progressTrack.getBoundingClientRect();
+          const clickPos = (e.clientX - rect.left) / rect.width;
+          if (audioElement.duration) {
+            audioElement.currentTime = clickPos * audioElement.duration;
+          }
+        });
       }
-    });
+
+      playBtn.addEventListener('click', () => {
+        if (audioElement.paused) {
+          audioElement.play().then(() => {
+            playBtn.innerHTML = '❚❚';
+            playBtn.style.background = 'linear-gradient(135deg, #EF4444 0%, #DC2626 100%)';
+            showToast('Đang phát bản phối âm thanh: Đi cấy (Acoustic Lofi 88 BPM)');
+            visualizerBars.forEach(bar => {
+              bar.style.animationPlayState = 'running';
+            });
+          }).catch((err) => {
+            console.error('Audio playback error:', err);
+            showToast('Vui lòng cấp quyền phát âm thanh trên trình duyệt.');
+          });
+        } else {
+          audioElement.pause();
+          playBtn.innerHTML = '▶';
+          playBtn.style.background = '';
+          showToast('Đã tạm dừng bản phối âm thanh');
+          visualizerBars.forEach(bar => {
+            bar.style.animationPlayState = 'paused';
+          });
+        }
+      });
+    }
   }
 
   // 6. Interactive Dropzone Click
