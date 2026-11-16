@@ -3,11 +3,144 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>E-Portfolio | Lê Thuý An - Sư phạm Âm nhạc</title>
+  <title>Bài tập 3: Prompt Engineering & AI Âm nhạc | Lê Thuý An - Sư phạm Âm nhạc</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* R-T-C-O-F Grid */
+    .rctof-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem;
+      margin: 1.2rem 0;
+    }
+    .rctof-item {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: var(--radius-md);
+      padding: 1.2rem;
+      border-left: 4px solid #0284c7;
+    }
+    .rctof-item.role { border-left-color: #8b5cf6; }
+    .rctof-item.context { border-left-color: #0ea5e9; }
+    .rctof-item.task { border-left-color: #10b981; }
+    .rctof-item.constraints { border-left-color: #f59e0b; }
+    .rctof-item.output { border-left-color: #ec4899; }
+    
+    .rctof-title {
+      font-weight: 800;
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .rctof-desc {
+      color: #334155;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    /* Code Box Styles */
+    .code-box {
+      background: #0f172a;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin: 1.4rem 0;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+    .code-header {
+      background: #1e293b;
+      padding: 0.75rem 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .code-title {
+      color: #38bdf8;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .copy-btn {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .copy-btn:hover {
+      background: #38bdf8;
+      color: #0f172a;
+    }
+    .code-body {
+      padding: 1.2rem;
+      color: #e2e8f0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88rem;
+      line-height: 1.7;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    /* Table Styles */
+    .table-eval {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+    .table-eval th, .table-eval td {
+      border: 1px solid #cbd5e1;
+      padding: 0.85rem 1rem;
+      text-align: left;
+      line-height: 1.6;
+    }
+    .table-eval th {
+      background: #0284c7;
+      color: white;
+      font-weight: 700;
+    }
+    .table-eval tr:nth-child(even) {
+      background: #f8fafc;
+    }
+
+    /* Evidence Image */
+    .img-evidence-box {
+      background: #0f172a;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid #cbd5e1;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+    .img-evidence-box img {
+      width: 100%;
+      max-width: 850px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      cursor: zoom-in;
+    }
+    .img-caption {
+      background: #f8fafc;
+      color: #334155;
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 0.75rem 1rem;
+      border-top: 1px solid #e2e8f0;
+      display: block;
+    }
+  </style>
 </head>
 <body>
   <!-- HEADER & NAVIGATION -->
@@ -23,72 +156,156 @@
       <button class="mobile-toggle" aria-label="Toggle menu">☰</button>
       <nav>
         <ul class="nav-menu">
-          <li class="nav-item"><a href="index.html" class="nav-link ">Giới thiệu - About Me</a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link">Giới thiệu - About Me</a></li>
           <li class="nav-item dropdown">
             <a href="projects.html" class="nav-link active">Dự án - Projects ▾</a>
             <ul class="dropdown-menu">
               <li><a href="projects.html" class="dropdown-item"><strong>📂 Tổng quan 06 Bài tập</strong></a></li>
               <li><a href="bai-tap-1.html" class="dropdown-item">📁 Bài 1: Quản lý tệp & thư mục</a></li>
               <li><a href="bai-tap-2.html" class="dropdown-item">🔍 Bài 2: Tìm kiếm & Đánh giá CRAAP</a></li>
-              <li><a href="bai-tap-3.html" class="dropdown-item">⚡ Bài 3: Prompt Engineering & AI nhạc</a></li>
+              <li><a href="bai-tap-3.html" class="dropdown-item active">⚡ Bài 3: Prompt Engineering & AI nhạc</a></li>
               <li><a href="bai-tap-4.html" class="dropdown-item">👥 Bài 4: Hợp tác trực tuyến dự án nhóm</a></li>
               <li><a href="bai-tap-5.html" class="dropdown-item">🎨 Bài 5: Sáng tạo nội dung số với AI</a></li>
               <li><a href="bai-tap-6.html" class="dropdown-item">🛡️ Bài 6: Đạo đức & Liêm chính AI</a></li>
             </ul>
           </li>
-          <li class="nav-item"><a href="conclusion.html" class="nav-link ">Tổng kết - Conclusion</a></li>
+          <li class="nav-item"><a href="conclusion.html" class="nav-link">Tổng kết - Conclusion</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
+  <!-- MAIN WRAPPER -->
   <main class="main-wrapper" style="margin-top: 2.5rem;">
     <div class="glass-panel reveal">
       <div class="page-header-box">
-        <span class="badge-tag">Chương 3: Tổng quan về trí tuệ nhân tạo</span>
-        <h2 class="page-heading">BÀI TẬP 3 (MỤC 3.4): VIẾT PROMPT HIỆU QUẢ CHO CÁC TÁC VỤ HỌC TẬP</h2>
+        <span class="badge-tag">Học phần INF2501 • Chương 3</span>
+        <h2 class="page-heading">BÀI TẬP 3: VIẾT PROMPT HIỆU QUẢ CHO CÁC TÁC VỤ HỌC TẬP</h2>
       </div>
 
+      <!-- a) MỤC TIÊU BÀI TẬP -->
       <div class="feature-box goal" style="margin-bottom: 2rem;">
         <h3>🎯 a) Mục tiêu bài tập</h3>
-        <p>Làm chủ kỹ thuật thiết kế câu lệnh có cấu trúc <strong>Prompt Engineering (R-T-C-O-F)</strong> và kỹ thuật gắn thẻ Metatags âm nhạc để điều khiển AI tạo sinh (Gemini, Suno AI / Udio) tạo ra bản phối bài dân ca <em>"Đi cấy"</em> mang phong cách Acoustic – Lofi thanh bình, tốc độ 88 BPM, nhịp 2/4 vừa vặn cho học sinh lớp 7.</p>
+        <p style="line-height: 1.7; color: #334155;">
+          Phát triển kỹ năng viết Prompt hiệu quả để tận dụng tối đa khả năng của các mô hình ngôn ngữ lớn (LLMs) và mô hình AI tạo sinh âm thanh trong học tập và giảng dạy âm nhạc.
+        </p>
+        <p style="line-height: 1.7; color: #334155; margin-top: 0.5rem;">
+          <strong>Nội dung thực hành:</strong> Viết Prompt hiệu quả cho các tác vụ học tập — Thiết kế kịch bản phối khí bài dân ca Thanh Hóa <em>"Đi cấy"</em> phục vụ môn Âm nhạc lớp 7.
+        </p>
       </div>
 
+      <!-- 1. MỤC TIÊU VÀ CHIẾN LƯỢC THIẾT KẾ PROMPT -->
       <div class="feature-box process" style="margin-bottom: 2rem;">
-        <h3>⚙️ b) Quá trình thực hiện & So sánh hiệu quả Prompt</h3>
-        <table class="modern-table">
-          <thead>
-            <tr>
-              <th>Tiêu chí đánh giá</th>
-              <th>Prompt ban đầu (Chưa tối ưu)</th>
-              <th>Prompt cải tiến chuẩn (R-T-C-O-F)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Bản sắc âm nhạc</strong></td>
-              <td>Yêu cầu chung: 'tạo bản nhạc hiện đại bài dân ca Đi cấy' ➔ Ra nhạc Pop điện tử ồn ào.</td>
-              <td>Bổ sung cụ thể: 'Vietnamese traditional folk fusion, sao truc flute, dan tranh, dan bau monochord'.</td>
-            </tr>
-            <tr>
-              <td><strong>Tính sư phạm lớp 7</strong></td>
-              <td>Không có tốc độ ➔ AI tạo nhạc quá nhanh (128 BPM), học sinh không hát theo kịp.</td>
-              <td>Khống chế: Tempo 85–92 BPM (chuẩn 88 BPM), nhịp 2/4 thong thả, vocal range C4-D5 phù hợp lứa tuổi.</td>
-            </tr>
-            <tr>
-              <td><strong>Cấu trúc khúc thức</strong></td>
-              <td>Lời bài hát viết liền một đoạn ➔ Không có dạo đầu (Intro) để giáo viên bắt nhịp.</td>
-              <td>Gắn nhãn Metatags: [Intro: sao truc, light acoustic], [Verse], [Chorus], [Outro: peaceful fadeout].</td>
-            </tr>
-          </tbody>
-        </table>
+        <h3>📌 1. Mục tiêu và Chiến lược thiết kế Prompt</h3>
+        <p style="color: #334155; line-height: 1.7;">
+          Để khai thác tối đa khả năng của AI trong việc hỗ trợ trao đổi chuyên môn và thử nghiệm ý tưởng phối khí bài dân ca <strong>"Đi cấy"</strong> phục vụ giảng dạy Âm nhạc lớp 7, quá trình thực hành được chia làm <strong>2 giai đoạn (2 kịch bản Prompt)</strong> dựa trên khung cấu trúc chuẩn <strong>R-T-C-O-F</strong> (Role – Vai trò, Task – Nhiệm vụ, Context – Bối cảnh, Output – Định dạng đầu ra, Few-shot/Constraints – Ràng buộc kỹ thuật):
+        </p>
+        <ul style="margin-left: 1.5rem; margin-top: 0.8rem; color: #334155; line-height: 1.7;">
+          <li style="margin-bottom: 0.6rem;">
+            <strong>Kịch bản 1 (Tác vụ tư vấn học thuật & Lên kịch bản phối khí):</strong> Sử dụng AI ngôn ngữ (ChatGPT, Gemini, Claude) để phân tích khả năng ứng dụng AI, đề xuất ý tưởng hòa âm – phối khí và xây dựng cấu trúc bản phối phù hợp với tâm lý lứa tuổi học sinh lớp 7.
+          </li>
+          <li>
+            <strong>Kịch bản 2 (Tác vụ tạo sinh âm thanh thực nghiệm):</strong> Chuyển hóa ý tưởng thành các thẻ lệnh (Style Tags & Lyrics Metatags) chuyên biệt dành cho AI tạo nhạc (Suno AI, Udio) để xuất ra bản phối thử nghiệm.
+          </li>
+        </ul>
       </div>
 
-      <div class="feature-box product">
-        <h3>📦 c) Sản phẩm cuối cùng: Trình phát Audio thử nghiệm & Bộ câu lệnh Prompt chuẩn</h3>
-        
-        <!-- Modern Audio Player -->
-        <div class="modern-player">
+      <!-- 2. KỊCH BẢN 1: PROMPT TƯ VẤN CHUYÊN MÔN (AI NGÔN NGỮ) -->
+      <div class="feature-box goal" style="margin-bottom: 2rem;">
+        <h3>💬 2. Kịch bản 1: Prompt tư vấn chuyên môn và thiết kế cấu trúc bản phối</h3>
+        <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 1rem;">
+          <em>(Áp dụng cho các mô hình AI ngôn ngữ lớn như ChatGPT, Google Gemini, Claude)</em>
+        </p>
+
+        <!-- a. Phân tích cấu trúc Prompt theo mô hình R-T-C-O-F -->
+        <h4 style="color: var(--primary); font-size: 1.1rem; margin-bottom: 0.8rem;">a. Phân tích cấu trúc Prompt theo mô hình R-T-C-O-F:</h4>
+        <div class="rctof-grid">
+          <div class="rctof-item role">
+            <div class="rctof-title" style="color: #7c3aed;">🎭 Role (Vai trò)</div>
+            <div class="rctof-desc">Đóng vai chuyên gia âm nhạc học dân tộc kết hợp nhà sản xuất âm nhạc (Music Producer) am hiểu chương trình Giáo dục phổ thông môn Âm nhạc cấp THCS.</div>
+          </div>
+          <div class="rctof-item context">
+            <div class="rctof-title" style="color: #0284c7;">🌍 Context (Bối cảnh)</div>
+            <div class="rctof-desc">Giảng dạy bài dân ca Thanh Hóa "Đi cấy" trong chương trình Âm nhạc lớp 7. Học sinh yêu thích âm nhạc hiện đại, dễ cảm thấy xa lạ với đệm truyền thống đơn điệu, nhưng làm mới phải giữ gìn di sản.</div>
+          </div>
+          <div class="rctof-item task">
+            <div class="rctof-title" style="color: #059669;">🎯 Task (Nhiệm vụ)</div>
+            <div class="rctof-desc">Đánh giá khả năng ứng dụng AI phối khí bài "Đi cấy"; đề xuất 2 phương án phối khí cụ thể (Acoustic mộc mạc và Lofi nhẹ nhàng) và phân tích ưu – nhược điểm của từng phương án.</div>
+          </div>
+          <div class="rctof-item constraints">
+            <div class="rctof-title" style="color: #d97706;">⚠️ Constraints (Ràng buộc)</div>
+            <div class="rctof-desc">Tuyệt đối giữ nguyên giai điệu gốc, nhịp 2/4 thong thả, tính chất trữ tình trong sáng; bảo toàn điệu thức ngũ cung; Tempo 85–92 BPM (chuẩn 88 BPM); tầm âm C4–D5 phù hợp học sinh lớp 7.</div>
+          </div>
+          <div class="rctof-item output">
+            <div class="rctof-title" style="color: #db2777;">📄 Output (Định dạng đầu ra)</div>
+            <div class="rctof-desc">Trình bày dưới dạng báo cáo chuyên môn có cấu trúc rõ ràng: Đánh giá khả thi, Bảng phân chia cấu trúc bản phối (Intro – Verse – Chorus – Outro) và Lưu ý sư phạm khi lên lớp.</div>
+          </div>
+        </div>
+
+        <!-- b. Câu lệnh Prompt hoàn chỉnh -->
+        <h4 style="color: var(--primary); font-size: 1.1rem; margin-top: 1.5rem; margin-bottom: 0.6rem;">b. Câu lệnh Prompt hoàn chỉnh (Bản chuẩn):</h4>
+        <div class="code-box">
+          <div class="code-header">
+            <span class="code-title">PROMPT TƯ VẤN HỌC THUẬT (R-T-C-O-F)</span>
+            <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('prompt-text-1').innerText); alert('Đã sao chép kịch bản Prompt 1!');">Sao chép câu lệnh</button>
+          </div>
+          <div class="code-body" id="prompt-text-1">"Hãy đóng vai một nhà nghiên cứu âm nhạc dân tộc đồng thời là nhà sản xuất âm nhạc có kinh nghiệm thiết kế học liệu cho bậc THCS. Trong bối cảnh tôi đang chuẩn bị chuyên đề trao đổi về khả năng ứng dụng trí tuệ nhân tạo (AI) để tạo bản phối mới cho bài dân ca Thanh Hóa 'Đi cấy' trong chương trình Âm nhạc lớp 7, hãy giúp tôi thực hiện các yêu cầu sau:
+
+1. Phân tích ngắn gọn tính khả thi, cơ hội và thách thức kỹ thuật khi dùng các công cụ AI hiện nay để phối khí một bài dân ca Việt Nam.
+
+2. Đề xuất chi tiết kịch bản phối khí mới theo phong cách kết hợp giữa nhạc cụ dân tộc (sáo trúc, đàn tranh, đàn bầu) và tiết tấu Acoustic – Lofi hiện đại. Trình bày dưới dạng bảng gồm các phần: Intro (Dạo đầu sáo trúc), Đoạn 1 (Hát thanh thoát), Gian tấu (Đàn bầu solo kết hợp guitar mộc), Đoạn 2 (Hát cao trào êm ả) và Outro (Kết thúc lắng đọng), chỉ rõ nhạc cụ chủ đạo và hiệu ứng âm thanh ở từng phần.
+
+3. Ràng buộc bắt buộc: Giữ nguyên giai điệu gốc và nhịp 2/4; đảm bảo tốc độ vừa phải (Tempo khoảng 85–92 BPM, chuẩn 88 BPM) để học sinh lớp 7 dễ hát theo và gõ đệm; giữ được tinh thần lao động thanh bình, lạc quan của người nông dân vùng quê Bắc Trung Bộ.
+
+4. Đưa ra 3 tiêu chí giúp giáo viên thẩm định bản phối do AI tạo ra trước khi đưa vào giảng dạy chính thức."</div>
+        </div>
+      </div>
+
+      <!-- 3. KỊCH BẢN 2: PROMPT TẠO BẢN PHỐI ÂM THANH THỰC NGHIỆM -->
+      <div class="feature-box product" style="margin-bottom: 2rem;">
+        <h3>🎵 3. Kịch bản 2: Prompt tạo bản phối âm thanh thực nghiệm (Suno AI / Udio)</h3>
+        <p style="color: #334155; line-height: 1.7;">
+          Khi sử dụng các nền tảng AI tạo âm thanh, câu lệnh cần được viết bằng tiếng Anh cô đọng, sử dụng các thuật ngữ âm nhạc chuẩn xác và thẻ cấu trúc (<code>[Intro]</code>, <code>[Verse]</code>, <code>[Chorus]</code>, <code>[Outro]</code>) để AI nhận diện đúng tiết tấu và màu sắc nhạc cụ:
+        </p>
+
+        <!-- a. Style Prompt -->
+        <h4 style="color: var(--primary); font-size: 1.05rem; margin-top: 1.2rem; margin-bottom: 0.5rem;">a. Prompt mô tả phong cách âm nhạc (Style of Music Prompt):</h4>
+        <div class="code-box">
+          <div class="code-header">
+            <span class="code-title">STYLE OF MUSIC PROMPT (TIẾNG ANH)</span>
+            <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('prompt-style').innerText); alert('Đã sao chép Style Prompt!');">Sao chép</button>
+          </div>
+          <div class="code-body" id="prompt-style">Vietnamese traditional folk music fusion, mellow acoustic lofi beat, gentle 2/4 rhythm, peaceful Vietnamese bamboo flute (sao truc), dan tranh zither arpeggios, sweet dan bau monochord, warm acoustic fingerstyle guitar, soft chillhop drum groove, rural countryside moonlight ambience, lyrical, tranquil, educational backing track for middle school choir, 88 BPM, pristine mixing.</div>
+        </div>
+        <p style="font-size: 0.88rem; color: #64748b; font-style: italic; margin-top: -0.6rem; margin-bottom: 1.2rem;">
+          <strong>Dịch nghĩa:</strong> Hòa trộn dân ca truyền thống Việt Nam, tiết tấu Acoustic Lofi êm dịu, nhịp 2/4 thong thả, sáo trúc thanh bình, đàn tranh rải ngón duyên dáng, đàn bầu ngọt ngào, guitar mộc ấm áp, nhịp trống chillhop êm dịu, không gian làng quê đêm trăng thanh bình, trữ tình, thư thái, nhạc nền giáo dục cho dàn đồng ca THCS, tốc độ 88 nhịp/phút, âm thanh sắc nét.
+        </p>
+
+        <!-- b. Lyrics & Metatags Prompt -->
+        <h4 style="color: var(--primary); font-size: 1.05rem; margin-top: 1.2rem; margin-bottom: 0.5rem;">b. Prompt cấu trúc lời và điều khiển nhạc cụ (Custom Lyrics & Metatags Prompt):</h4>
+        <div class="code-box">
+          <div class="code-header">
+            <span class="code-title">CUSTOM LYRICS & METATAGS PROMPT</span>
+            <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('prompt-lyrics').innerText); alert('Đã sao chép Lyrics Prompt!');">Sao chép</button>
+          </div>
+          <div class="code-body" id="prompt-lyrics">[Intro: Gentle night crickets ambience, delicate acoustic guitar fingerpicking followed by a serene bamboo flute melody]
+
+[Verse 1: Soft lofi kick-snare enters, warm bassline supporting sweet pastoral melody]
+Lên chùa bẻ một cành sen,
+Ăn cơm bằng đèn đi cấy sáng trăng...
+
+[Chorus: Dan tranh ripples gracefully, bamboo flute answering vocal lines, calm and joyful choir harmony]
+Ba bốn cô có hẹn cùng chăng, có bạn cùng chăng?
+Thắp đèn ta sẽ chơi trăng ngoài thềm, chơi trăng ngoài thềm ý rằng cầu...
+Cầu cho trong ấm êm lại ngoài êm...
+
+[Instrumental Break: Melodic duet between expressive dan bau and acoustic guitar over relaxing lofi groove]
+
+[Outro: Soft bamboo flute fading out into peaceful nocturnal countryside sounds, gentle guitar strum]</div>
+        </div>
+
+        <!-- Trình phát Audio Player mô phỏng -->
+        <div class="modern-player" style="margin-top: 1.5rem;">
           <div class="player-header">
             <div>
               <span style="background: var(--accent-cyan); color: #000; font-size: 0.72rem; font-weight: 800; padding: 0.2rem 0.6rem; border-radius: 4px;">AI AUDIO BACKING TRACK</span>
@@ -103,52 +320,79 @@
             </div>
           </div>
           <p style="font-size: 0.85rem; color: #94A3B8; margin-top: 1rem;">
-            <em>Nhạc cụ chủ đạo: Sáo trúc, đàn bầu, đàn tranh hòa âm cùng guitar mộc và tiếng gõ lofi nhẹ nhàng.</em>
+            <em>Nhạc cụ chủ đạo: Sáo trúc, đàn bầu, đàn tranh hòa âm cùng guitar mộc và nhịp lofi 88 BPM chuẩn sư phạm.</em>
           </p>
-        </div>
-
-        <!-- Prompt 1 -->
-        <div class="code-box">
-          <div class="code-header">
-            <span class="code-title">PROMPT 1: TƯ VẤN KỊCH BẢN PHỐI KHÍ (GEMINI / CHATGPT)</span>
-            <button class="copy-btn" data-target="p1">Sao chép câu lệnh</button>
-          </div>
-          <div class="code-body" id="p1">“Hãy đóng vai một chuyên gia nghiên cứu âm nhạc dân gian Việt Nam đồng thời là nhà sản xuất âm nhạc có kinh nghiệm thiết kế học liệu THCS. Trong bối cảnh tôi đang thực hiện đề tài ứng dụng Trí tuệ nhân tạo (AI) để tạo bản phối mới cho bài dân ca Thanh Hóa ‘Đi cấy’ trong chương trình Âm nhạc lớp 7, hãy giúp tôi thực hiện các yêu cầu sau:
-1. Phân tích đặc trưng âm nhạc của bài dân ca 'Đi cấy' (thang âm ngũ cung, nhịp 2/4 thong thả, lời ca mộc mạc thanh bình) và đánh giá tính khả thi khi dùng AI phối khí theo phong cách Acoustic – Lofi hiện đại.
-2. Đề xuất kịch bản phối khí chi tiết gồm các phân đoạn: Intro (Dạo đầu sáo trúc), Đoạn 1 (Hát êm dịu), Gian tấu (Đàn bầu solo kết hợp guitar), Đoạn 2 (Hát cao trào nhẹ nhàng) và Outro (Kết thúc lắng đọng).
-3. Ràng buộc bắt buộc: Giữ nguyên thang âm ngũ cung và giai điệu gốc; Tempo ổn định khoảng 85–92 BPM (chuẩn 88 BPM) để học sinh lớp 7 dễ hát theo; bảo toàn tinh thần lao động cần cù, lạc quan của người nông dân.
-4. Đưa ra 3 tiêu chí giúp giáo viên THCS thẩm định chất lượng bản phối AI trước khi đưa vào tiết học chính thức.”</div>
-        </div>
-
-        <!-- Prompt 2 -->
-        <div class="code-box">
-          <div class="code-header">
-            <span class="code-title">PROMPT 2: ĐIỀU KHIỂN AI TẠO NHẠC (SUNO AI / UDIO)</span>
-            <button class="copy-btn" data-target="p2">Sao chép câu lệnh</button>
-          </div>
-          <div class="code-body" id="p2">Style of Music Prompt:
-Vietnamese traditional folk fusion, mellow acoustic lofi beat, gentle 2/4 rhythm, peaceful Vietnamese bamboo flute (sao truc), dan tranh zither arpeggios, sweet dan bau monochord, warm acoustic fingerstyle guitar, soft chillhop drum groove, rural countryside moonlight ambience, lyrical, tranquil, educational backing track for middle school, 88 BPM, pristine mixing.
-
-Custom Lyrics & Structural Metatags:
-[Intro: Gentle night crickets ambience, delicate acoustic guitar fingerpicking followed by a serene bamboo flute melody]
-[Verse 1: Soft lofi kick-snare enters, warm bassline supporting sweet pastoral melody]
-Lên chùa bẻ một cành sen, ăn cơm bằng đèn đi cấy sáng trăng...
-[Chorus: Dan tranh ripples gracefully, bamboo flute answering vocal lines, calm and joyful choir harmony]
-Ba bốn cô có hẹn cùng chăng, thắp đèn ta đi cấy, sáng trăng ta cấy nhiều...
-[Instrumental Break: Melodic duet between expressive dan bau and acoustic guitar over relaxing lofi groove]
-[Outro: Soft bamboo flute fading out into peaceful nocturnal countryside sounds, gentle guitar strum]</div>
-        </div>
-
-        <div class="upload-placeholder">
-          <div class="icon">⚡</div>
-          <h4>Minh chứng giao diện tạo nhạc AI trên Suno AI / Udio</h4>
-          <p>Tạo sinh bản phối thử nghiệm phong cách Acoustic Lofi cho bài dân ca 'Đi cấy'.</p>
         </div>
       </div>
 
+      <!-- 4. ĐÁNH GIÁ HIỆU QUẢ PROMPT VÀ TINH CHỈNH -->
+      <div class="feature-box process" style="margin-bottom: 2rem;">
+        <h3>⚙️ 4. Đánh giá hiệu quả Prompt và Tinh chỉnh (Iterative Refinement)</h3>
+        <p style="color: #334155; line-height: 1.7;">
+          Sau khi thử nghiệm bộ Prompt trên, quá trình đánh giá và tối ưu hóa câu lệnh được thực hiện để giải quyết các vấn đề thực tế phát sinh ở đầu ra AI:
+        </p>
+
+        <!-- Bảng HTML đánh giá và tinh chỉnh -->
+        <div style="overflow-x: auto;">
+          <table class="table-eval">
+            <thead>
+              <tr>
+                <th style="width: 20%;">Tiêu chí đánh giá</th>
+                <th style="width: 26%;">Prompt ban đầu (Chưa tối ưu)</th>
+                <th style="width: 26%;">Vấn đề phát sinh ở đầu ra AI</th>
+                <th style="width: 28%;">Giải pháp tinh chỉnh ở Prompt cải tiến</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Bản sắc âm nhạc dân tộc</strong></td>
+                <td>Yêu cầu chung: <em>'tạo bản nhạc hiện đại bài dân ca Đi cấy'</em>.</td>
+                <td>Nhạc cụ điện tử phương Tây quá dày đặc, nghe giống nhạc điện tử sàn diễn.</td>
+                <td>Bổ sung định danh: <code>'Vietnamese traditional folk fusion'</code>, <code>'sao truc flute'</code>, <code>'dan tranh'</code>, <code>'dan bau monochord'</code>.</td>
+              </tr>
+              <tr>
+                <td><strong>Tính sư phạm môn Âm nhạc 7</strong></td>
+                <td>Không chỉ định nhịp và tốc độ bài hát.</td>
+                <td>Tốc độ quá nhanh (128 BPM), học sinh không theo kịp tiết tấu cấy lúa thư thả.</td>
+                <td>Khống chế tốc độ vừa phải: <strong>Tempo 85–92 BPM (chuẩn 88 BPM)</strong>, nhịp 2/4 thong dong, êm dịu.</td>
+              </tr>
+              <tr>
+                <td><strong>Khúc thức sư phạm</strong></td>
+                <td>Nhập lời bài hát thành một đoạn văn liền tù tì.</td>
+                <td>Không có đoạn dạo đầu để giáo viên bắt nhịp vào câu hát.</td>
+                <td>Gắn thẻ Metatags: <code>[Intro: sao truc, light acoustic]</code>, <code>[Verse]</code>, <code>[Chorus]</code>, <code>[Outro: peaceful fadeout]</code>.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- ẢNH MINH CHỨNG BẢNG ĐÁNH GIÁ & TINH CHỈNH -->
+        <div style="margin-top: 1.5rem;">
+          <h4 style="color: var(--primary); margin-bottom: 0.6rem;">📸 Ảnh chụp minh chứng bảng đánh giá và giải pháp tinh chỉnh Prompt:</h4>
+          <div class="img-evidence-box">
+            <a href="images/bai3/bang_tinh_chinh_prompt.jpg" target="_blank" title="Nhấp để xem ảnh kích thước gốc">
+              <img src="images/bai3/bang_tinh_chinh_prompt.jpg" alt="Minh chứng Bảng đánh giá và giải pháp tinh chỉnh Prompt AI">
+            </a>
+            <span class="img-caption">📸 Minh chứng: Bảng đánh giá hiệu quả Prompt và giải pháp tinh chỉnh</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. KẾT LUẬN THỰC HÀNH -->
+      <div class="feature-box goal" style="margin-bottom: 2rem;">
+        <h3>💡 5. Kết luận thực hành</h3>
+        <p style="color: #334155; line-height: 1.75; font-size: 0.98rem;">
+          Việc áp dụng kỹ thuật viết Prompt có cấu trúc (<strong>R-T-C-O-F</strong>) kết hợp với các ràng buộc chuyên ngành âm nhạc giúp biến AI từ một công cụ giải trí ngẫu nhiên thành một trợ lý đắc lực trong thiết kế học liệu số. 
+        </p>
+        <p style="color: #334155; line-height: 1.75; font-size: 0.98rem; margin-top: 0.8rem; border-left: 3px solid var(--accent-cyan); padding-left: 12px; background: rgba(56, 189, 248, 0.08); padding-top: 8px; padding-bottom: 8px;">
+          Qua đó, giáo viên môn Âm nhạc lớp 7 có thể chủ động tạo ra những bản phối mới mẻ, giàu tính thẩm mỹ cho bài <strong>"Đi cấy"</strong>, vừa kích thích hứng thú học tập của học sinh, vừa bảo tồn trọn vẹn giá trị nghệ thuật dân gian truyền thống.
+        </p>
+      </div>
+
+      <!-- ĐIỀU HƯỚNG TRANG -->
       <div class="pagination-nav">
-        <a href="bai-tap-2.html" class="btn btn-glass" style="color: var(--primary); border-color: var(--primary);">⬅ Bài tập 2</a>
-        <a href="bai-tap-4.html" class="btn btn-primary">Chuyển sang Bài tập 4 ➔</a>
+        <a href="bai-tap-2.html" class="btn btn-glass" style="color: var(--primary); border-color: var(--primary);">⬅ Bài tập 2: Đánh giá CRAAP</a>
+        <a href="bai-tap-4.html" class="btn btn-primary">Chuyển sang Bài tập 4: Hợp tác nhóm ➔</a>
       </div>
     </div>
   </main>
@@ -157,17 +401,19 @@ Ba bốn cô có hẹn cùng chăng, thắp đèn ta đi cấy, sáng trăng ta 
   <footer class="site-footer">
     <div class="footer-grid">
       <div class="footer-col">
-        <h4>Hồ sơ Năng lực Số (E-Portfolio)</h4>
-        <p style="margin-bottom: 0.8rem; line-height: 1.6;">Học phần: <strong>Nhập môn Công nghệ số và ứng dụng trí tuệ nhân tạo (INF2501)</strong></p>
-        <p style="margin-bottom: 0.8rem; line-height: 1.6;">Chủ đề thực hành: <em>Ứng dụng AI tạo bản phối mới cho bài dân ca "Đi cấy" trong chương trình Âm nhạc lớp 7.</em></p>
-        <p style="color: #64748B; font-size: 0.85rem;">Trường Đại học Sư phạm Nghệ thuật Trung ương — Khoa Sư phạm Âm nhạc.</p>
+        <h4>Hồ sơ Năng lực Cá nhân (E-Portfolio)</h4>
+        <p style="margin-bottom: 0.8rem; line-height: 1.6;">Sinh viên chuyên ngành: <strong>Sư phạm Âm nhạc (Khóa K20D)</strong></p>
+        <p style="margin-bottom: 0.8rem; line-height: 1.6;">Trường Đại học Sư phạm Nghệ thuật Trung ương — Khoa Sư phạm Âm nhạc.</p>
+        <p style="color: #64748B; font-size: 0.85rem;">Học phần: Nhập môn CNS & Ứng dụng AI (INF2501) • GVHD: ThS. Vũ Việt Hoàng</p>
       </div>
       <div class="footer-col">
         <h4>Liên kết nhanh</h4>
         <ul>
           <li><a href="index.html">➔ Trang Giới thiệu (About Me)</a></li>
           <li><a href="projects.html">➔ Tổng quan 06 bài tập (Projects)</a></li>
-          <li><a href="bai-tap-3.html">➔ Kịch bản Prompt & Audio AI</a></li>
+          <li><a href="bai-tap-1.html">➔ Bài 1: Quản lý tệp & thư mục</a></li>
+          <li><a href="bai-tap-2.html">➔ Bài 2: Tìm kiếm & Đánh giá CRAAP</a></li>
+          <li><a href="bai-tap-3.html">➔ Bài 3: Prompt Engineering & AI nhạc</a></li>
           <li><a href="conclusion.html">➔ Tổng kết & Tự đánh giá</a></li>
         </ul>
       </div>
@@ -176,7 +422,7 @@ Ba bốn cô có hẹn cùng chăng, thắp đèn ta đi cấy, sáng trăng ta 
         <p style="margin-bottom: 0.4rem;"><strong>Họ và tên:</strong> Lê Thuý An</p>
         <p style="margin-bottom: 0.4rem;"><strong>Mã SV:</strong> 2552210166</p>
         <p style="margin-bottom: 0.4rem;"><strong>Lớp:</strong> K20D — Sư phạm Âm nhạc</p>
-        <p style="margin-bottom: 0.4rem;"><strong>GVHD:</strong> ThS. Vũ Việt Hoàng</p>
+        <p style="margin-bottom: 0.4rem;"><strong>Khoa:</strong> Sư phạm Âm nhạc</p>
         <p style="color: var(--accent-cyan); font-weight: 600; margin-top: 0.6rem;">✓ Xuất bản trên GitHub Pages</p>
       </div>
     </div>
