@@ -3,11 +3,143 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>E-Portfolio | Lê Thuý An - Sư phạm Âm nhạc</title>
+  <title>Bài tập 2: Tìm kiếm & Đánh giá Thông tin Học thuật | Lê Thuý An - Sư phạm Âm nhạc</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* Query Box Styles */
+    .query-item {
+      background: #0f172a;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: var(--radius-md);
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+    .query-title {
+      color: #38bdf8;
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .query-code {
+      font-family: 'JetBrains Mono', monospace;
+      color: #f1f5f9;
+      background: #1e293b;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      font-size: 0.92rem;
+      display: block;
+      overflow-x: auto;
+      border-left: 3px solid var(--accent-gold);
+    }
+    .operator {
+      color: #f59e0b;
+      font-weight: 800;
+    }
+    .keyword {
+      color: #a7f3d0;
+    }
+    /* CRAAP 5 Cards */
+    .craap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.4rem;
+      margin: 1.5rem 0;
+    }
+    .craap-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: var(--radius-md);
+      padding: 1.4rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+      position: relative;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .craap-card:hover {
+      border-color: #0284c7;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(2, 132, 199, 0.1);
+    }
+    .craap-letter {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: #0284c7;
+      color: white;
+      font-weight: 800;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+    }
+    .craap-card h4 {
+      color: var(--primary);
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+    }
+    .craap-card p {
+      color: #475569;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    /* Table styles */
+    .table-craap {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+    .table-craap th, .table-craap td {
+      border: 1px solid #cbd5e1;
+      padding: 0.85rem 1rem;
+      text-align: left;
+      line-height: 1.6;
+    }
+    .table-craap th {
+      background: #0284c7;
+      color: white;
+      font-weight: 700;
+    }
+    .table-craap tr:nth-child(even) {
+      background: #f8fafc;
+    }
+    /* Evidence Image */
+    .img-evidence-box {
+      background: #0f172a;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid #cbd5e1;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+    .img-evidence-box img {
+      width: 100%;
+      max-width: 850px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      cursor: zoom-in;
+    }
+    .img-caption {
+      background: #f8fafc;
+      color: #334155;
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 0.75rem 1rem;
+      border-top: 1px solid #e2e8f0;
+      display: block;
+    }
+  </style>
 </head>
 <body>
   <!-- HEADER & NAVIGATION -->
@@ -23,86 +155,224 @@
       <button class="mobile-toggle" aria-label="Toggle menu">☰</button>
       <nav>
         <ul class="nav-menu">
-          <li class="nav-item"><a href="index.html" class="nav-link ">Giới thiệu - About Me</a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link">Giới thiệu - About Me</a></li>
           <li class="nav-item dropdown">
             <a href="projects.html" class="nav-link active">Dự án - Projects ▾</a>
             <ul class="dropdown-menu">
               <li><a href="projects.html" class="dropdown-item"><strong>📂 Tổng quan 06 Bài tập</strong></a></li>
               <li><a href="bai-tap-1.html" class="dropdown-item">📁 Bài 1: Quản lý tệp & thư mục</a></li>
-              <li><a href="bai-tap-2.html" class="dropdown-item">🔍 Bài 2: Tìm kiếm & Đánh giá CRAAP</a></li>
+              <li><a href="bai-tap-2.html" class="dropdown-item active">🔍 Bài 2: Tìm kiếm & Đánh giá CRAAP</a></li>
               <li><a href="bai-tap-3.html" class="dropdown-item">⚡ Bài 3: Prompt Engineering & AI nhạc</a></li>
               <li><a href="bai-tap-4.html" class="dropdown-item">👥 Bài 4: Hợp tác trực tuyến dự án nhóm</a></li>
               <li><a href="bai-tap-5.html" class="dropdown-item">🎨 Bài 5: Sáng tạo nội dung số với AI</a></li>
               <li><a href="bai-tap-6.html" class="dropdown-item">🛡️ Bài 6: Đạo đức & Liêm chính AI</a></li>
             </ul>
           </li>
-          <li class="nav-item"><a href="conclusion.html" class="nav-link ">Tổng kết - Conclusion</a></li>
+          <li class="nav-item"><a href="conclusion.html" class="nav-link">Tổng kết - Conclusion</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
+  <!-- MAIN WRAPPER -->
   <main class="main-wrapper" style="margin-top: 2.5rem;">
     <div class="glass-panel reveal">
       <div class="page-header-box">
-        <span class="badge-tag">Chương 2: Khai thác dữ liệu và thông tin</span>
-        <h2 class="page-heading">BÀI TẬP 2 (MỤC 2.4): TÌM KIẾM VÀ ĐÁNH GIÁ THÔNG TIN HỌC THUẬT</h2>
+        <span class="badge-tag">Học phần INF2501 • Chương 2</span>
+        <h2 class="page-heading">BÀI TẬP 2: TÌM KIẾM VÀ ĐÁNH GIÁ THÔNG TIN HỌC THUẬT</h2>
       </div>
 
+      <!-- a) MỤC TIÊU -->
       <div class="feature-box goal" style="margin-bottom: 2rem;">
         <h3>🎯 a) Mục tiêu bài tập</h3>
-        <p>Thu thập và thẩm định hệ thống tài liệu khoa học, giáo trình âm nhạc học và các nghiên cứu uy tín nhằm giải quyết hai vấn đề: (1) Đặc trưng âm nhạc dân ca Thanh Hóa (thang âm ngũ cung Bắc Trung Bộ, tính chất trữ tình, nhịp 2/4) trong SGK Âm nhạc 7; (2) Nguyên lý và giới hạn của AI tạo sinh trong phối khí bài dân ca 'Đi cấy'.</p>
+        <p style="line-height: 1.7; color: #334155;">
+          Phát triển kỹ năng tìm kiếm và đánh giá thông tin học thuật từ các nguồn đáng tin cậy. Nắm vững phương pháp khai thác cơ sở dữ liệu khoa học bằng các toán tử Boolean nâng cao và vận dụng bộ tiêu chuẩn quốc tế <strong>CRAAP</strong> để thẩm định tính xác thực, độ tin cậy của tài liệu nghiên cứu.
+        </p>
       </div>
 
+      <!-- 1. MỤC TIÊU TÌM KIẾM THÔNG TIN -->
       <div class="feature-box process" style="margin-bottom: 2rem;">
-        <h3>⚙️ b) Tóm tắt quá trình thực hiện</h3>
-        <p><strong>Toán tử tìm kiếm nâng cao đã sử dụng:</strong></p>
-        <ul style="margin-left: 1.5rem; margin-bottom: 1rem; color: #334155;">
-          <li><code>"Đi cấy" AND ("dân ca Thanh Hóa" OR "ngũ cung")</code></li>
-          <li><code>("AI music generation" OR "accompaniment") AND "folk songs" filetype:pdf</code></li>
-          <li><code>site:edu.vn "dạy học âm nhạc" AND "trí tuệ nhân tạo"</code></li>
+        <h3>📌 1. Mục tiêu tìm kiếm thông tin</h3>
+        <p style="color: #334155; line-height: 1.7;">
+          Thu thập hệ thống tài liệu khoa học, giáo trình và các nghiên cứu đáng tin cậy nhằm giải quyết hai khía cạnh cốt lõi của đề tài <em>"Ứng dụng AI tạo bản phối mới cho bài dân ca Đi cấy (Âm nhạc lớp 7)"</em>:
+        </p>
+        <ul style="margin-left: 1.5rem; margin-top: 0.6rem; color: #334155; line-height: 1.7;">
+          <li style="margin-bottom: 0.6rem;">
+            <strong>Cơ sở âm nhạc học và sư phạm:</strong> Đặc trưng âm nhạc của dân ca Thanh Hóa / Bắc Trung Bộ (hệ thống điệu thức ngũ cung, tiết tấu nhịp 2/4 thong thả, tính chất trữ tình trong sáng của bài <em>"Đi cấy"</em>) và yêu cầu cần đạt của chương trình Giáo dục phổ thông môn Âm nhạc lớp 7 (theo Thông tư 32/2018/TT-BGDĐT).
+          </li>
+          <li>
+            <strong>Cơ sở công nghệ và ứng dụng AI:</strong> Nguyên lý hoạt động, khả năng và giới hạn của các mô hình AI tạo sinh âm nhạc (Generative AI in Music) trong việc hòa âm, phối khí nhạc truyền thống phục vụ giảng dạy tại trường THCS.
+          </li>
         </ul>
-        <p><strong>Bộ tiêu chí CRAAP thẩm định:</strong> Currency (Tính cập nhật), Relevance (Tính phù hợp), Authority (Tính thẩm quyền), Accuracy (Tính chính xác), Purpose (Mục đích khoa học).</p>
       </div>
 
-      <div class="feature-box product">
-        <h3>📦 c) Sản phẩm cuối cùng: Bảng đánh giá 04 nguồn thông tin học thuật</h3>
-        <table class="modern-table">
-          <thead>
-            <tr>
-              <th>Tên tài liệu / Tác giả</th>
-              <th>Cơ sở dữ liệu</th>
-              <th>Nội dung học thuật & Thẩm định CRAAP</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>SGK Âm nhạc 7 (Kết nối tri thức) & TT 32/2018/TT-BGDĐT</strong></td>
-              <td>Bộ GD&ĐT / NXB Giáo dục VN</td>
-              <td>Mục tiêu dạy bài 'Đi cấy': hát đúng giai điệu thanh thoát, nhịp nhàng; cảm nhận vẻ đẹp lao động nông thôn. (Độ tin cậy: Tuyệt đối).</td>
-            </tr>
-            <tr>
-              <td><strong>Dân ca người Việt (Tú Ngọc, NXB Âm nhạc)</strong></td>
-              <td>Học viện Âm nhạc QG</td>
-              <td>Phân tích điệu thức ngũ cung Bắc Trung Bộ, tính chất trữ tình êm ả, nhịp 2/4 thong thả. Bản phối mới phải giữ nguyên tuyến giai điệu mộc mạc.</td>
-            </tr>
-            <tr>
-              <td><strong>Pop Music Accompaniment Generation using Deep Learning (Huang et al., 2021)</strong></td>
-              <td>IEEE Xplore / Scholar</td>
-              <td>AI rất mạnh về sinh bè đệm Acoustic/Lofi nhưng cần kiểm soát để không phá vỡ thang âm ngũ cung phương Đông.</td>
-            </tr>
-            <tr>
-              <td><strong>Ứng dụng AI trong đổi mới dạy học Âm nhạc THCS (Trần Thị Minh Thu, 2024)</strong></td>
-              <td>Tạp chí Nghiên cứu VHNT</td>
-              <td>Thực nghiệm cho thấy bản phối mới phong cách Lofi Acoustic giúp tăng 80% hứng thú của học sinh lớp 7.</td>
-            </tr>
-          </tbody>
-        </table>
+      <!-- 2. CHIẾN LƯỢC TÌM KIẾM VÀ TRUY VẤN NÂNG CAO -->
+      <div class="feature-box goal" style="margin-bottom: 2rem;">
+        <h3>🔍 2. Chiến lược tìm kiếm và Truy vấn nâng cao (Search Queries)</h3>
+        <p style="color: #334155; line-height: 1.7; margin-bottom: 1.2rem;">
+          Để tối ưu hóa kết quả trên các cơ sở dữ liệu học thuật (Google Scholar, ResearchGate, IEEE Xplore, Thư viện Quốc gia Việt Nam, Tạp chí Nghiên cứu Âm nhạc), quá trình tìm kiếm sử dụng các toán tử Boolean (<code>AND</code>, <code>OR</code>, <code>""</code>, <code>site:</code>):
+        </p>
+
+        <!-- Truy vấn 1 -->
+        <div class="query-item">
+          <div class="query-title">
+            <span>🔹 Truy vấn 1: Tìm kiếm tài liệu tiếng Việt về dân ca Thanh Hóa và giảng dạy Âm nhạc lớp 7</span>
+          </div>
+          <code class="query-code">
+            <span class="keyword">"Đi cấy"</span> <span class="operator">OR</span> <span class="keyword">"dân ca Thanh Hóa"</span> <span class="operator">AND</span> <span class="keyword">"Âm nhạc lớp 7"</span> <span class="operator">AND</span> (<span class="keyword">"phối khí"</span> <span class="operator">OR</span> <span class="keyword">"dạy học"</span>)
+          </code>
+        </div>
+
+        <!-- Truy vấn 2 -->
+        <div class="query-item">
+          <div class="query-title">
+            <span>🔹 Truy vấn 2: Tìm kiếm nghiên cứu về ứng dụng AI trong phối khí và giáo dục âm nhạc</span>
+          </div>
+          <code class="query-code">
+            <span class="keyword">"Artificial Intelligence"</span> <span class="operator">AND</span> (<span class="keyword">"music arrangement"</span> <span class="operator">OR</span> <span class="keyword">"music generation"</span>) <span class="operator">AND</span> <span class="keyword">"music education"</span> <span class="operator">AND</span> <span class="keyword">"secondary school"</span>
+          </code>
+        </div>
+
+        <!-- Truy vấn 3 -->
+        <div class="query-item">
+          <div class="query-title">
+            <span>🔹 Truy vấn 3: Tìm kiếm nghiên cứu chuyên sâu về AI xử lý âm nhạc truyền thống/dân gian</span>
+          </div>
+          <code class="query-code">
+            (<span class="keyword">"AI"</span> <span class="operator">OR</span> <span class="keyword">"machine learning"</span>) <span class="operator">AND</span> (<span class="keyword">"traditional music"</span> <span class="operator">OR</span> <span class="keyword">"folk music"</span>)
+          </code>
+        </div>
       </div>
 
+      <!-- 3. BẢNG TỔNG HỢP THÔNG TIN HỌC THUẬT THU THẬP ĐƯỢC -->
+      <div class="feature-box product" style="margin-bottom: 2rem;">
+        <h3>📊 3. Bảng tổng hợp thông tin học thuật thu thập được</h3>
+        <p style="color: #334155; line-height: 1.7;">
+          Hệ thống 04 nguồn tài liệu học thuật trọng tâm được thu thập từ các cơ sở dữ liệu uy tín trong nước và quốc tế:
+        </p>
+
+        <!-- Bảng HTML -->
+        <div style="overflow-x: auto;">
+          <table class="table-craap">
+            <thead>
+              <tr>
+                <th style="width: 8%; text-align: center;">STT</th>
+                <th style="width: 28%;">Tên tài liệu / Tác giả</th>
+                <th style="width: 24%;">Cơ sở dữ liệu</th>
+                <th style="width: 40%;">Nội dung học thuật cốt lõi & Đánh giá CRAAP</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: center; font-weight: 700;">1</td>
+                <td><strong>SGK Âm nhạc 7 (Kết nối tri thức) & TT 32/2018/TT-BGDĐT.</strong></td>
+                <td>Bộ GD&ĐT / NXB Giáo dục VN</td>
+                <td>Xác định chuẩn kiến thức bài 'Đi cấy': hát đúng giai điệu thanh thoát, nhịp nhàng; cảm nhận vẻ đẹp lao động nông thôn. <em>(Độ tin cậy: Tuyệt đối)</em>.</td>
+              </tr>
+              <tr>
+                <td style="text-align: center; font-weight: 700;">2</td>
+                <td><strong>Tú Ngọc – Dân ca người Việt (NXB Âm nhạc).</strong></td>
+                <td>Học viện Âm nhạc QG</td>
+                <td>Phân tích điệu thức ngũ cung Bắc Trung Bộ, tính chất trữ tình êm ả, nhịp 2/4 thong thả. Bản phối mới phải giữ nguyên tuyến giai điệu mộc mạc.</td>
+              </tr>
+              <tr>
+                <td style="text-align: center; font-weight: 700;">3</td>
+                <td><strong>Huang, C. et al. (2021). Pop Music Accompaniment Generation using Deep Learning.</strong></td>
+                <td>IEEE Xplore / Scholar</td>
+                <td>Phân tích khả năng sinh bè đệm Acoustic/Lofi của AI: tạo hợp âm đệm phong phú nhưng cần kiểm soát để không phá vỡ thang âm ngũ cung phương Đông.</td>
+              </tr>
+              <tr>
+                <td style="text-align: center; font-weight: 700;">4</td>
+                <td><strong>Trần Thị Minh Thu (2024). Đổi mới dạy học Âm nhạc THCS với công nghệ số.</strong></td>
+                <td>Tạp chí Nghiên cứu VHNT</td>
+                <td>Thực nghiệm chứng minh bản phối Lofi Acoustic giúp tăng 80% hứng thú của học sinh lớp 7 trong việc học hát và cảm thụ dân ca.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- ẢNH MINH CHỨNG TÀI LIỆU THU THẬP -->
+        <div style="margin-top: 1.5rem;">
+          <h4 style="color: var(--primary); margin-bottom: 0.6rem;">📸 Ảnh chụp minh chứng bảng tổng hợp & đánh giá CRAAP:</h4>
+          <div class="img-evidence-box">
+            <a href="images/bai2/bang_danh_gia_craap.jpg" target="_blank" title="Nhấp để xem ảnh kích thước gốc">
+              <img src="images/bai2/bang_danh_gia_craap.jpg" alt="Minh chứng Bảng tổng hợp học thuật CRAAP">
+            </a>
+            <span class="img-caption">📸 Minh chứng: Bảng tổng hợp nguồn học thuật cốt lõi & Đánh giá CRAAP</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. ĐÁNH GIÁ ĐỘ TIN CẬY CỦA NGUỒN THÔNG TIN (TIÊU CHUẨN CRAAP) -->
+      <div class="feature-box process" style="margin-bottom: 2rem;">
+        <h3>🛡️ 4. Đánh giá độ tin cậy của nguồn thông tin (Áp dụng tiêu chuẩn CRAAP)</h3>
+        <p style="color: #334155; line-height: 1.7;">
+          Để đảm bảo tính chuẩn xác về mặt khoa học và sư phạm, các tài liệu trên được thẩm định qua 5 tiêu chí CRAAP (Currency – Relevance – Authority – Accuracy – Purpose):
+        </p>
+
+        <div class="craap-grid">
+          <!-- C - Currency -->
+          <div class="craap-card">
+            <span class="craap-letter">C</span>
+            <h4>Tính cập nhật (Currency)</h4>
+            <p>
+              Các tài liệu về công nghệ AI (Huang et al., 2021; Trần Thị Minh Thu, 2024) đều được xuất bản trong giai đoạn từ năm 2020 trở lại đây, phản ánh đúng sự bùng nổ của AI tạo sinh âm nhạc hiện nay. Chương trình GDPT 2018 đang là văn bản pháp quy hiện hành áp dụng trực tiếp cho học sinh lớp 7.
+            </p>
+          </div>
+
+          <!-- R - Relevance -->
+          <div class="craap-card">
+            <span class="craap-letter">R</span>
+            <h4>Tính liên quan (Relevance)</h4>
+            <p>
+              Toàn bộ nguồn tài liệu đều bám sát hai từ khóa trọng tâm của đề tài là <em>"dạy học bài Đi cấy lớp 7"</em> và <em>"ứng dụng AI trong phối khí/giáo dục âm nhạc"</em>, không lan man sang các lĩnh vực lập trình thuần túy hay âm nhạc hàn lâm phương Tây.
+            </p>
+          </div>
+
+          <!-- A - Authority -->
+          <div class="craap-card">
+            <span class="craap-letter">A</span>
+            <h4>Tính thẩm quyền (Authority)</h4>
+            <p>
+              Nguồn tài liệu đến từ các cơ quan quản lý nhà nước (Bộ Giáo dục & Đào tạo), các tổ chức khoa học uy tín quốc tế (IEEE), các viện nghiên cứu âm nhạc đầu ngành (Học viện Âm nhạc Quốc gia VN) và tạp chí khoa học có phản biện (peer-reviewed). Tác giả đều là các chuyên gia đầu ngành về âm nhạc học và công nghệ.
+            </p>
+          </div>
+
+          <!-- A - Accuracy -->
+          <div class="craap-card">
+            <span class="craap-letter">A</span>
+            <h4>Tính chính xác (Accuracy)</h4>
+            <p>
+              Nội dung phân tích về cấu trúc thang âm điệu thức của bài "Đi cấy" trong sách giáo trình trùng khớp hoàn toàn với bản ký âm trong SGK Âm nhạc 7. Các kết luận về ưu – nhược điểm của AI có số liệu thực nghiệm và trích dẫn tham chiếu rõ ràng.
+            </p>
+          </div>
+
+          <!-- P - Purpose -->
+          <div class="craap-card">
+            <span class="craap-letter">P</span>
+            <h4>Mục đích (Purpose)</h4>
+            <p>
+              Tất cả các nguồn đều phục vụ mục đích nghiên cứu khoa học, giáo dục và phát triển phương pháp sư phạm, hoàn toàn khách quan và không mang tính chất quảng cáo thương mại cho bất kỳ phần mềm AI thương mại cụ thể nào.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. KẾT LUẬN RÚT RA TỪ QUÁ TRÌNH KHAI THÁC THÔNG TIN -->
+      <div class="feature-box goal" style="margin-bottom: 2rem;">
+        <h3>💡 5. Kết luận rút ra từ quá trình khai thác thông tin</h3>
+        <p style="color: #334155; line-height: 1.75; font-size: 0.98rem;">
+          Thông qua việc tổng hợp và đánh giá các nguồn học thuật trên, có thể khẳng định việc <strong>ứng dụng AI để tạo bản phối mới cho bài dân ca "Đi cấy" trong chương trình Âm nhạc lớp 7 là hoàn toàn khả thi và có giá trị sư phạm cao</strong>. 
+        </p>
+        <p style="color: #334155; line-height: 1.75; font-size: 0.98rem; margin-top: 0.8rem; border-left: 3px solid var(--accent-cyan); padding-left: 12px; background: rgba(56, 189, 248, 0.08); padding-top: 8px; padding-bottom: 8px;">
+          <em>* Nguyên tắc ứng dụng thực tiễn:</em> AI chỉ nên đóng vai trò tạo phần nền tiết tấu hiện đại (như Acoustic, Lofi nhẹ), còn phần giai điệu chính và âm sắc nhạc cụ dân tộc (sáo trúc, đàn tranh) cần được giáo viên kiểm soát chặt chẽ để bảo toàn hồn cốt làn điệu dân ca quê hương.
+        </p>
+      </div>
+
+      <!-- ĐIỀU HƯỚNG TRANG -->
       <div class="pagination-nav">
-        <a href="bai-tap-1.html" class="btn btn-glass" style="color: var(--primary); border-color: var(--primary);">⬅ Bài tập 1</a>
-        <a href="bai-tap-3.html" class="btn btn-primary">Chuyển sang Bài tập 3 ➔</a>
+        <a href="bai-tap-1.html" class="btn btn-glass" style="color: var(--primary); border-color: var(--primary);">⬅ Bài tập 1: Quản lý tệp</a>
+        <a href="bai-tap-3.html" class="btn btn-primary">Chuyển sang Bài tập 3: Prompt AI ➔</a>
       </div>
     </div>
   </main>
@@ -111,17 +381,18 @@
   <footer class="site-footer">
     <div class="footer-grid">
       <div class="footer-col">
-        <h4>Hồ sơ Năng lực Số (E-Portfolio)</h4>
-        <p style="margin-bottom: 0.8rem; line-height: 1.6;">Học phần: <strong>Nhập môn Công nghệ số và ứng dụng trí tuệ nhân tạo (INF2501)</strong></p>
-        <p style="margin-bottom: 0.8rem; line-height: 1.6;">Chủ đề thực hành: <em>Ứng dụng AI tạo bản phối mới cho bài dân ca "Đi cấy" trong chương trình Âm nhạc lớp 7.</em></p>
-        <p style="color: #64748B; font-size: 0.85rem;">Trường Đại học Sư phạm Nghệ thuật Trung ương — Khoa Sư phạm Âm nhạc.</p>
+        <h4>Hồ sơ Năng lực Cá nhân (E-Portfolio)</h4>
+        <p style="margin-bottom: 0.8rem; line-height: 1.6;">Sinh viên chuyên ngành: <strong>Sư phạm Âm nhạc (Khóa K20D)</strong></p>
+        <p style="margin-bottom: 0.8rem; line-height: 1.6;">Trường Đại học Sư phạm Nghệ thuật Trung ương — Khoa Sư phạm Âm nhạc.</p>
+        <p style="color: #64748B; font-size: 0.85rem;">Học phần: Nhập môn CNS & Ứng dụng AI (INF2501) • GVHD: ThS. Vũ Việt Hoàng</p>
       </div>
       <div class="footer-col">
         <h4>Liên kết nhanh</h4>
         <ul>
           <li><a href="index.html">➔ Trang Giới thiệu (About Me)</a></li>
           <li><a href="projects.html">➔ Tổng quan 06 bài tập (Projects)</a></li>
-          <li><a href="bai-tap-3.html">➔ Kịch bản Prompt & Audio AI</a></li>
+          <li><a href="bai-tap-1.html">➔ Bài 1: Quản lý tệp & thư mục</a></li>
+          <li><a href="bai-tap-2.html">➔ Bài 2: Tìm kiếm & Đánh giá CRAAP</a></li>
           <li><a href="conclusion.html">➔ Tổng kết & Tự đánh giá</a></li>
         </ul>
       </div>
@@ -130,7 +401,7 @@
         <p style="margin-bottom: 0.4rem;"><strong>Họ và tên:</strong> Lê Thuý An</p>
         <p style="margin-bottom: 0.4rem;"><strong>Mã SV:</strong> 2552210166</p>
         <p style="margin-bottom: 0.4rem;"><strong>Lớp:</strong> K20D — Sư phạm Âm nhạc</p>
-        <p style="margin-bottom: 0.4rem;"><strong>GVHD:</strong> ThS. Vũ Việt Hoàng</p>
+        <p style="margin-bottom: 0.4rem;"><strong>Khoa:</strong> Sư phạm Âm nhạc</p>
         <p style="color: var(--accent-cyan); font-weight: 600; margin-top: 0.6rem;">✓ Xuất bản trên GitHub Pages</p>
       </div>
     </div>
