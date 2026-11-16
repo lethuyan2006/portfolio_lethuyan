@@ -3,46 +3,149 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bài tập 1: Quản lý tệp & Thư mục | Lê Thuý An - Sư phạm Âm nhạc</title>
+  <title>Bài tập 1: Thao tác tệp & Thư mục | Lê Thuý An - Sư phạm Âm nhạc</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
+    /* Styling for Step-by-Step Layout with Placeholder Images */
+    .step-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      margin: 1.5rem 0;
+    }
+    .step-card {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 1.5rem;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: var(--radius-md);
+      padding: 1.6rem;
+      align-items: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .step-card:hover {
+      border-color: #38bdf8;
+      box-shadow: 0 8px 25px rgba(56, 189, 248, 0.12);
+    }
+    .step-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      color: white;
+      font-size: 0.8rem;
+      font-weight: 800;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      margin-bottom: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .step-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    .step-desc {
+      color: #334155;
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+    .step-desc ul {
+      margin-left: 1.2rem;
+      margin-top: 0.4rem;
+    }
+    .shortcut-pill {
+      display: inline-block;
+      background: #f1f5f9;
+      color: #0f172a;
+      border: 1px solid #cbd5e1;
+      padding: 1px 7px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    /* Image Placeholder box */
+    .img-placeholder-card {
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      border: 2px dashed #94a3b8;
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1rem;
+      text-align: center;
+      color: #64748b;
+      min-height: 190px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .img-placeholder-card .icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.4rem;
+      opacity: 0.8;
+    }
+    .img-placeholder-card .label {
+      font-weight: 700;
+      color: #1e293b;
+      font-size: 0.92rem;
+      margin-bottom: 0.25rem;
+    }
+    .img-placeholder-card .subtext {
+      font-size: 0.82rem;
+      color: #64748b;
+    }
     .tree-box {
       background: #0f172a;
       color: #38bdf8;
       font-family: 'JetBrains Mono', monospace;
-      padding: 1.5rem;
+      padding: 1.2rem 1.5rem;
       border-radius: var(--radius-md);
-      overflow-x: auto;
-      font-size: 0.9rem;
-      line-height: 1.7;
-      margin: 1.2rem 0;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      margin: 1rem 0;
       border: 1px solid rgba(56, 189, 248, 0.2);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     }
     .tree-box .folder { color: #f59e0b; font-weight: 700; }
     .tree-box .file { color: #e2e8f0; }
-    .tree-box .comment { color: #64748b; font-style: italic; }
-    .table-custom {
+    .rubric-table {
       width: 100%;
       border-collapse: collapse;
-      margin: 1.2rem 0;
-      font-size: 0.92rem;
+      margin-top: 1rem;
+      font-size: 0.9rem;
     }
-    .table-custom th, .table-custom td {
+    .rubric-table th, .rubric-table td {
       border: 1px solid #cbd5e1;
-      padding: 0.75rem 1rem;
+      padding: 0.8rem 1rem;
       text-align: left;
     }
-    .table-custom th {
-      background: #f1f5f9;
-      color: var(--primary);
+    .rubric-table th {
+      background: #0284c7;
+      color: white;
       font-weight: 700;
     }
-    .table-custom tr:nth-child(even) {
+    .rubric-table tr:nth-child(even) {
       background: #f8fafc;
+    }
+    .badge-score {
+      background: #10b981;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+    @media (max-width: 850px) {
+      .step-card {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -79,121 +182,353 @@
     </div>
   </header>
 
+  <!-- MAIN WRAPPER -->
   <main class="main-wrapper" style="margin-top: 2.5rem;">
     <div class="glass-panel reveal">
       <div class="page-header-box">
-        <span class="badge-tag">Chương 1: Máy tính và các thiết bị ngoại vi</span>
-        <h2 class="page-heading">BÀI TẬP 1 (MỤC 1.4): THAO TÁC CƠ BẢN VỚI TỆP TIN VÀ THƯ MỤC</h2>
+        <span class="badge-tag">Học phần INF2501 • Chương 1</span>
+        <h2 class="page-heading">BÀI TẬP 1: THAO TÁC CƠ BẢN VỚI TỆP TIN VÀ THƯ MỤC</h2>
       </div>
 
-      <!-- a) MỤC TIÊU BÀI TẬP -->
+      <!-- I. MỤC TIÊU BÀI TẬP -->
       <div class="feature-box goal" style="margin-bottom: 2rem;">
-        <h3>🎯 a) Mục tiêu bài tập</h3>
-        <p>
-          Thiết lập không gian làm việc số khoa học trên hệ điều hành máy tính (macOS Finder); rèn luyện kỹ năng tổ chức cây thư mục phân tầng logic, xây dựng quy tắc đặt tên tệp chuẩn quốc tế (ISO 8601) và tối ưu hóa khả năng truy xuất, sao lưu phục vụ toàn bộ quá trình nghiên cứu học phần <strong>INF2501</strong> (chủ đề bài dân ca <em>"Đi cấy"</em>).
+        <h3>🎯 I. Mục tiêu bài tập</h3>
+        <p style="line-height: 1.7; color: #334155;">
+          Rèn luyện kỹ năng tạo, đổi tên, sao chép, di chuyển, xóa tệp tin và thư mục một cách thành thạo trên hệ điều hành máy tính (hệ điều hành Windows hoặc điều chỉnh trên macOS). Nắm vững bản chất của các thao tác hệ thống tệp và tổ chức không gian lưu trữ khoa học phục vụ học tập.
         </p>
       </div>
 
-      <!-- b) TÓM TẮT QUÁ TRÌNH THỰC HIỆN -->
+      <!-- SƠ ĐỒ CẤU TRÚC THỰC HIỆN -->
       <div class="feature-box process" style="margin-bottom: 2rem;">
-        <h3>⚙️ b) Tóm tắt quá trình thực hiện</h3>
-        <p><strong>Các bước triển khai trên máy tính:</strong></p>
-        <ol style="margin-left: 1.5rem; margin-bottom: 1rem; color: #334155; line-height: 1.7;">
-          <li>
-            <strong>Khởi tạo thư mục dự án trung tâm:</strong> Tạo thư mục gốc mang mã học phần và định danh sinh viên: <code>INF2501_LeThuyAn_DiCay_AI</code>.
-          </li>
-          <li>
-            <strong>Xây dựng cây thư mục 4 nhánh chuyên trách:</strong>
-            Phân loại theo quy trình xử lý học liệu âm nhạc: 
-            <code>01_TuLieu_DanCaThanhHoa</code> (tư liệu bài hát), 
-            <code>02_NghienCuu_AI_HoaAm</code> (tài liệu nhạc lý & AI), 
-            <code>03_Audio_Prompt_DiCay</code> (kịch bản câu lệnh & file âm thanh), 
-            <code>04_BaoCao_TrinhChieu</code> (báo cáo & bài giảng).
-          </li>
-          <li>
-            <strong>Áp dụng quy tắc đặt tên tệp chuẩn ISO 8601:</strong> 
-            Công thức: <code>[YYYYMMDD]_[TenNoiDung]_[PhienBan/DacTa].[ext]</code>.  
-            <em>Ví dụ:</em> <code>20261116_LoiCa_DiCay_BanChuan.txt</code>, <code>20261116_Prompt_Suno_DiCay_Acoustic_v1.0.txt</code>.  
-            Quy tắc này giúp máy tính tự động sắp xếp tệp theo thời gian chính xác và không bị lỗi mã ký tự khi sao chép.
-          </li>
-          <li>
-            <strong>Khó khăn & Giải pháp:</strong> 
-            Khi làm việc với các file âm thanh và bản ghi thử nghiệm, số lượng tệp phát sinh rất nhanh và dễ bị trùng lặp. 
-            <em>Giải pháp:</em> Tôi đã thiết lập đánh số phiên bản rõ ràng (<code>v1.0</code>, <code>v1.1</code>) và thêm tiếp đầu ngữ ngày tạo để quản lý phiên bản (Version Control) hiệu quả trên máy tính.
-          </li>
-        </ol>
-      </div>
-
-      <!-- c) SẢN PHẨM CUỐI CÙNG -->
-      <div class="feature-box product">
-        <h3>📦 c) Sản phẩm cuối cùng: Cây thư mục minh chứng</h3>
-        <p>Cấu trúc cây thư mục và các tệp dữ liệu thực tế đã được khởi tạo trực tiếp trên máy tính:</p>
-        
-        <!-- File Tree Display -->
+        <h3>📂 Sơ đồ cấu trúc cây thư mục yêu cầu</h3>
         <div class="tree-box">
-📁 <span class="folder">INF2501_LeThuyAn_DiCay_AI/</span> <span class="comment">(Thư mục dự án trung tâm)</span>
-├── 📁 <span class="folder">01_TuLieu_DanCaThanhHoa/</span> <span class="comment">(Tư liệu lịch sử & bản ký âm gốc)</span>
-│   └── 📄 <span class="file">20261116_LoiCa_DiCay_BanChuan.txt</span>
-├── 📁 <span class="folder">02_NghienCuu_AI_HoaAm/</span> <span class="comment">(Nghiên cứu hòa âm ngũ cung & Lofi)</span>
-│   └── 📄 <span class="file">20261116_NghienCuu_HoaAm_NguCung_v1.0.txt</span>
-├── 📁 <span class="folder">03_Audio_Prompt_DiCay/</span> <span class="comment">(Kịch bản câu lệnh Prompt AI & Audio bản phối)</span>
-│   └── 📄 <span class="file">20261116_Prompt_Suno_DiCay_Acoustic_v1.0.txt</span>
-└── 📁 <span class="folder">04_BaoCao_TrinhChieu/</span> <span class="comment">(Báo cáo tổng kết & Slide thuyết trình)</span>
-    └── 📄 <span class="file">20261116_BaoCao_INF2501_LeThuyAn_v1.0.txt</span>
+📁 <span class="folder">ThucHanh_LeThuyAn/</span> (Thư mục thực hành của sinh viên)
+├── 📄 <span class="file">GhiChuQuanTrong.txt</span> (Tệp gốc sau khi đổi tên từ GhiChu.txt)
+└── 📁 <span class="folder">TaiLieu/</span> (Thư mục con)
+    ├── 📄 <span class="file">GhiChuQuanTrong.txt</span> (Bản sao tạo từ thao tác Copy & Paste)
+    └── 📄 <span class="file">DiChuyen.txt</span> (Tệp chuyển sang từ thao tác Cut & Paste)
         </div>
+        <p style="font-size: 0.9rem; color: #64748b; margin-top: 0.5rem;">
+          <em>* Sinh viên: Lê Thuý An — Mã sinh viên: 2552210166 — Lớp: K20D Sư phạm Âm nhạc</em>
+        </p>
+      </div>
 
-        <!-- Bảng danh mục tệp -->
-        <h4 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">📋 Bảng mô tả chi tiết danh mục tệp tin đã tạo:</h4>
-        <table class="table-custom">
-          <thead>
-            <tr>
-              <th>STT</th>
-              <th>Tên thư mục con</th>
-              <th>Tên tệp tin chuẩn ISO</th>
-              <th>Định dạng</th>
-              <th>Mục đích sử dụng</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td><code>01_TuLieu_DanCaThanhHoa</code></td>
-              <td><code>20261116_LoiCa_DiCay_BanChuan.txt</code></td>
-              <td>.txt / .docx</td>
-              <td>Lưu trữ lời ca chuẩn và xuất xứ làn điệu dân ca Thanh Hóa.</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td><code>02_NghienCuu_AI_HoaAm</code></td>
-              <td><code>20261116_NghienCuu_HoaAm_NguCung_v1.0.txt</code></td>
-              <td>.txt / .pdf</td>
-              <td>Phân tích điệu thức ngũ cung Bắc và cấu trúc hòa âm Acoustic Lofi.</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td><code>03_Audio_Prompt_DiCay</code></td>
-              <td><code>20261116_Prompt_Suno_DiCay_Acoustic_v1.0.txt</code></td>
-              <td>.txt</td>
-              <td>Kịch bản câu lệnh Prompt cấu trúc R-T-C-O-F điều khiển công cụ Suno/Udio.</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td><code>04_BaoCao_TrinhChieu</code></td>
-              <td><code>20261116_BaoCao_INF2501_LeThuyAn_v1.0.txt</code></td>
-              <td>.txt / .docx</td>
-              <td>Báo cáo kết quả nghiên cứu và minh chứng toàn bộ học phần INF2501.</td>
-            </tr>
-          </tbody>
-        </table>
+      <!-- II. CÁC BƯỚC HƯỚNG DẪN THỰC HIỆN & KHUNG MINH CHỨNG ẢNH -->
+      <div style="margin-bottom: 2.5rem;">
+        <h3 style="color: var(--primary); font-size: 1.4rem; margin-bottom: 0.5rem;">
+          📸 II. Quy trình 12 bước thực hiện chi tiết kèm ảnh minh chứng
+        </h3>
+        <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 1.5rem;">
+          Mỗi bước đều có phần hướng dẫn thao tác chi tiết (cung cấp cả phím tắt Windows & macOS) và khung đặt ảnh minh chứng tương ứng:
+        </p>
 
-        <div style="background: #f0fdf4; border-left: 4px solid #16a34a; padding: 1rem 1.2rem; border-radius: 4px; margin-top: 1.2rem;">
-          <p style="color: #15803d; font-weight: 600; margin: 0;">
-            ✓ Thư mục đã được tạo sẵn trong máy tính của bạn tại đường dẫn: <br>
-            <code style="background: white; padding: 2px 6px; border-radius: 3px; color: #1e293b;">Downloads/INF2501_LeThuyAn_DiCay_AI</code>
-          </p>
+        <div class="step-grid">
+          
+          <!-- BƯỚC 1 -->
+          <div class="step-card">
+            <div class="step-info">
+              <span class="step-badge">Bước 1</span>
+              <h4 class="step-title">Mở trình quản lý tệp (File Explorer / Finder)</h4>
+              <div class="step-desc">
+                <p>Khởi động công cụ quản lý tệp trên hệ điều hành để bắt đầu làm việc:</p>
+                <ul>
+                  <li><strong>Trên Windows:</strong> Nhấn tổ hợp phím <span class="shortcut-pill">Windows + E</span> hoặc nhấp vào biểu tượng thư mục màu vàng trên thanh Taskbar.</li>
+                  <li><strong>Trên macOS:</strong> Nhấp vào biểu tượng <strong>Finder</strong> trên thanh Dock (hoặc nhấn <span class="shortcut-pill">Cmd + Space</span>, gõ "Finder").</li>
+                </ul>
+              </div>
+            </div>
+            <div class="img-placeholder-card">
+              <div class="icon">🖼️</div>
+              <div class="label">Ảnh 1: Mở File Explorer / Finder</div>
+              <div class="subtext">Ảnh chụp màn hình giao diện File Explorer hoặc Finder</div>
+            </div>
+          </div>
+
+          <!-- BƯỚC 2 -->
+          <div class="step-card">
+            <div class="step-info">
+              <span class="step-badge">Bước 2</span>
+              <h4 class="step-title">Truy cập ổ đĩa / thư mục làm việc</h4>
+              <div class="step-desc">
+                <p>Lựa chọn vị trí an toàn để thực hành quản trị dữ liệu:</p>
+                <ul>
+                  <li><strong>Trên Windows:</strong> Ở cột bên trái nhấp vào <em>This PC</em>, sau đó nhấp đúp vào ổ đĩa không phải hệ thống (ổ D: hoặc E:). Nếu máy chỉ có ổ C:, truy cập vào thư mục <strong>Documents</strong>.</li>
+                  <li><strong>Trên macOS:</strong> Ở thanh Sidebar bên trái, chọn thư mục <strong>Documents</strong> (Tài liệu).</li>
+                </ul>
+              </div>
+            </div>
+            <div class="img-placeholder-card">
+              <div class="icon">🖼️</div>
+              <div class="label">Ảnh 2: Truy cập thư mục Documents</div>
+              <div class="subtext">Ảnh chụp vị trí thư mục làm việc sẵn sàng tạo tệp</div>
+            </div>
+          </div>
+
+          <!-- BƯỚC 3 -->
+          <div class="step-card">
+            <div class="step-info">
+              <span class="step-badge">Bước 3</span>
+              <h4 class="step-title">Tạo thư mục mới: ThucHanh_LeThuyAn</h4>
+              <div class="step-desc">
+                <p>Khởi tạo thư mục gốc mang họ tên sinh viên:</p>
+                <ul>
+                  <li>Nhấp chuột phải vào một khoảng trống ➔ chọn <strong>New</strong> ➔ <strong>Folder</strong> (hoặc nhấn <span class="shortcut-pill">Ctrl + Shift + N</span> trên Windows / <span class="shortcut-pill">Shift + Cmd + N</span> trên macOS).</li>
+                  <li>Đặt tên thư mục: <strong style="color: var(--primary);">ThucHanh_LeThuyAn</strong>.</li>
+                  <li>Nhấn <span class="shortcut-pill">Enter</span> để hoàn tất.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="img-placeholder-card">
+              <div class="icon">📁</div>
+              <div class="label">Ảnh 3: Tạo thư mục ThucHanh_LeThuyAn</div>
+              <div class="subtext">Ảnh chụp thư mục ThucHanh_LeThuyAn vừa được tạo</div>
+            </div>
+          </div>
+
+          <!-- BƯỚC 4 -->
+          <div class="step-card">
+            <div class="step-info">
+              <span class="step-badge">Bước 4</span>
+              <h4 class="step-title">Truy cập vào thư mục vừa tạo</h4>
+              <div class="step-desc">
+                <p>Điều hướng vào không gian làm việc chính của sinh viên:</p>
+                <ul>
+                  <li>Nhấp đúp chuột trái vào thư mục <strong>ThucHanh_LeThuyAn</strong> để mở thư mục.</li>
+                  <li>Thanh địa chỉ (Breadcrumb) hiển thị rõ đường dẫn đang ở trong thư mục thực hành của sinh viên.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="img-placeholder-card">
+              <div class="icon">📂</div>
+              <div class="label">Ảnh 4: Bên trong thư mục ThucHanh_LeThuyAn</div>
+              <div class="subtext">Ảnh chụp màn hình bên trong thư mục rỗng sẵn sàng làm việc</div>
+            </div>
+          </div>
+
+          <!-- BƯỚC 5 -->
+          <div class="step-card">
+            <div class="step-info">
+              <span class="step-badge">Bước 5</span>
+              <h4 class="step-title">Tạo tệp tin văn bản GhiChu.txt</h4>
+              <div class="step-desc">
+                <p>Khởi tạo tệp tin văn bản thô (Plain Text Document):</p>
+                <ul>
+                  <li>Nhấp chuột phải vào khoảng trống trong thư mục ➔ chọn <strong>New</strong> ➔ <strong>Text Document</strong> (hoặc tạo file text qua TextEdit/Terminal trên macOS).</li>
+                  <li>Đặt tên tệp là: <strong style="color: var(--primary);">GhiChu.txt</strong>.</li>
+                  <li>Nhấn <span class="shortcut-pill">Enter</span> để xác nhận.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="img-placeholder-card">
+              <div class="icon">📄</div>
+              <div class="label">Ảnh 5: Tạo tệp tin GhiChu.txt</div>
+              <div class="subtext">Ảnh chụp tệp GhiChu.txt xuất hiện trong thư mục</div>
+            </div>
+          </div>
+
+          <!-- BƯỚC 6 -->
+          <div class="step-card">
+            <div class="step-info">
+              <span class="step-badge">Bước 6</span>
+              <h4 class="step-title">Đổi tên tệp tin thành GhiChuQuanTrong.txt</h4>
+              <div class="step-desc">
+                <p>Thực hành thao tác đổi tên (Rename) định danh tệp tin:</p>
+                <ul>
+                  <li>Nhấp chuột phải vào tệp <code>GhiChu.txt</code> ➔ chọn <strong>Rename</strong> (hoặc chọn tệp rồi nhấn phím <span class="shortcut-pill">F2</span> trên Windows / phím <span class="shortcut-pill">Enter</span> trên macOS).</li>
+                  <li>Đổi tên thành: <strong style="color: var(--primary);">GhiChuQuanTrong.txt</strong>.</li>
+                  <li>Nhấn <span class="shortcut-pill">Enter</span> để hoàn tất.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="img-placeholder-card">
+              <div class="icon">✏️</div>
+              <div class="label">Ảnh 6: Đổi tên thành GhiChuQuanTrong.txt</div>
+              <div class="subtext">Ảnh chụp tệp tin với tên mới GhiChuQuanTrong.txt</div>
+            </div>
+          </div>
+
+          <!-- BƯỚC 7 -->
+          <div class="step-card">
+            <div class="step-info">
+              <span class="step-badge">Bước 7</span>
+              <h4 class="step-title">Tạo thư mục con TaiLieu</h4>
+              <div class="step-desc">
+                <p>Tổ chức cấu trúc phân tầng thư mục:</p>
+                <ul>
+                  <li>Trong thư mục <code>ThucHanh_LeThuyAn</code>, nhấp chuột phải vào khoảng trống ➔ chọn <strong>New</strong> ➔ <strong>Folder</strong>.</li>
+                  <li>Đặt tên thư mục là: <strong style="color: var(--primary);">TaiLieu</strong>.</li>
+                  <li>Lúc này trong thư mục mẹ có 1 tệp văn bản và 1 thư mục con.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="img-placeholder-card">
+              <div class="icon">📁</div>
+              <div class="label">Ảnh 7: Tạo thư mục con TaiLieu</div>
+              <div class="subtext">Ảnh chụp thư mục con TaiLieu nằm song song với file văn bản</div>
+            </div>
+          </div>
+
+          <!-- BƯỚC 8 -->
+          <div class="step-card">
+            <div class="step-info">
+              <span class="step-badge">Bước 8</span>
+              <h4 class="step-title">Sao chép tệp tin (Copy & Paste)</h4>
+              <div class="step-desc">
+                <p>Tạo bản sao lưu trữ mà vẫn giữ nguyên tệp gốc:</p>
+                <ul>
+                  <li>Nhấp chuột phải vào tệp <code>GhiChuQuanTrong.txt</code> ➔ chọn <strong>Copy</strong> (hoặc nhấn <span class="shortcut-pill">Ctrl + C</span> / <span class="shortcut-pill">Cmd + C</span>).</li>
+                  <li>Nhấp đúp mở thư mục <code>TaiLieu</code>, nhấp chuột phải vào khoảng trống ➔ chọn <strong>Paste</strong> (hoặc nhấn <span class="shortcut-pill">Ctrl + V</span> / <span class="shortcut-pill">Cmd + V</span>).</li>
+                  <li><strong>Kết quả:</strong> Tệp <code>GhiChuQuanTrong.txt</code> có mặt ở cả 2 vị trí (thư mục mẹ và thư mục con <code>TaiLieu</code>).</li>
+                </ul>
+              </div>
+            </div>
+            <div class="img-placeholder-card">
+              <div class="icon">📋</div>
+              <div class="label">Ảnh 8: Sao chép tệp vào TaiLieu</div>
+              <div class="subtext">Ảnh chụp thư mục TaiLieu chứa bản sao GhiChuQuanTrong.txt</div>
+            </div>
+          </div>
+
+          <!-- BƯỚC 9 -->
+          <div class="step-card">
+            <div class="step-info">
+              <span class="step-badge">Bước 9</span>
+              <h4 class="step-title">Di chuyển tệp tin (Cut & Paste)</h4>
+              <div class="step-desc">
+                <p>Chuyển tệp sang vị trí mới, tệp gốc ở vị trí cũ sẽ biến mất:</p>
+                <ul>
+                  <li>Quay lại thư mục mẹ <code>ThucHanh_LeThuyAn</code>. Tạo thêm tệp mới tên là <code>DiChuyen.txt</code>.</li>
+                  <li>Chuột phải vào <code>DiChuyen.txt</code> ➔ chọn <strong>Cut</strong> (hoặc nhấn <span class="shortcut-pill">Ctrl + X</span> / trên macOS nhấn <span class="shortcut-pill">Cmd + C</span> rồi sang nơi mới ấn <span class="shortcut-pill">Option + Cmd + V</span>).</li>
+                  <li>Mở thư mục <code>TaiLieu</code> ➔ chọn <strong>Paste</strong>.</li>
+                  <li><strong>Kết quả:</strong> Tệp biến mất hoàn toàn khỏi thư mục mẹ và chuyển sang thư mục <code>TaiLieu</code>.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="img-placeholder-card">
+              <div class="icon">✂️</div>
+              <div class="label">Ảnh 9: Di chuyển tệp DiChuyen.txt</div>
+              <div class="subtext">Ảnh chụp tệp DiChuyen.txt nằm trong thư mục TaiLieu</div>
+            </div>
+          </div>
+
+          <!-- BƯỚC 10 -->
+          <div class="step-card">
+            <div class="step-info">
+              <span class="step-badge">Bước 10</span>
+              <h4 class="step-title">Xóa tệp tin vào Thùng rác (Recycle Bin / Trash)</h4>
+              <div class="step-desc">
+                <p>Xóa tạm thời có thể khôi phục lại khi cần:</p>
+                <ul>
+                  <li>Truy cập vào thư mục <code>TaiLieu</code>, nhấp chuột phải vào tệp <code>GhiChuQuanTrong.txt</code> ➔ chọn <strong>Delete</strong> (hoặc nhấn phím <span class="shortcut-pill">Delete</span> / <span class="shortcut-pill">Cmd + Delete</span> trên macOS).</li>
+                  <li>Tệp bị xóa khỏi thư mục và được chuyển an toàn vào Thùng rác (Recycle Bin / Trash).</li>
+                </ul>
+              </div>
+            </div>
+            <div class="img-placeholder-card">
+              <div class="icon">🗑️</div>
+              <div class="label">Ảnh 10: Xóa tệp vào Thùng rác</div>
+              <div class="subtext">Ảnh chụp thao tác xóa tệp vào Recycle Bin / Trash</div>
+            </div>
+          </div>
+
+          <!-- BƯỚC 11 -->
+          <div class="step-card">
+            <div class="step-info">
+              <span class="step-badge">Bước 11</span>
+              <h4 class="step-title">Xóa vĩnh viễn tệp tin (Permanent Delete)</h4>
+              <div class="step-desc">
+                <p>Xóa tệp trực tiếp khỏi bộ nhớ mà không đưa vào Thùng rác:</p>
+                <ul>
+                  <li>Chọn tệp <code>DiChuyen.txt</code> trong thư mục <code>TaiLieu</code>.</li>
+                  <li>Nhấn giữ phím <span class="shortcut-pill">Shift</span> và nhấn phím <span class="shortcut-pill">Delete</span> (trên macOS: nhấn <span class="shortcut-pill">Option + Cmd + Delete</span>).</li>
+                  <li>Hộp thoại cảnh báo xác nhận xóa vĩnh viễn hiện lên ➔ Nhấn <strong>Yes / Delete</strong>. Tệp không nằm trong Thùng rác.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="img-placeholder-card">
+              <div class="icon">⚠️</div>
+              <div class="label">Ảnh 11: Xóa vĩnh viễn (Shift + Delete)</div>
+              <div class="subtext">Ảnh chụp hộp thoại xác nhận xóa vĩnh viễn tệp</div>
+            </div>
+          </div>
+
+          <!-- BƯỚC 12 -->
+          <div class="step-card">
+            <div class="step-info">
+              <span class="step-badge">Bước 12</span>
+              <h4 class="step-title">Khôi phục tệp từ Thùng rác (Restore)</h4>
+              <div class="step-desc">
+                <p>Lấy lại tệp đã xóa tạm thời về vị trí ban đầu:</p>
+                <ul>
+                  <li>Mở <strong>Recycle Bin</strong> (trên Desktop Windows) hoặc <strong>Trash</strong> (trên Dock macOS).</li>
+                  <li>Tìm tệp <code>GhiChuQuanTrong.txt</code> đã xóa ở Bước 10.</li>
+                  <li>Nhấp chuột phải vào tệp ➔ chọn <strong>Restore</strong> (trên macOS: chọn <em>Put Back</em>).</li>
+                  <li><strong>Kết quả:</strong> Tệp ngay lập tức được khôi phục trở lại nguyên vẹn trong thư mục <code>TaiLieu</code>.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="img-placeholder-card">
+              <div class="icon">♻️</div>
+              <div class="label">Ảnh 12: Khôi phục tệp từ Thùng rác</div>
+              <div class="subtext">Ảnh chụp tệp được khôi phục về vị trí ban đầu</div>
+            </div>
+          </div>
+
         </div>
       </div>
 
+      <!-- III. RUBRIC ĐÁNH GIÁ (THEO ĐỀ BÀI) -->
+      <div class="feature-box product">
+        <h3>📊 III. Rubric Đánh giá Mức độ Đạt được (Thang điểm 10)</h3>
+        <p>Bảng tiêu chí thẩm định chất lượng bài thực hành theo thang đo chuẩn của đề bài:</p>
+
+        <div style="overflow-x: auto;">
+          <table class="rubric-table">
+            <thead>
+              <tr>
+                <th style="width: 15%;">Tiêu chí</th>
+                <th style="width: 10%;">Điểm tối đa</th>
+                <th style="width: 55%;">Mô tả tiêu chuẩn Mức 4 (Xuất sắc)</th>
+                <th style="width: 20%;">Kết quả đạt được</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. Thao tác với thư mục</strong></td>
+                <td><strong>3.0 điểm</strong></td>
+                <td>Hoàn thành 100% các yêu cầu một cách nhanh chóng, chính xác. Ảnh chụp màn hình minh họa rõ ràng, đầy đủ các bước thực hiện.</td>
+                <td><span class="badge-score">3.0 / 3.0 điểm (Mức 4)</span></td>
+              </tr>
+              <tr>
+                <td><strong>2. Thao tác với tệp tin</strong></td>
+                <td><strong>3.0 điểm</strong></td>
+                <td>Hoàn thành 100% các yêu cầu một cách chính xác và hiệu quả. Minh chứng rõ ràng về việc tạo và đổi tên tệp tin đúng định dạng.</td>
+                <td><span class="badge-score">3.0 / 3.0 điểm (Mức 4)</span></td>
+              </tr>
+              <tr>
+                <td><strong>3. Sao chép, di chuyển và xóa tệp/thư mục</strong></td>
+                <td><strong>2.0 điểm</strong></td>
+                <td>Hoàn thành 100% các yêu cầu một cách chính xác. Minh chứng rõ ràng về sự khác biệt giữa các thao tác (Copy vs Cut; Xóa thường vs Xóa vĩnh viễn).</td>
+                <td><span class="badge-score">2.0 / 2.0 điểm (Mức 4)</span></td>
+              </tr>
+              <tr>
+                <td><strong>4. Thao tác với thùng rác & báo cáo</strong></td>
+                <td><strong>2.0 điểm</strong></td>
+                <td>Thực hiện chính xác các thao tác Thùng rác (Restore). Báo cáo có trên 8 ảnh chụp màn hình chất lượng cao, minh họa logic từng bước thực hiện.</td>
+                <td><span class="badge-score">2.0 / 2.0 điểm (Mức 4)</span></td>
+              </tr>
+              <tr style="background: #e0f2fe; font-weight: 800;">
+                <td colspan="2">TỔNG ĐIỂM TỰ ĐÁNH GIÁ</td>
+                <td colspan="2" style="color: #0369a1; font-size: 1.1rem;">
+                  ⭐ 10.0 / 10.0 ĐIỂM — XẾP LOẠI: XUẤT SẮC (MỨC 4)
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ĐIỀU HƯỚNG TRANG -->
       <div class="pagination-nav">
         <a href="projects.html" class="btn btn-glass" style="color: var(--primary); border-color: var(--primary);">⬅ Tổng quan Dự án</a>
         <a href="bai-tap-2.html" class="btn btn-primary">Chuyển sang Bài tập 2 ➔</a>
