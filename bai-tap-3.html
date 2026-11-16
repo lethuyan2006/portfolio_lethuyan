@@ -306,7 +306,11 @@ Cầu cho trong ấm êm lại ngoài êm...
 
         <!-- Trình phát Audio Player thực tế -->
         <div class="modern-player" style="margin-top: 1.5rem;">
-          <audio id="audio-player-element" src="audio/di_cay_88bpm.wav" preload="metadata"></audio>
+          <audio id="audio-player-element" preload="auto">
+            <source src="audio/di_cay_88bpm.m4a" type="audio/mp4">
+            <source src="audio/di_cay_88bpm.wav" type="audio/wav">
+            Trình duyệt của bạn không hỗ trợ thẻ audio.
+          </audio>
           <div class="player-header">
             <div>
               <span style="background: var(--accent-cyan); color: #000; font-size: 0.72rem; font-weight: 800; padding: 0.2rem 0.6rem; border-radius: 4px;">AI AUDIO BACKING TRACK</span>
@@ -320,6 +324,29 @@ Cầu cho trong ấm êm lại ngoài êm...
               <div class="progress-fill" style="width: 0%;"></div>
             </div>
           </div>
+
+          <!-- Thanh phát âm thanh chuẩn HTML5 (Tương thích 100% mọi trình duyệt) -->
+          <div style="margin-top: 1.2rem; background: rgba(255, 255, 255, 0.05); padding: 0.8rem 1rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1);">
+            <p style="font-size: 0.85rem; color: #38bdf8; margin-bottom: 0.5rem; font-weight: 600;">
+              🎧 Trình phát trực tiếp (HTML5 Player):
+            </p>
+            <audio controls style="width: 100%; border-radius: 6px;">
+              <source src="audio/di_cay_88bpm.m4a" type="audio/mp4">
+              <source src="audio/di_cay_88bpm.wav" type="audio/wav">
+              Trình duyệt của bạn không hỗ trợ phát âm thanh.
+            </audio>
+          </div>
+
+          <!-- Nút tải file về máy nghe trực tiếp -->
+          <div style="margin-top: 1rem; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+            <a href="audio/di_cay_88bpm.m4a" download="DiCay_AcousticLofi_88BPM.m4a" class="btn btn-primary" style="padding: 0.4rem 0.9rem; font-size: 0.85rem;">
+              ⬇ Tải file âm thanh (.m4a - 101 KB)
+            </a>
+            <a href="audio/di_cay_88bpm.wav" download="DiCay_AcousticLofi_88BPM.wav" class="btn btn-glass" style="padding: 0.4rem 0.9rem; font-size: 0.85rem; color: #38bdf8; border-color: #38bdf8;">
+              ⬇ Tải file gốc chất lượng cao (.wav)
+            </a>
+          </div>
+
           <p style="font-size: 0.85rem; color: #94A3B8; margin-top: 1rem;">
             <em>Nhạc cụ chủ đạo: Sáo trúc, đàn tranh hòa âm cùng guitar mộc và nhịp lofi 88 BPM chuẩn sư phạm.</em>
           </p>
