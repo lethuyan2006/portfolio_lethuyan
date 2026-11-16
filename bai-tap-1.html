@@ -3,11 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>E-Portfolio | Lê Thuý An - Sư phạm Âm nhạc</title>
+  <title>Bài tập 1: Quản lý tệp & Thư mục | Lê Thuý An - Sư phạm Âm nhạc</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    .tree-box {
+      background: #0f172a;
+      color: #38bdf8;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 1.5rem;
+      border-radius: var(--radius-md);
+      overflow-x: auto;
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin: 1.2rem 0;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+    .tree-box .folder { color: #f59e0b; font-weight: 700; }
+    .tree-box .file { color: #e2e8f0; }
+    .tree-box .comment { color: #64748b; font-style: italic; }
+    .table-custom {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.2rem 0;
+      font-size: 0.92rem;
+    }
+    .table-custom th, .table-custom td {
+      border: 1px solid #cbd5e1;
+      padding: 0.75rem 1rem;
+      text-align: left;
+    }
+    .table-custom th {
+      background: #f1f5f9;
+      color: var(--primary);
+      font-weight: 700;
+    }
+    .table-custom tr:nth-child(even) {
+      background: #f8fafc;
+    }
+  </style>
 </head>
 <body>
   <!-- HEADER & NAVIGATION -->
@@ -23,12 +60,12 @@
       <button class="mobile-toggle" aria-label="Toggle menu">☰</button>
       <nav>
         <ul class="nav-menu">
-          <li class="nav-item"><a href="index.html" class="nav-link ">Giới thiệu - About Me</a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link">Giới thiệu - About Me</a></li>
           <li class="nav-item dropdown">
             <a href="projects.html" class="nav-link active">Dự án - Projects ▾</a>
             <ul class="dropdown-menu">
               <li><a href="projects.html" class="dropdown-item"><strong>📂 Tổng quan 06 Bài tập</strong></a></li>
-              <li><a href="bai-tap-1.html" class="dropdown-item">📁 Bài 1: Quản lý tệp & thư mục</a></li>
+              <li><a href="bai-tap-1.html" class="dropdown-item active">📁 Bài 1: Quản lý tệp & thư mục</a></li>
               <li><a href="bai-tap-2.html" class="dropdown-item">🔍 Bài 2: Tìm kiếm & Đánh giá CRAAP</a></li>
               <li><a href="bai-tap-3.html" class="dropdown-item">⚡ Bài 3: Prompt Engineering & AI nhạc</a></li>
               <li><a href="bai-tap-4.html" class="dropdown-item">👥 Bài 4: Hợp tác trực tuyến dự án nhóm</a></li>
@@ -36,7 +73,7 @@
               <li><a href="bai-tap-6.html" class="dropdown-item">🛡️ Bài 6: Đạo đức & Liêm chính AI</a></li>
             </ul>
           </li>
-          <li class="nav-item"><a href="conclusion.html" class="nav-link ">Tổng kết - Conclusion</a></li>
+          <li class="nav-item"><a href="conclusion.html" class="nav-link">Tổng kết - Conclusion</a></li>
         </ul>
       </nav>
     </div>
@@ -49,35 +86,112 @@
         <h2 class="page-heading">BÀI TẬP 1 (MỤC 1.4): THAO TÁC CƠ BẢN VỚI TỆP TIN VÀ THƯ MỤC</h2>
       </div>
 
+      <!-- a) MỤC TIÊU BÀI TẬP -->
       <div class="feature-box goal" style="margin-bottom: 2rem;">
         <h3>🎯 a) Mục tiêu bài tập</h3>
-        <p>Thiết lập không gian làm việc số khoa học trên Google Drive; rèn luyện kỹ năng tổ chức cây thư mục logic, xây dựng quy tắc đặt tên tệp chuẩn ISO và phân quyền truy cập an toàn nhằm quản lý toàn bộ học liệu của dự án nghiên cứu bài dân ca <em>"Đi cấy"</em>.</p>
+        <p>
+          Thiết lập không gian làm việc số khoa học trên hệ điều hành máy tính (macOS Finder); rèn luyện kỹ năng tổ chức cây thư mục phân tầng logic, xây dựng quy tắc đặt tên tệp chuẩn quốc tế (ISO 8601) và tối ưu hóa khả năng truy xuất, sao lưu phục vụ toàn bộ quá trình nghiên cứu học phần <strong>INF2501</strong> (chủ đề bài dân ca <em>"Đi cấy"</em>).
+        </p>
       </div>
 
+      <!-- b) TÓM TẮT QUÁ TRÌNH THỰC HIỆN -->
       <div class="feature-box process" style="margin-bottom: 2rem;">
         <h3>⚙️ b) Tóm tắt quá trình thực hiện</h3>
-        <p><strong>Các bước triển khai:</strong></p>
-        <ol style="margin-left: 1.5rem; margin-bottom: 1rem; color: #334155;">
-          <li>Khởi tạo thư mục trung tâm: <code>INF2501_LeThuyAn_DiCay_AI</code>.</li>
-          <li>Xây dựng cây thư mục chức năng 4 nhánh: <code>01_TuLieu_DanCaThanhHoa</code>, <code>02_NghienCuu_AI_HoaAm</code>, <code>03_Audio_Prompt_DiCay</code>, <code>04_BaoCao_TrinhChieu</code>.</li>
-          <li>Quy tắc đặt tên tệp chuẩn hóa ISO: <code>[YYYYMMDD]_[TenTaiLieu]_[PhienBan].[ext]</code>.</li>
-          <li>Thiết lập phân quyền chia sẻ: cấp quyền "Người xem" công khai cho giảng viên và bạn học.</li>
+        <p><strong>Các bước triển khai trên máy tính:</strong></p>
+        <ol style="margin-left: 1.5rem; margin-bottom: 1rem; color: #334155; line-height: 1.7;">
+          <li>
+            <strong>Khởi tạo thư mục dự án trung tâm:</strong> Tạo thư mục gốc mang mã học phần và định danh sinh viên: <code>INF2501_LeThuyAn_DiCay_AI</code>.
+          </li>
+          <li>
+            <strong>Xây dựng cây thư mục 4 nhánh chuyên trách:</strong>
+            Phân loại theo quy trình xử lý học liệu âm nhạc: 
+            <code>01_TuLieu_DanCaThanhHoa</code> (tư liệu bài hát), 
+            <code>02_NghienCuu_AI_HoaAm</code> (tài liệu nhạc lý & AI), 
+            <code>03_Audio_Prompt_DiCay</code> (kịch bản câu lệnh & file âm thanh), 
+            <code>04_BaoCao_TrinhChieu</code> (báo cáo & bài giảng).
+          </li>
+          <li>
+            <strong>Áp dụng quy tắc đặt tên tệp chuẩn ISO 8601:</strong> 
+            Công thức: <code>[YYYYMMDD]_[TenNoiDung]_[PhienBan/DacTa].[ext]</code>.  
+            <em>Ví dụ:</em> <code>20261116_LoiCa_DiCay_BanChuan.txt</code>, <code>20261116_Prompt_Suno_DiCay_Acoustic_v1.0.txt</code>.  
+            Quy tắc này giúp máy tính tự động sắp xếp tệp theo thời gian chính xác và không bị lỗi mã ký tự khi sao chép.
+          </li>
+          <li>
+            <strong>Khó khăn & Giải pháp:</strong> 
+            Khi làm việc với các file âm thanh và bản ghi thử nghiệm, số lượng tệp phát sinh rất nhanh và dễ bị trùng lặp. 
+            <em>Giải pháp:</em> Tôi đã thiết lập đánh số phiên bản rõ ràng (<code>v1.0</code>, <code>v1.1</code>) và thêm tiếp đầu ngữ ngày tạo để quản lý phiên bản (Version Control) hiệu quả trên máy tính.
+          </li>
         </ol>
-        <p><strong>Khó khăn & Giải pháp:</strong> Ban đầu khi tải file audio từ máy tính lên Drive, quyền chia sẻ bị giới hạn quyền truy cập cục bộ (Restricted). Tôi đã xử lý bằng cách phân quyền kế thừa toàn thư mục mẹ sang chế độ <em>"Bất kỳ ai có đường liên kết đều có thể xem"</em>.</p>
       </div>
 
+      <!-- c) SẢN PHẨM CUỐI CÙNG -->
       <div class="feature-box product">
-        <h3>📦 c) Sản phẩm cuối cùng</h3>
-        <p>Hệ thống cây thư mục lưu trữ 16 tệp dữ liệu đã được số hóa và chuẩn hóa tên tệp:</p>
+        <h3>📦 c) Sản phẩm cuối cùng: Cây thư mục minh chứng</h3>
+        <p>Cấu trúc cây thư mục và các tệp dữ liệu thực tế đã được khởi tạo trực tiếp trên máy tính:</p>
         
-        <div class="upload-placeholder">
-          <div class="icon">📁</div>
-          <h4>Cấu trúc thư mục tối ưu trên Google Drive</h4>
-          <p>Thư mục gốc: <code>INF2501_LeThuyAn_DiCay_AI</code> chứa 4 phân mục con đã phân quyền công khai.</p>
-          <p style="color: var(--primary-light); font-weight: 600; margin-top: 0.5rem;">[Nhấp vào đây để xem minh chứng ảnh chụp thư mục]</p>
+        <!-- File Tree Display -->
+        <div class="tree-box">
+📁 <span class="folder">INF2501_LeThuyAn_DiCay_AI/</span> <span class="comment">(Thư mục dự án trung tâm)</span>
+├── 📁 <span class="folder">01_TuLieu_DanCaThanhHoa/</span> <span class="comment">(Tư liệu lịch sử & bản ký âm gốc)</span>
+│   └── 📄 <span class="file">20261116_LoiCa_DiCay_BanChuan.txt</span>
+├── 📁 <span class="folder">02_NghienCuu_AI_HoaAm/</span> <span class="comment">(Nghiên cứu hòa âm ngũ cung & Lofi)</span>
+│   └── 📄 <span class="file">20261116_NghienCuu_HoaAm_NguCung_v1.0.txt</span>
+├── 📁 <span class="folder">03_Audio_Prompt_DiCay/</span> <span class="comment">(Kịch bản câu lệnh Prompt AI & Audio bản phối)</span>
+│   └── 📄 <span class="file">20261116_Prompt_Suno_DiCay_Acoustic_v1.0.txt</span>
+└── 📁 <span class="folder">04_BaoCao_TrinhChieu/</span> <span class="comment">(Báo cáo tổng kết & Slide thuyết trình)</span>
+    └── 📄 <span class="file">20261116_BaoCao_INF2501_LeThuyAn_v1.0.txt</span>
         </div>
 
-        <p><strong>Liên kết truy cập thư mục minh chứng:</strong> <a href="https://drive.google.com" target="_blank" rel="noopener" style="color: #0284c7; font-weight: 600;">Xem thư mục tài nguyên dự án trên Google Drive ↗</a></p>
+        <!-- Bảng danh mục tệp -->
+        <h4 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">📋 Bảng mô tả chi tiết danh mục tệp tin đã tạo:</h4>
+        <table class="table-custom">
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th>Tên thư mục con</th>
+              <th>Tên tệp tin chuẩn ISO</th>
+              <th>Định dạng</th>
+              <th>Mục đích sử dụng</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td><code>01_TuLieu_DanCaThanhHoa</code></td>
+              <td><code>20261116_LoiCa_DiCay_BanChuan.txt</code></td>
+              <td>.txt / .docx</td>
+              <td>Lưu trữ lời ca chuẩn và xuất xứ làn điệu dân ca Thanh Hóa.</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><code>02_NghienCuu_AI_HoaAm</code></td>
+              <td><code>20261116_NghienCuu_HoaAm_NguCung_v1.0.txt</code></td>
+              <td>.txt / .pdf</td>
+              <td>Phân tích điệu thức ngũ cung Bắc và cấu trúc hòa âm Acoustic Lofi.</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td><code>03_Audio_Prompt_DiCay</code></td>
+              <td><code>20261116_Prompt_Suno_DiCay_Acoustic_v1.0.txt</code></td>
+              <td>.txt</td>
+              <td>Kịch bản câu lệnh Prompt cấu trúc R-T-C-O-F điều khiển công cụ Suno/Udio.</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td><code>04_BaoCao_TrinhChieu</code></td>
+              <td><code>20261116_BaoCao_INF2501_LeThuyAn_v1.0.txt</code></td>
+              <td>.txt / .docx</td>
+              <td>Báo cáo kết quả nghiên cứu và minh chứng toàn bộ học phần INF2501.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div style="background: #f0fdf4; border-left: 4px solid #16a34a; padding: 1rem 1.2rem; border-radius: 4px; margin-top: 1.2rem;">
+          <p style="color: #15803d; font-weight: 600; margin: 0;">
+            ✓ Thư mục đã được tạo sẵn trong máy tính của bạn tại đường dẫn: <br>
+            <code style="background: white; padding: 2px 6px; border-radius: 3px; color: #1e293b;">Downloads/INF2501_LeThuyAn_DiCay_AI</code>
+          </p>
+        </div>
       </div>
 
       <div class="pagination-nav">
@@ -91,17 +205,17 @@
   <footer class="site-footer">
     <div class="footer-grid">
       <div class="footer-col">
-        <h4>Hồ sơ Năng lực Số (E-Portfolio)</h4>
-        <p style="margin-bottom: 0.8rem; line-height: 1.6;">Học phần: <strong>Nhập môn Công nghệ số và ứng dụng trí tuệ nhân tạo (INF2501)</strong></p>
-        <p style="margin-bottom: 0.8rem; line-height: 1.6;">Chủ đề thực hành: <em>Ứng dụng AI tạo bản phối mới cho bài dân ca "Đi cấy" trong chương trình Âm nhạc lớp 7.</em></p>
-        <p style="color: #64748B; font-size: 0.85rem;">Trường Đại học Sư phạm Nghệ thuật Trung ương — Khoa Sư phạm Âm nhạc.</p>
+        <h4>Hồ sơ Năng lực Cá nhân (E-Portfolio)</h4>
+        <p style="margin-bottom: 0.8rem; line-height: 1.6;">Sinh viên chuyên ngành: <strong>Sư phạm Âm nhạc (Khóa K20D)</strong></p>
+        <p style="margin-bottom: 0.8rem; line-height: 1.6;">Trường Đại học Sư phạm Nghệ thuật Trung ương — Khoa Sư phạm Âm nhạc.</p>
+        <p style="color: #64748B; font-size: 0.85rem;">Học phần: Nhập môn CNS & Ứng dụng AI (INF2501) • GVHD: ThS. Vũ Việt Hoàng</p>
       </div>
       <div class="footer-col">
         <h4>Liên kết nhanh</h4>
         <ul>
           <li><a href="index.html">➔ Trang Giới thiệu (About Me)</a></li>
           <li><a href="projects.html">➔ Tổng quan 06 bài tập (Projects)</a></li>
-          <li><a href="bai-tap-3.html">➔ Kịch bản Prompt & Audio AI</a></li>
+          <li><a href="bai-tap-1.html">➔ Bài 1: Quản lý tệp & thư mục</a></li>
           <li><a href="conclusion.html">➔ Tổng kết & Tự đánh giá</a></li>
         </ul>
       </div>
@@ -110,7 +224,7 @@
         <p style="margin-bottom: 0.4rem;"><strong>Họ và tên:</strong> Lê Thuý An</p>
         <p style="margin-bottom: 0.4rem;"><strong>Mã SV:</strong> 2552210166</p>
         <p style="margin-bottom: 0.4rem;"><strong>Lớp:</strong> K20D — Sư phạm Âm nhạc</p>
-        <p style="margin-bottom: 0.4rem;"><strong>GVHD:</strong> ThS. Vũ Việt Hoàng</p>
+        <p style="margin-bottom: 0.4rem;"><strong>Khoa:</strong> Sư phạm Âm nhạc</p>
         <p style="color: var(--accent-cyan); font-weight: 600; margin-top: 0.6rem;">✓ Xuất bản trên GitHub Pages</p>
       </div>
     </div>
