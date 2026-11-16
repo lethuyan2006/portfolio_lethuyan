@@ -1,0 +1,7 @@
+1. Họ và tên sinh viên: [Lê Thuý An]
+2. Mã sinh viên (MSV): [2552210166]
+3. Lớp chuyên ngành: [K20D]
+4. Trường / Khoa: [ĐH Sư phạm Nghệ thuật TW - Khoa Sư phạm âm nhạc]
+5. Giảng viên hướng dẫn: [ThS. Vũ Việt Hoàng ]
+6. Đường link Portfolio bạn muốn hiển thị: [Link Google Sites của bạn, hoặc để link mặc định]
+7. Chủ đề thực hành: [Bạn giữ nguyên bài: "Ứng dụng AI tạo bản phối mới cho bài dân ca 'Lí kéo chài' trong chương trình Âm nhạc lớp 7" hay có chủ đề khác?]
