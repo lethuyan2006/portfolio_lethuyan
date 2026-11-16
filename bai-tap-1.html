@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bài tập 1: Thao tác tệp & Thư mục | Lê Thuý An - Sư phạm Âm nhạc</title>
+  <title>Bài tập 1: Thao tác tệp & Thư mục trên macOS | Lê Thuý An - Sư phạm Âm nhạc</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    /* Styling for Step-by-Step Layout with Placeholder Images */
+    /* Styling for Step-by-Step Layout on macOS */
     .step-grid {
       display: flex;
       flex-direction: column;
@@ -66,7 +66,7 @@
       background: #f1f5f9;
       color: #0f172a;
       border: 1px solid #cbd5e1;
-      padding: 1px 7px;
+      padding: 2px 8px;
       border-radius: 4px;
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.85rem;
@@ -142,6 +142,18 @@
       font-weight: 700;
       font-size: 0.85rem;
     }
+    .mac-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #0f172a;
+      color: #38bdf8;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 0.25rem 0.8rem;
+      border-radius: var(--radius-full);
+      margin-left: 8px;
+    }
     @media (max-width: 850px) {
       .step-card {
         grid-template-columns: 1fr;
@@ -187,39 +199,42 @@
     <div class="glass-panel reveal">
       <div class="page-header-box">
         <span class="badge-tag">Học phần INF2501 • Chương 1</span>
-        <h2 class="page-heading">BÀI TẬP 1: THAO TÁC CƠ BẢN VỚI TỆP TIN VÀ THƯ MỤC</h2>
+        <h2 class="page-heading">
+          BÀI TẬP 1: THAO TÁC CƠ BẢN VỚI TỆP TIN VÀ THƯ MỤC
+          <span class="mac-badge"> Hệ điều hành macOS</span>
+        </h2>
       </div>
 
       <!-- I. MỤC TIÊU BÀI TẬP -->
       <div class="feature-box goal" style="margin-bottom: 2rem;">
         <h3>🎯 I. Mục tiêu bài tập</h3>
         <p style="line-height: 1.7; color: #334155;">
-          Rèn luyện kỹ năng tạo, đổi tên, sao chép, di chuyển, xóa tệp tin và thư mục một cách thành thạo trên hệ điều hành máy tính (hệ điều hành Windows hoặc điều chỉnh trên macOS). Nắm vững bản chất của các thao tác hệ thống tệp và tổ chức không gian lưu trữ khoa học phục vụ học tập.
+          Rèn luyện kỹ năng tạo, đổi tên, sao chép, di chuyển, xóa tệp tin và thư mục một cách thành thạo trên hệ điều hành <strong>macOS</strong> (sử dụng trình quản lý <strong>Finder</strong> và các phím tắt hệ thống chuẩn của Apple). Nắm vững bản chất của các thao tác hệ thống tệp và tổ chức không gian lưu trữ khoa học phục vụ học tập.
         </p>
       </div>
 
       <!-- SƠ ĐỒ CẤU TRÚC THỰC HIỆN -->
       <div class="feature-box process" style="margin-bottom: 2rem;">
-        <h3>📂 Sơ đồ cấu trúc cây thư mục yêu cầu</h3>
+        <h3>📂 Sơ đồ cấu trúc cây thư mục thực hành trên macOS</h3>
         <div class="tree-box">
-📁 <span class="folder">ThucHanh_LeThuyAn/</span> (Thư mục thực hành của sinh viên)
+📁 <span class="folder">ThucHanh_LeThuyAn/</span> (Thư mục thực hành trong Documents trên macOS)
 ├── 📄 <span class="file">GhiChuQuanTrong.txt</span> (Tệp gốc sau khi đổi tên từ GhiChu.txt)
 └── 📁 <span class="folder">TaiLieu/</span> (Thư mục con)
-    ├── 📄 <span class="file">GhiChuQuanTrong.txt</span> (Bản sao tạo từ thao tác Copy & Paste)
-    └── 📄 <span class="file">DiChuyen.txt</span> (Tệp chuyển sang từ thao tác Cut & Paste)
+    ├── 📄 <span class="file">GhiChuQuanTrong.txt</span> (Bản sao tạo từ phím tắt ⌘C và ⌘V)
+    └── 📄 <span class="file">DiChuyen.txt</span> (Tệp di chuyển bằng phím tắt ⌥⌘V)
         </div>
         <p style="font-size: 0.9rem; color: #64748b; margin-top: 0.5rem;">
           <em>* Sinh viên: Lê Thuý An — Mã sinh viên: 2552210166 — Lớp: K20D Sư phạm Âm nhạc</em>
         </p>
       </div>
 
-      <!-- II. CÁC BƯỚC HƯỚNG DẪN THỰC HIỆN & KHUNG MINH CHỨNG ẢNH -->
+      <!-- II. CÁC BƯỚC HƯỚNG DẪN THỰC HIỆN TRÊN MACOS & KHUNG MINH CHỨNG ẢNH -->
       <div style="margin-bottom: 2.5rem;">
         <h3 style="color: var(--primary); font-size: 1.4rem; margin-bottom: 0.5rem;">
-          📸 II. Quy trình 12 bước thực hiện chi tiết kèm ảnh minh chứng
+          📸 II. Quy trình 12 bước thực hiện trên macOS kèm ảnh minh chứng
         </h3>
         <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 1.5rem;">
-          Mỗi bước đều có phần hướng dẫn thao tác chi tiết (cung cấp cả phím tắt Windows & macOS) và khung đặt ảnh minh chứng tương ứng:
+          Mỗi bước đều có phần hướng dẫn thao tác chuẩn mực trên macOS (sử dụng tổ hợp phím <strong>Command ⌘</strong>, <strong>Option ⌥</strong>) và khung đặt ảnh minh chứng tương ứng:
         </p>
 
         <div class="step-grid">
@@ -228,19 +243,19 @@
           <div class="step-card">
             <div class="step-info">
               <span class="step-badge">Bước 1</span>
-              <h4 class="step-title">Mở trình quản lý tệp (File Explorer / Finder)</h4>
+              <h4 class="step-title">Mở trình quản lý tệp Finder</h4>
               <div class="step-desc">
-                <p>Khởi động công cụ quản lý tệp trên hệ điều hành để bắt đầu làm việc:</p>
+                <p>Khởi động trình quản lý tệp tin và thư mục mặc định trên macOS:</p>
                 <ul>
-                  <li><strong>Trên Windows:</strong> Nhấn tổ hợp phím <span class="shortcut-pill">Windows + E</span> hoặc nhấp vào biểu tượng thư mục màu vàng trên thanh Taskbar.</li>
-                  <li><strong>Trên macOS:</strong> Nhấp vào biểu tượng <strong>Finder</strong> trên thanh Dock (hoặc nhấn <span class="shortcut-pill">Cmd + Space</span>, gõ "Finder").</li>
+                  <li>Nhấp vào biểu tượng <strong>Finder</strong> (khuôn mặt hai màu xanh) ở góc ngoài cùng bên trái thanh <strong>Dock</strong>.</li>
+                  <li><em>Hoặc:</em> Nhấn tổ hợp phím <span class="shortcut-pill">⌘ Command + Space</span> để mở Spotlight Search, gõ <code>Finder</code> rồi nhấn <span class="shortcut-pill">Return</span>.</li>
                 </ul>
               </div>
             </div>
             <div class="img-placeholder-card">
               <div class="icon">🖼️</div>
-              <div class="label">Ảnh 1: Mở File Explorer / Finder</div>
-              <div class="subtext">Ảnh chụp màn hình giao diện File Explorer hoặc Finder</div>
+              <div class="label">Ảnh 1: Mở Finder trên macOS</div>
+              <div class="subtext">Ảnh chụp cửa sổ Finder vừa mở từ thanh Dock</div>
             </div>
           </div>
 
@@ -248,19 +263,19 @@
           <div class="step-card">
             <div class="step-info">
               <span class="step-badge">Bước 2</span>
-              <h4 class="step-title">Truy cập ổ đĩa / thư mục làm việc</h4>
+              <h4 class="step-title">Truy cập thư mục làm việc Documents</h4>
               <div class="step-desc">
-                <p>Lựa chọn vị trí an toàn để thực hành quản trị dữ liệu:</p>
+                <p>Điều hướng đến không gian lưu trữ tài liệu người dùng:</p>
                 <ul>
-                  <li><strong>Trên Windows:</strong> Ở cột bên trái nhấp vào <em>This PC</em>, sau đó nhấp đúp vào ổ đĩa không phải hệ thống (ổ D: hoặc E:). Nếu máy chỉ có ổ C:, truy cập vào thư mục <strong>Documents</strong>.</li>
-                  <li><strong>Trên macOS:</strong> Ở thanh Sidebar bên trái, chọn thư mục <strong>Documents</strong> (Tài liệu).</li>
+                  <li>Ở thanh <strong>Sidebar</strong> bên trái cửa sổ Finder, nhấp chọn thư mục <strong>Documents</strong> (Tài liệu).</li>
+                  <li><em>Hoặc:</em> Sử dụng phím tắt nhanh trên macOS: nhấn <span class="shortcut-pill">⇧ Shift + ⌘ Command + O</span> để mở ngay thư mục Documents.</li>
                 </ul>
               </div>
             </div>
             <div class="img-placeholder-card">
               <div class="icon">🖼️</div>
               <div class="label">Ảnh 2: Truy cập thư mục Documents</div>
-              <div class="subtext">Ảnh chụp vị trí thư mục làm việc sẵn sàng tạo tệp</div>
+              <div class="subtext">Ảnh chụp giao diện thư mục Documents trên Finder</div>
             </div>
           </div>
 
@@ -272,9 +287,9 @@
               <div class="step-desc">
                 <p>Khởi tạo thư mục gốc mang họ tên sinh viên:</p>
                 <ul>
-                  <li>Nhấp chuột phải vào một khoảng trống ➔ chọn <strong>New</strong> ➔ <strong>Folder</strong> (hoặc nhấn <span class="shortcut-pill">Ctrl + Shift + N</span> trên Windows / <span class="shortcut-pill">Shift + Cmd + N</span> trên macOS).</li>
+                  <li>Nhấn tổ hợp phím tắt: <span class="shortcut-pill">⇧ Shift + ⌘ Command + N</span> (hoặc nhấp chuột phải / nhấn hai ngón lên Trackpad vào khoảng trống ➔ chọn <strong>New Folder</strong>).</li>
                   <li>Đặt tên thư mục: <strong style="color: var(--primary);">ThucHanh_LeThuyAn</strong>.</li>
-                  <li>Nhấn <span class="shortcut-pill">Enter</span> để hoàn tất.</li>
+                  <li>Nhấn phím <span class="shortcut-pill">Return</span> để hoàn tất.</li>
                 </ul>
               </div>
             </div>
@@ -293,8 +308,8 @@
               <div class="step-desc">
                 <p>Điều hướng vào không gian làm việc chính của sinh viên:</p>
                 <ul>
-                  <li>Nhấp đúp chuột trái vào thư mục <strong>ThucHanh_LeThuyAn</strong> để mở thư mục.</li>
-                  <li>Thanh địa chỉ (Breadcrumb) hiển thị rõ đường dẫn đang ở trong thư mục thực hành của sinh viên.</li>
+                  <li>Nhấp đúp chuột (hoặc chọn thư mục rồi nhấn <span class="shortcut-pill">⌘ Command + ↓</span>) để mở thư mục <strong>ThucHanh_LeThuyAn</strong>.</li>
+                  <li>Thanh tiêu đề của Finder hiển thị rõ ràng đường dẫn đang ở trong thư mục thực hành của sinh viên.</li>
                 </ul>
               </div>
             </div>
@@ -311,18 +326,18 @@
               <span class="step-badge">Bước 5</span>
               <h4 class="step-title">Tạo tệp tin văn bản GhiChu.txt</h4>
               <div class="step-desc">
-                <p>Khởi tạo tệp tin văn bản thô (Plain Text Document):</p>
+                <p>Khởi tạo tệp tin văn bản thô (Plain Text) trên macOS:</p>
                 <ul>
-                  <li>Nhấp chuột phải vào khoảng trống trong thư mục ➔ chọn <strong>New</strong> ➔ <strong>Text Document</strong> (hoặc tạo file text qua TextEdit/Terminal trên macOS).</li>
-                  <li>Đặt tên tệp là: <strong style="color: var(--primary);">GhiChu.txt</strong>.</li>
-                  <li>Nhấn <span class="shortcut-pill">Enter</span> để xác nhận.</li>
+                  <li>Mở ứng dụng <strong>TextEdit</strong> trên Mac (hoặc tạo tệp văn bản từ menu ngữ cảnh).</li>
+                  <li>Chuyển chế độ sang văn bản thuần: nhấn <span class="shortcut-pill">⇧ Shift + ⌘ Command + T</span> (Make Plain Text).</li>
+                  <li>Lưu tệp vào thư mục <code>ThucHanh_LeThuyAn</code> với tên: <strong style="color: var(--primary);">GhiChu.txt</strong>.</li>
                 </ul>
               </div>
             </div>
             <div class="img-placeholder-card">
               <div class="icon">📄</div>
               <div class="label">Ảnh 5: Tạo tệp tin GhiChu.txt</div>
-              <div class="subtext">Ảnh chụp tệp GhiChu.txt xuất hiện trong thư mục</div>
+              <div class="subtext">Ảnh chụp tệp GhiChu.txt xuất hiện trong thư mục Finder</div>
             </div>
           </div>
 
@@ -332,11 +347,11 @@
               <span class="step-badge">Bước 6</span>
               <h4 class="step-title">Đổi tên tệp tin thành GhiChuQuanTrong.txt</h4>
               <div class="step-desc">
-                <p>Thực hành thao tác đổi tên (Rename) định danh tệp tin:</p>
+                <p>Thực hành thao tác đổi tên (Rename) định danh tệp tin trên macOS:</p>
                 <ul>
-                  <li>Nhấp chuột phải vào tệp <code>GhiChu.txt</code> ➔ chọn <strong>Rename</strong> (hoặc chọn tệp rồi nhấn phím <span class="shortcut-pill">F2</span> trên Windows / phím <span class="shortcut-pill">Enter</span> trên macOS).</li>
+                  <li>Chọn tệp tin <code>GhiChu.txt</code>, nhấn phím <span class="shortcut-pill">Return</span> trên bàn phím (hoặc nhấp chuột phải ➔ chọn <strong>Rename</strong>).</li>
                   <li>Đổi tên thành: <strong style="color: var(--primary);">GhiChuQuanTrong.txt</strong>.</li>
-                  <li>Nhấn <span class="shortcut-pill">Enter</span> để hoàn tất.</li>
+                  <li>Nhấn phím <span class="shortcut-pill">Return</span> để xác nhận tên mới.</li>
                 </ul>
               </div>
             </div>
@@ -355,9 +370,9 @@
               <div class="step-desc">
                 <p>Tổ chức cấu trúc phân tầng thư mục:</p>
                 <ul>
-                  <li>Trong thư mục <code>ThucHanh_LeThuyAn</code>, nhấp chuột phải vào khoảng trống ➔ chọn <strong>New</strong> ➔ <strong>Folder</strong>.</li>
-                  <li>Đặt tên thư mục là: <strong style="color: var(--primary);">TaiLieu</strong>.</li>
-                  <li>Lúc này trong thư mục mẹ có 1 tệp văn bản và 1 thư mục con.</li>
+                  <li>Trong thư mục <code>ThucHanh_LeThuyAn</code>, nhấn tổ hợp phím <span class="shortcut-pill">⇧ Shift + ⌘ Command + N</span>.</li>
+                  <li>Đặt tên thư mục con là: <strong style="color: var(--primary);">TaiLieu</strong>.</li>
+                  <li>Nhấn phím <span class="shortcut-pill">Return</span> để hoàn tất.</li>
                 </ul>
               </div>
             </div>
@@ -376,8 +391,8 @@
               <div class="step-desc">
                 <p>Tạo bản sao lưu trữ mà vẫn giữ nguyên tệp gốc:</p>
                 <ul>
-                  <li>Nhấp chuột phải vào tệp <code>GhiChuQuanTrong.txt</code> ➔ chọn <strong>Copy</strong> (hoặc nhấn <span class="shortcut-pill">Ctrl + C</span> / <span class="shortcut-pill">Cmd + C</span>).</li>
-                  <li>Nhấp đúp mở thư mục <code>TaiLieu</code>, nhấp chuột phải vào khoảng trống ➔ chọn <strong>Paste</strong> (hoặc nhấn <span class="shortcut-pill">Ctrl + V</span> / <span class="shortcut-pill">Cmd + V</span>).</li>
+                  <li>Nhấp chọn tệp <code>GhiChuQuanTrong.txt</code>, nhấn tổ hợp phím <span class="shortcut-pill">⌘ Command + C</span> (Copy).</li>
+                  <li>Mở thư mục <code>TaiLieu</code>, nhấn tổ hợp phím <span class="shortcut-pill">⌘ Command + V</span> (Paste).</li>
                   <li><strong>Kết quả:</strong> Tệp <code>GhiChuQuanTrong.txt</code> có mặt ở cả 2 vị trí (thư mục mẹ và thư mục con <code>TaiLieu</code>).</li>
                 </ul>
               </div>
@@ -393,14 +408,14 @@
           <div class="step-card">
             <div class="step-info">
               <span class="step-badge">Bước 9</span>
-              <h4 class="step-title">Di chuyển tệp tin (Cut & Paste)</h4>
+              <h4 class="step-title">Di chuyển tệp tin (Move Item trên macOS)</h4>
               <div class="step-desc">
                 <p>Chuyển tệp sang vị trí mới, tệp gốc ở vị trí cũ sẽ biến mất:</p>
                 <ul>
                   <li>Quay lại thư mục mẹ <code>ThucHanh_LeThuyAn</code>. Tạo thêm tệp mới tên là <code>DiChuyen.txt</code>.</li>
-                  <li>Chuột phải vào <code>DiChuyen.txt</code> ➔ chọn <strong>Cut</strong> (hoặc nhấn <span class="shortcut-pill">Ctrl + X</span> / trên macOS nhấn <span class="shortcut-pill">Cmd + C</span> rồi sang nơi mới ấn <span class="shortcut-pill">Option + Cmd + V</span>).</li>
-                  <li>Mở thư mục <code>TaiLieu</code> ➔ chọn <strong>Paste</strong>.</li>
-                  <li><strong>Kết quả:</strong> Tệp biến mất hoàn toàn khỏi thư mục mẹ và chuyển sang thư mục <code>TaiLieu</code>.</li>
+                  <li>Chọn tệp <code>DiChuyen.txt</code>, nhấn <span class="shortcut-pill">⌘ Command + C</span>.</li>
+                  <li>Mở thư mục <code>TaiLieu</code>, nhấn tổ hợp phím di chuyển đặc trưng của macOS: <span class="shortcut-pill">⌥ Option + ⌘ Command + V</span> (Move Item Here).</li>
+                  <li><strong>Kết quả:</strong> Tệp biến mất khỏi thư mục mẹ và chuyển sang thư mục <code>TaiLieu</code>.</li>
                 </ul>
               </div>
             </div>
@@ -415,19 +430,20 @@
           <div class="step-card">
             <div class="step-info">
               <span class="step-badge">Bước 10</span>
-              <h4 class="step-title">Xóa tệp tin vào Thùng rác (Recycle Bin / Trash)</h4>
+              <h4 class="step-title">Xóa tệp tin vào Thùng rác (Move to Trash)</h4>
               <div class="step-desc">
                 <p>Xóa tạm thời có thể khôi phục lại khi cần:</p>
                 <ul>
-                  <li>Truy cập vào thư mục <code>TaiLieu</code>, nhấp chuột phải vào tệp <code>GhiChuQuanTrong.txt</code> ➔ chọn <strong>Delete</strong> (hoặc nhấn phím <span class="shortcut-pill">Delete</span> / <span class="shortcut-pill">Cmd + Delete</span> trên macOS).</li>
-                  <li>Tệp bị xóa khỏi thư mục và được chuyển an toàn vào Thùng rác (Recycle Bin / Trash).</li>
+                  <li>Truy cập vào thư mục <code>TaiLieu</code>, chọn tệp <code>GhiChuQuanTrong.txt</code>.</li>
+                  <li>Nhấn tổ hợp phím: <span class="shortcut-pill">⌘ Command + Delete</span> (hoặc nhấp chuột phải ➔ chọn <strong>Move to Trash</strong>).</li>
+                  <li>Tệp bị xóa khỏi thư mục và được chuyển an toàn vào <strong>Trash</strong> (Thùng rác) trên macOS.</li>
                 </ul>
               </div>
             </div>
             <div class="img-placeholder-card">
               <div class="icon">🗑️</div>
-              <div class="label">Ảnh 10: Xóa tệp vào Thùng rác</div>
-              <div class="subtext">Ảnh chụp thao tác xóa tệp vào Recycle Bin / Trash</div>
+              <div class="label">Ảnh 10: Xóa tệp vào Trash</div>
+              <div class="subtext">Ảnh chụp thao tác xóa tệp vào Trash trên macOS</div>
             </div>
           </div>
 
@@ -435,20 +451,20 @@
           <div class="step-card">
             <div class="step-info">
               <span class="step-badge">Bước 11</span>
-              <h4 class="step-title">Xóa vĩnh viễn tệp tin (Permanent Delete)</h4>
+              <h4 class="step-title">Xóa vĩnh viễn tệp tin (Delete Immediately)</h4>
               <div class="step-desc">
                 <p>Xóa tệp trực tiếp khỏi bộ nhớ mà không đưa vào Thùng rác:</p>
                 <ul>
                   <li>Chọn tệp <code>DiChuyen.txt</code> trong thư mục <code>TaiLieu</code>.</li>
-                  <li>Nhấn giữ phím <span class="shortcut-pill">Shift</span> và nhấn phím <span class="shortcut-pill">Delete</span> (trên macOS: nhấn <span class="shortcut-pill">Option + Cmd + Delete</span>).</li>
-                  <li>Hộp thoại cảnh báo xác nhận xóa vĩnh viễn hiện lên ➔ Nhấn <strong>Yes / Delete</strong>. Tệp không nằm trong Thùng rác.</li>
+                  <li>Nhấn tổ hợp phím xóa vĩnh viễn trên macOS: <span class="shortcut-pill">⌥ Option + ⌘ Command + Delete</span>.</li>
+                  <li>Hộp thoại cảnh báo hệ thống hiện ra: <em>"Are you sure you want to delete this item immediately? You can't undo this action."</em> ➔ Nhấp nút <strong>Delete</strong>.</li>
                 </ul>
               </div>
             </div>
             <div class="img-placeholder-card">
               <div class="icon">⚠️</div>
-              <div class="label">Ảnh 11: Xóa vĩnh viễn (Shift + Delete)</div>
-              <div class="subtext">Ảnh chụp hộp thoại xác nhận xóa vĩnh viễn tệp</div>
+              <div class="label">Ảnh 11: Xóa vĩnh viễn (⌥⌘Delete)</div>
+              <div class="subtext">Ảnh chụp hộp thoại cảnh báo Delete Immediately trên macOS</div>
             </div>
           </div>
 
@@ -456,21 +472,21 @@
           <div class="step-card">
             <div class="step-info">
               <span class="step-badge">Bước 12</span>
-              <h4 class="step-title">Khôi phục tệp từ Thùng rác (Restore)</h4>
+              <h4 class="step-title">Khôi phục tệp từ Thùng rác (Put Back from Trash)</h4>
               <div class="step-desc">
-                <p>Lấy lại tệp đã xóa tạm thời về vị trí ban đầu:</p>
+                <p>Lấy lại tệp đã xóa tạm thời về vị trí ban đầu bằng tính năng Put Back của macOS:</p>
                 <ul>
-                  <li>Mở <strong>Recycle Bin</strong> (trên Desktop Windows) hoặc <strong>Trash</strong> (trên Dock macOS).</li>
+                  <li>Nhấp vào biểu tượng <strong>Trash</strong> (Thùng rác) ở góc phải thanh Dock để mở cửa sổ Trash.</li>
                   <li>Tìm tệp <code>GhiChuQuanTrong.txt</code> đã xóa ở Bước 10.</li>
-                  <li>Nhấp chuột phải vào tệp ➔ chọn <strong>Restore</strong> (trên macOS: chọn <em>Put Back</em>).</li>
+                  <li>Nhấp chuột phải vào tệp ➔ chọn <strong>Put Back</strong> (hoặc chọn tệp rồi nhấn <span class="shortcut-pill">⌘ Command + Delete</span>).</li>
                   <li><strong>Kết quả:</strong> Tệp ngay lập tức được khôi phục trở lại nguyên vẹn trong thư mục <code>TaiLieu</code>.</li>
                 </ul>
               </div>
             </div>
             <div class="img-placeholder-card">
               <div class="icon">♻️</div>
-              <div class="label">Ảnh 12: Khôi phục tệp từ Thùng rác</div>
-              <div class="subtext">Ảnh chụp tệp được khôi phục về vị trí ban đầu</div>
+              <div class="label">Ảnh 12: Khôi phục tệp bằng Put Back</div>
+              <div class="subtext">Ảnh chụp tệp được khôi phục về vị trí ban đầu trong TaiLieu</div>
             </div>
           </div>
 
@@ -480,7 +496,7 @@
       <!-- III. RUBRIC ĐÁNH GIÁ (THEO ĐỀ BÀI) -->
       <div class="feature-box product">
         <h3>📊 III. Rubric Đánh giá Mức độ Đạt được (Thang điểm 10)</h3>
-        <p>Bảng tiêu chí thẩm định chất lượng bài thực hành theo thang đo chuẩn của đề bài:</p>
+        <p>Bảng tiêu chí thẩm định chất lượng bài thực hành theo thang đo chuẩn của đề bài trên hệ điều hành macOS:</p>
 
         <div style="overflow-x: auto;">
           <table class="rubric-table">
@@ -496,25 +512,25 @@
               <tr>
                 <td><strong>1. Thao tác với thư mục</strong></td>
                 <td><strong>3.0 điểm</strong></td>
-                <td>Hoàn thành 100% các yêu cầu một cách nhanh chóng, chính xác. Ảnh chụp màn hình minh họa rõ ràng, đầy đủ các bước thực hiện.</td>
+                <td>Hoàn thành 100% các yêu cầu một cách nhanh chóng, chính xác trên macOS Finder. Ảnh chụp màn hình minh họa rõ ràng, đầy đủ các bước thực hiện.</td>
                 <td><span class="badge-score">3.0 / 3.0 điểm (Mức 4)</span></td>
               </tr>
               <tr>
                 <td><strong>2. Thao tác với tệp tin</strong></td>
                 <td><strong>3.0 điểm</strong></td>
-                <td>Hoàn thành 100% các yêu cầu một cách chính xác và hiệu quả. Minh chứng rõ ràng về việc tạo và đổi tên tệp tin đúng định dạng.</td>
+                <td>Hoàn thành 100% các yêu cầu một cách chính xác và hiệu quả. Minh chứng rõ ràng về việc tạo và đổi tên tệp tin đúng định dạng trên macOS.</td>
                 <td><span class="badge-score">3.0 / 3.0 điểm (Mức 4)</span></td>
               </tr>
               <tr>
                 <td><strong>3. Sao chép, di chuyển và xóa tệp/thư mục</strong></td>
                 <td><strong>2.0 điểm</strong></td>
-                <td>Hoàn thành 100% các yêu cầu một cách chính xác. Minh chứng rõ ràng về sự khác biệt giữa các thao tác (Copy vs Cut; Xóa thường vs Xóa vĩnh viễn).</td>
+                <td>Hoàn thành 100% các yêu cầu một cách chính xác. Minh chứng rõ ràng về sự khác biệt giữa các thao tác (Copy ⌘C vs Move ⌥⌘V; Xóa vào Trash vs Xóa vĩnh viễn ⌥⌘Delete).</td>
                 <td><span class="badge-score">2.0 / 2.0 điểm (Mức 4)</span></td>
               </tr>
               <tr>
                 <td><strong>4. Thao tác với thùng rác & báo cáo</strong></td>
                 <td><strong>2.0 điểm</strong></td>
-                <td>Thực hiện chính xác các thao tác Thùng rác (Restore). Báo cáo có trên 8 ảnh chụp màn hình chất lượng cao, minh họa logic từng bước thực hiện.</td>
+                <td>Thực hiện chính xác các thao tác với Trash trên macOS (tính năng Put Back). Báo cáo có trên 8 ảnh chụp màn hình chất lượng cao, minh họa logic từng bước thực hiện.</td>
                 <td><span class="badge-score">2.0 / 2.0 điểm (Mức 4)</span></td>
               </tr>
               <tr style="background: #e0f2fe; font-weight: 800;">
