@@ -3,11 +3,122 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>E-Portfolio | Lê Thuý An - Sư phạm Âm nhạc</title>
+  <title>Bài tập 4: Tổ chức & Tham gia Cuộc họp Trực tuyến | Lê Thuý An - Sư phạm Âm nhạc</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* Styling for Meeting Info & Agenda */
+    .meeting-meta-box {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      border: 1px solid #bae6fd;
+      border-radius: var(--radius-md);
+      padding: 1.4rem;
+      margin: 1.2rem 0;
+    }
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .meta-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: #0369a1;
+      letter-spacing: 0.5px;
+    }
+    .meta-value {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    /* Timeline / Agenda */
+    .agenda-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.2rem 0;
+    }
+    .agenda-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 0.85rem 0;
+      border-bottom: 1px dashed #e2e8f0;
+    }
+    .agenda-item:last-child {
+      border-bottom: none;
+    }
+    .agenda-num {
+      width: 28px;
+      height: 28px;
+      background: #0284c7;
+      color: white;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .agenda-content {
+      color: #334155;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    /* Table for Tasks Allocation */
+    .table-tasks {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+    .table-tasks th, .table-tasks td {
+      border: 1px solid #cbd5e1;
+      padding: 0.85rem 1rem;
+      text-align: left;
+      line-height: 1.6;
+    }
+    .table-tasks th {
+      background: #0284c7;
+      color: white;
+      font-weight: 700;
+    }
+    .table-tasks tr:nth-child(even) {
+      background: #f8fafc;
+    }
+    /* Role badges */
+    .role-badge {
+      display: inline-block;
+      background: rgba(2, 132, 199, 0.12);
+      color: #0284c7;
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 0.2rem 0.6rem;
+      border-radius: var(--radius-full);
+      margin-top: 0.3rem;
+    }
+    /* Meeting Evidence Box */
+    .meeting-evidence-placeholder {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      border: 2px dashed #38bdf8;
+      border-radius: var(--radius-md);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      color: #e2e8f0;
+      margin: 1.5rem 0;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+    .meeting-evidence-placeholder .icon {
+      font-size: 3rem;
+      margin-bottom: 0.8rem;
+    }
+  </style>
 </head>
 <body>
   <!-- HEADER & NAVIGATION -->
@@ -23,7 +134,7 @@
       <button class="mobile-toggle" aria-label="Toggle menu">☰</button>
       <nav>
         <ul class="nav-menu">
-          <li class="nav-item"><a href="index.html" class="nav-link ">Giới thiệu - About Me</a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link">Giới thiệu - About Me</a></li>
           <li class="nav-item dropdown">
             <a href="projects.html" class="nav-link active">Dự án - Projects ▾</a>
             <ul class="dropdown-menu">
@@ -31,57 +142,272 @@
               <li><a href="bai-tap-1.html" class="dropdown-item">📁 Bài 1: Quản lý tệp & thư mục</a></li>
               <li><a href="bai-tap-2.html" class="dropdown-item">🔍 Bài 2: Tìm kiếm & Đánh giá CRAAP</a></li>
               <li><a href="bai-tap-3.html" class="dropdown-item">⚡ Bài 3: Prompt Engineering & AI nhạc</a></li>
-              <li><a href="bai-tap-4.html" class="dropdown-item">👥 Bài 4: Hợp tác trực tuyến dự án nhóm</a></li>
+              <li><a href="bai-tap-4.html" class="dropdown-item active">👥 Bài 4: Hợp tác trực tuyến dự án nhóm</a></li>
               <li><a href="bai-tap-5.html" class="dropdown-item">🎨 Bài 5: Sáng tạo nội dung số với AI</a></li>
               <li><a href="bai-tap-6.html" class="dropdown-item">🛡️ Bài 6: Đạo đức & Liêm chính AI</a></li>
             </ul>
           </li>
-          <li class="nav-item"><a href="conclusion.html" class="nav-link ">Tổng kết - Conclusion</a></li>
+          <li class="nav-item"><a href="conclusion.html" class="nav-link">Tổng kết - Conclusion</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
+  <!-- MAIN WRAPPER -->
   <main class="main-wrapper" style="margin-top: 2.5rem;">
     <div class="glass-panel reveal">
       <div class="page-header-box">
-        <span class="badge-tag">Chương 4: Giao tiếp và hợp tác trong môi trường số</span>
-        <h2 class="page-heading">BÀI TẬP 4 (MỤC 4.4): SỬ DỤNG CÔNG CỤ HỢP TÁC TRỰC TUYẾN CHO DỰ ÁN NHÓM</h2>
+        <span class="badge-tag">Học phần INF2501 • Chương 4</span>
+        <h2 class="page-heading">BÀI TẬP 4: TỔ CHỨC VÀ THAM GIA CUỘC HỌP TRỰC TUYẾN</h2>
+        <p style="color: #64748b; font-size: 1.05rem; margin-top: 0.5rem; font-weight: 600;">
+          Chủ đề: Ứng dụng AI để tạo bản phối mới cho bài dân ca "Đi cấy" trong dạy học Âm nhạc lớp 7
+        </p>
       </div>
 
+      <!-- a) MỤC TIÊU BÀI TẬP -->
       <div class="feature-box goal" style="margin-bottom: 2rem;">
         <h3>🎯 a) Mục tiêu bài tập</h3>
-        <p>Ứng dụng các công cụ cộng tác số (Google Docs, Padlet, Google Forms) để tổ chức trao đổi chuyên môn, lấy ý kiến đóng góp từ bạn học chuyên ngành Sư phạm Âm nhạc và giảng viên về tính khả thi của bản phối mới bài <em>"Đi cấy"</em>.</p>
+        <p style="line-height: 1.7; color: #334155;">
+          Rèn luyện kỹ năng tổ chức và tham gia cuộc họp trực tuyến chuyên nghiệp; nâng cao năng lực giao tiếp, hợp tác nhóm trong môi trường số; thực hành điều phối, ghi chép biên bản và thống nhất phương án triển khai dự án ứng dụng trí tuệ nhân tạo (AI) vào đổi mới học liệu môn Âm nhạc bậc THCS.
+        </p>
       </div>
 
+      <!-- I. KẾ HOẠCH TỔ CHỨC CUỘC HỌP TRỰC TUYẾN -->
       <div class="feature-box process" style="margin-bottom: 2rem;">
-        <h3>⚙️ b) Tóm tắt quá trình thực hiện</h3>
-        <p><strong>Nền tảng triển khai:</strong></p>
-        <ul style="margin-left: 1.5rem; margin-bottom: 1rem; color: #334155;">
-          <li><strong>Padlet:</strong> Thiết lập bảng tương tác công khai với 3 cột: (1) Đánh giá nhịp 2/4 thong thả; (2) Âm sắc sáo trúc - đàn bầu - đàn tranh; (3) Khả năng hát theo của học sinh lớp 7.</li>
-          <li><strong>Google Docs:</strong> Kích hoạt chế độ "Đề xuất" (Suggesting) và "Nhận xét" (Comments) để hoàn thiện giáo án chuyên đề.</li>
-          <li><strong>Google Forms:</strong> Khảo sát trực tuyến 5 câu hỏi đánh giá mức độ hài lòng về tính chất âm nhạc.</li>
-        </ul>
-        <p><strong>Khó khăn & Giải pháp:</strong> Một số bạn học góp ý rằng tiếng trống lofi ban đầu hơi át âm sắc đàn bầu; nhóm đã thống nhất giảm âm lượng bộ gõ xuống 15% để tôn vinh giai điệu dân gian.</p>
-      </div>
-
-      <div class="feature-box product">
-        <h3>📦 c) Sản phẩm cuối cùng</h3>
-        <p>Ghi nhận 22 lượt góp ý trên Padlet và 16 phiếu khảo sát Google Forms từ sinh viên ngành Sư phạm Âm nhạc.</p>
+        <h3>📋 I. Kế hoạch tổ chức cuộc họp trực tuyến</h3>
         
-        <div class="upload-placeholder">
-          <div class="icon">💬</div>
-          <h4>Bảng thảo luận tương tác Padlet & Khảo sát Google Forms</h4>
-          <p>Không gian phản biện trực tuyến giữa sinh viên và giảng viên hướng dẫn chuyên môn.</p>
-          <p style="color: var(--primary-light); font-weight: 600; margin-top: 0.5rem;">[Nhấp vào đây để xem minh chứng ảnh chụp Padlet]</p>
+        <h4 style="color: var(--primary); font-size: 1.05rem; margin-top: 1rem; margin-bottom: 0.5rem;">1. Mục tiêu cuộc họp:</h4>
+        <p style="color: #334155; line-height: 1.7;">
+          Cuộc họp nhằm trao đổi chuyên sâu về khả năng ứng dụng trí tuệ nhân tạo (AI) để tạo bản phối mới cho bài dân ca Thanh Hóa <strong>"Đi cấy"</strong> trong chương trình Âm nhạc lớp 7 (bộ sách <em>Kết nối tri thức với cuộc sống</em>). Nhóm hướng đến việc làm mới phần nhạc đệm theo phong cách Acoustic – Lofi thanh bình, nhịp 2/4 vừa vặn cho học sinh THCS nhưng vẫn giữ trọn vẹn giai điệu gốc, lời ca và nét văn hóa Bắc Trung Bộ đặc trưng. Qua đó, các thành viên rèn luyện kỹ năng thảo luận, phản biện chuyên môn, phân công trách nhiệm và phối hợp hiệu quả trên nền tảng trực tuyến.
+        </p>
+
+        <h4 style="color: var(--primary); font-size: 1.05rem; margin-top: 1.4rem; margin-bottom: 0.5rem;">2. Nền tảng và thông tin cuộc họp:</h4>
+        <div class="meeting-meta-box">
+          <div class="meta-item">
+            <span class="meta-label">📱 Nền tảng</span>
+            <span class="meta-value">Zalo Meeting / Online</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">⏰ Thời gian</span>
+            <span class="meta-value">20h00, Ngày 12/11/2026</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">👥 Thành phần</span>
+            <span class="meta-value">05 sinh viên K20D SP Âm nhạc</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">🎤 Người điều phối</span>
+            <span class="meta-value">Phạm Linh Chi</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">✍️ Thư ký ghi chép</span>
+            <span class="meta-value">Nguyễn Hồng Hạnh</span>
+          </div>
         </div>
 
-        <p><strong>Liên kết minh chứng cộng tác:</strong> <a href="https://padlet.com" target="_blank" rel="noopener" style="color: #0284c7; font-weight: 600;">Xem bảng thảo luận Padlet trực tuyến ↗</a></p>
+        <h4 style="color: var(--primary); font-size: 1.05rem; margin-top: 1.4rem; margin-bottom: 0.5rem;">3. Chương trình nghị sự (Agenda):</h4>
+        <ul class="agenda-list">
+          <li class="agenda-item">
+            <span class="agenda-num">1</span>
+            <div class="agenda-content"><strong>Khai mạc:</strong> Giới thiệu mục tiêu, lý do lựa chọn chủ đề bài dân ca "Đi cấy" và thành phần tham dự.</div>
+          </li>
+          <li class="agenda-item">
+            <span class="agenda-num">2</span>
+            <div class="agenda-content"><strong>Thực trạng:</strong> Trao đổi về khó khăn và thách thức khi dạy học các làn điệu dân ca truyền thống cho học sinh lớp 7.</div>
+          </li>
+          <li class="agenda-item">
+            <span class="agenda-num">3</span>
+            <div class="agenda-content"><strong>Ý tưởng AI:</strong> Thảo luận khả năng và giới hạn khi sử dụng AI (Suno AI, ChatGPT) để làm mới bản phối bài "Đi cấy".</div>
+          </li>
+          <li class="agenda-item">
+            <span class="agenda-num">4</span>
+            <div class="agenda-content"><strong>Giải pháp & Kỹ thuật:</strong> Đề xuất công cụ, cấu trúc kịch bản Prompt (R-T-C-O-F) và các lưu ý sư phạm bắt buộc.</div>
+          </li>
+          <li class="agenda-item">
+            <span class="agenda-num">5</span>
+            <div class="agenda-content"><strong>Tổng kết & Phân công:</strong> Thống nhất kết luận, phân công nhiệm vụ cụ thể từng thành viên và ấn định hạn nộp sản phẩm.</div>
+          </li>
+        </ul>
+
+        <h4 style="color: var(--primary); font-size: 1.05rem; margin-top: 1.4rem; margin-bottom: 0.5rem;">4. Phân công vai trò và chuẩn bị:</h4>
+        <p style="color: #334155; line-height: 1.7;">
+          Người điều phối phụ trách khai mạc, quản lý thời gian, dẫn dắt thảo luận và kết luận; thư ký chịu trách nhiệm ghi chép biên bản trung thực và chi tiết; các thành viên còn lại chủ động nghiên cứu bản ký âm SGK Âm nhạc 7, tìm hiểu công cụ AI (ChatGPT, Suno AI, Canva) và chuẩn bị ý kiến đóng góp. Trước cuộc họp, toàn đội đã kiểm tra đường truyền Internet, micro, tai nghe và thống nhất tài liệu qua nhóm Zalo.
+        </p>
       </div>
 
+      <!-- II. QUÁ TRÌNH TỔ CHỨC CUỘC HỌP TRỰC TUYẾN -->
+      <div class="feature-box goal" style="margin-bottom: 2rem;">
+        <h3>🎙️ II. Quá trình tổ chức cuộc họp trực tuyến</h3>
+        
+        <h4 style="color: var(--primary); font-size: 1.05rem; margin-top: 1rem; margin-bottom: 0.5rem;">1. Khai mạc cuộc họp:</h4>
+        <p style="color: #334155; line-height: 1.7;">
+          Cuộc họp được tiến hành vào đúng 20h00 ngày 12/11/2026 trên nền tảng Zalo. Người điều phối (Phạm Linh Chi) khai mạc, nêu bật lý do chọn bài <strong>"Đi cấy"</strong>: Đây là viên ngọc quý của dân ca Thanh Hóa với giai điệu thanh thoát, nhịp nhàng, khắc họa vẻ đẹp lao động bình dị dưới ánh trăng. Tuy nhiên, trong thực tế giảng dạy THCS, nếu chỉ sử dụng đàn Organ đệm hát thông thường, học sinh dễ cảm thấy buồn tẻ hoặc khó tiếp thu. Do đó, việc ứng dụng AI để tạo bản phối mới hiện đại, tươi trẻ là giải pháp rất đáng thử nghiệm.
+        </p>
+
+        <h4 style="color: var(--primary); font-size: 1.05rem; margin-top: 1.4rem; margin-bottom: 0.5rem;">2. Nội dung trao đổi và thảo luận:</h4>
+        <div style="margin-left: 0.5rem; color: #334155; line-height: 1.75;">
+          <p style="margin-bottom: 0.8rem;">
+            <strong>2.1. Thực trạng dạy học bài dân ca ở THCS:</strong> Nhóm chỉ ra rằng trang thiết bị âm thanh tại nhiều trường học còn đơn sơ; học sinh Gen Z thường quen thuộc với các dòng nhạc điện tử, Pop Lofi đa dạng nên có khoảng cách với nhạc dân tộc mộc mạc. Vì vậy, một bản phối mới hấp dẫn sẽ là cầu nối đưa di sản vào đời sống học đường.
+          </p>
+          <p style="margin-bottom: 0.8rem;">
+            <strong>2.2. Ý tưởng tạo bản phối mới bằng AI:</strong> Sinh viên Lê Thuý An đề xuất kết hợp âm sắc truyền thống (sáo trúc, đàn tranh) với tiếng đệm guitar mộc và tiết tấu Lofi nhẹ nhàng ở tốc độ vừa vặn <strong>88 BPM</strong>. Bản phối giữ nguyên điệu thức ngũ cung Bắc Trung Bộ, mang lại cảm giác bình yên, thư thái đúng với tinh thần <em>"Ăn cơm bằng đèn đi cấy sáng trăng"</em>.
+          </p>
+          <p style="margin-bottom: 0.8rem;">
+            <strong>2.3. Phương án thực hiện:</strong> Quy trình triển khai 6 bước gồm: (1) Phân tích bản ký âm và lời ca chuẩn SGK; (2) Thiết kế Prompt ngôn ngữ theo R-T-C-O-F trên ChatGPT; (3) Sử dụng Suno AI tạo sinh bản âm thanh; (4) Nghe thẩm định và tinh chỉnh tốc độ; (5) Thiết kế giáo án và slide bài giảng minh họa; (6) Tổ chức dạy thử nghiệm và đánh giá phản hồi.
+          </p>
+          <p>
+            <strong>2.4. Lưu ý chuyên môn cốt lõi:</strong> AI chỉ đóng vai trò trợ lý hòa âm tạo nền tiết tấu, tuyệt đối không thay thế được tư duy nghệ thuật của người giáo viên. Tuyến giai điệu chính và lời ca dân ca Thanh Hóa phải được kiểm soát nghiêm ngặt, không để âm hưởng hiện đại làm biến dạng hồn cốt dân tộc.
+          </p>
+        </div>
+
+        <h4 style="color: var(--primary); font-size: 1.05rem; margin-top: 1.4rem; margin-bottom: 0.5rem;">3. Tổng kết cuộc họp:</h4>
+        <p style="color: #334155; line-height: 1.7;">
+          Người điều phối tổng hợp các kết luận chuyên môn được toàn nhóm đồng thuận 100%: thống nhất phong cách Acoustic Lofi 88 BPM, chọn Suno AI làm công cụ tạo âm thanh và phân định rành mạch trách nhiệm của từng cá nhân.
+        </p>
+      </div>
+
+      <!-- III. BIÊN BẢN CUỘC HỌP & PHÂN CÔNG NHIỆM VỤ -->
+      <div class="feature-box product" style="margin-bottom: 2rem;">
+        <h3>📝 III. Biên bản cuộc họp & Phân công nhiệm vụ chi tiết</h3>
+        
+        <h4 style="color: var(--primary); font-size: 1.05rem; margin-top: 1rem; margin-bottom: 0.5rem;">1. Thông tin biên bản:</h4>
+        <ul style="margin-left: 1.5rem; color: #334155; line-height: 1.7;">
+          <li><strong>Thời gian:</strong> 20h00 – 20h35 ngày 12/11/2026.</li>
+          <li><strong>Hình thức:</strong> Họp trực tuyến qua nhóm Zalo.</li>
+          <li><strong>Chủ đề:</strong> Ứng dụng AI tạo bản phối mới cho bài dân ca "Đi cấy" trong dạy học Âm nhạc 7.</li>
+          <li><strong>Chủ trì:</strong> Phạm Linh Chi — <strong>Thư ký:</strong> Nguyễn Hồng Hạnh.</li>
+        </ul>
+
+        <h4 style="color: var(--primary); font-size: 1.05rem; margin-top: 1.4rem; margin-bottom: 0.5rem;">2. Bảng phân công nhiệm vụ 05 thành viên trong nhóm:</h4>
+        <div style="overflow-x: auto;">
+          <table class="table-tasks">
+            <thead>
+              <tr>
+                <th style="width: 12%; text-align: center;">Thành viên</th>
+                <th style="width: 22%;">Họ và tên & Vai trò</th>
+                <th style="width: 44%;">Nhiệm vụ cụ thể được giao</th>
+                <th style="width: 22%;">Công cụ sử dụng</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align: center; font-weight: 700;">Thành viên 1</td>
+                <td>
+                  <strong>Phạm Linh Chi</strong><br>
+                  <span class="role-badge">Trưởng nhóm / Điều phối</span>
+                </td>
+                <td>Xây dựng kịch bản tổng thể, điều phối cuộc họp và tiến độ làm việc; viết báo cáo tổng hợp, tạo video AI giới thiệu mở đầu dự án.</td>
+                <td>Zalo, Google Vids, CapCut</td>
+              </tr>
+              <tr>
+                <td style="text-align: center; font-weight: 700;">Thành viên 2</td>
+                <td>
+                  <strong>Lê Thuý An</strong><br>
+                  <span class="role-badge">Chuyên môn Âm nhạc & AI</span>
+                </td>
+                <td>Nghiên cứu thang âm ngũ cung Bắc Trung Bộ; xây dựng bộ Prompt chuẩn R-T-C-O-F và tạo sinh bản phối âm thanh Acoustic Lofi 88 BPM cho bài "Đi cấy".</td>
+                <td>Suno AI, Udio, ChatGPT</td>
+              </tr>
+              <tr>
+                <td style="text-align: center; font-weight: 700;">Thành viên 3</td>
+                <td>
+                  <strong>Nguyễn Yên Đông</strong><br>
+                  <span class="role-badge">Nghiệp vụ Sư phạm</span>
+                </td>
+                <td>Thiết kế giáo án bài dạy "Đi cấy" lớp 7 bằng ChatGPT; phân tích so sánh đối chiếu giữa giáo án AI và SGK Kết nối tri thức.</td>
+                <td>ChatGPT, MS Word</td>
+              </tr>
+              <tr>
+                <td style="text-align: center; font-weight: 700;">Thành viên 4</td>
+                <td>
+                  <strong>Hoàng Thùy Dung</strong><br>
+                  <span class="role-badge">Thiết kế Học liệu Số</span>
+                </td>
+                <td>Thiết kế bộ Slide bài giảng tương tác và hệ thống hình ảnh minh họa bài hát dân ca dưới ánh trăng bằng công nghệ AI hình ảnh.</td>
+                <td>Canva AI, Magic Studio</td>
+              </tr>
+              <tr>
+                <td style="text-align: center; font-weight: 700;">Thành viên 5</td>
+                <td>
+                  <strong>Nguyễn Hồng Hạnh</strong><br>
+                  <span class="role-badge">Thư ký & Biên tập</span>
+                </td>
+                <td>Ghi chép biên bản cuộc họp; tổng hợp ưu điểm - hạn chế sư phạm dựa trên thực nghiệm; ghép video hoàn chỉnh cho toàn nhóm.</td>
+                <td>Google Docs, CapCut</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size: 0.9rem; color: #64748b; font-style: italic; margin-top: 0.5rem;">
+          * Cuộc họp hoàn thành tốt đẹp và kết thúc vào lúc 20h35 cùng ngày.
+        </p>
+      </div>
+
+      <!-- IV. ĐÁNH GIÁ HIỆU QUẢ CUỘC HỌP & BÀI HỌC KINH NGHIỆM -->
+      <div class="feature-box process" style="margin-bottom: 2rem;">
+        <h3>💡 IV. Đánh giá hiệu quả cuộc họp & Bài học kinh nghiệm</h3>
+
+        <h4 style="color: var(--primary); font-size: 1.05rem; margin-top: 1rem; margin-bottom: 0.5rem;">1. Đánh giá hiệu quả tổ chức:</h4>
+        <div style="color: #334155; line-height: 1.7;">
+          <p style="margin-bottom: 0.6rem;">
+            <strong>✓ Mặt thuận lợi:</strong> Nền tảng Zalo giúp 5 sinh viên kết nối nhanh chóng mà không cần di chuyển, tiết kiệm thời gian và chủ động lịch học. Chủ đề gắn liền với chuyên ngành Sư phạm Âm nhạc tạo sự hào hứng, các thành viên tích cực đóng góp góc nhìn chuyên môn đa chiều về hòa âm dân gian và AI.
+          </p>
+          <p>
+            <strong>⚠ Hạn chế phát sinh:</strong> Đôi lúc tín hiệu đường truyền Internet không ổn định làm ngắt quãng câu từ; việc lắng nghe âm thanh nhạc cụ qua loa điện thoại chưa thể hiện hết độ trầm bổng như nghe trực tiếp tại phòng học chuyên dụng.
+          </p>
+        </div>
+
+        <h4 style="color: var(--primary); font-size: 1.05rem; margin-top: 1.4rem; margin-bottom: 0.5rem;">2. Bài học kinh nghiệm quý báu:</h4>
+        <ul style="margin-left: 1.5rem; color: #334155; line-height: 1.75;">
+          <li><strong>Xác định mục tiêu rõ ràng:</strong> Luôn gửi chương trình nghị sự và bản ký âm trước cuộc họp tối thiểu 1 ngày để thành viên nghiên cứu kỹ.</li>
+          <li><strong>Kỹ năng điều phối:</strong> Người chủ trì cần linh hoạt dẫn dắt, phân bổ thời gian hợp lý và khích lệ các thành viên chia sẻ quan điểm.</li>
+          <li><strong>Chuẩn bị hạ tầng số:</strong> Kiểm tra kỹ micro, tai nghe chất lượng và đường truyền mạng trước khi bắt đầu.</li>
+          <li><strong>Sự kết hợp giữa Sư phạm & Công nghệ:</strong> AI là công cụ hỗ trợ đắc lực nhưng giáo viên âm nhạc phải là người kiểm duyệt cuối cùng về cao độ, trường độ và giá trị tư tưởng nghệ thuật.</li>
+        </ul>
+
+        <h4 style="color: var(--primary); font-size: 1.05rem; margin-top: 1.4rem; margin-bottom: 0.5rem;">3. Đề xuất cải thiện cho các dự án sau:</h4>
+        <p style="color: #334155; line-height: 1.7;">
+          Nên kết hợp thêm bảng trắng cộng tác (như Google Jamboard hoặc Miro) trong lúc họp để cả nhóm cùng phác thảo ngay kịch bản cấu trúc bản phối, đồng thời thiết lập nhóm nhắc việc tự động để theo dõi tiến độ hoàn thành sản phẩm.
+        </p>
+      </div>
+
+      <!-- V. KẾT LUẬN -->
+      <div class="feature-box goal" style="margin-bottom: 2rem;">
+        <h3>🌟 V. Kết luận</h3>
+        <p style="color: #334155; line-height: 1.75; font-size: 0.98rem;">
+          Bài thực hành đã giúp bản thân sinh viên nắm vững toàn diện quy trình tổ chức, điều hành và tham gia một cuộc họp trực tuyến chuyên nghiệp trong môi trường học thuật số.
+        </p>
+        <p style="color: #334155; line-height: 1.75; font-size: 0.98rem; margin-top: 0.8rem; border-left: 3px solid var(--accent-cyan); padding-left: 12px; background: rgba(56, 189, 248, 0.08); padding-top: 8px; padding-bottom: 8px;">
+          Thông qua dự án phối khí bài dân ca <strong>"Đi cấy"</strong>, nhóm sinh viên Sư phạm Âm nhạc không chỉ nâng cao kỹ năng làm việc nhóm mà còn hình thành tư duy chủ động làm chủ công nghệ trí tuệ nhân tạo, hướng tới việc tạo ra những tiết dạy nghệ thuật truyền cảm hứng, giàu bản sắc cho thế hệ học sinh tương lai.
+        </p>
+      </div>
+
+      <!-- PHỤ LỤC: MINH CHỨNG CUỘC HỌP TRỰC TUYẾN -->
+      <div class="feature-box product">
+        <h3>📸 Phụ lục: Minh chứng cuộc họp trực tuyến</h3>
+        <p style="color: #64748b; font-size: 0.95rem;">
+          Hình ảnh ghi lại quá trình thảo luận chuyên môn trực tuyến của 05 sinh viên Sư phạm Âm nhạc:
+        </p>
+
+        <!-- Placeholder Khung Ảnh Cuộc Họp Trực Tuyến -->
+        <div class="meeting-evidence-placeholder">
+          <div class="icon">💻📱</div>
+          <h4 style="font-size: 1.25rem; color: #38bdf8; margin-bottom: 0.6rem;">
+            Ảnh chụp màn hình Cuộc họp trực tuyến qua Zalo Meeting
+          </h4>
+          <p style="color: #94a3b8; max-width: 650px; margin: 0 auto; font-size: 0.92rem; line-height: 1.6;">
+            Ghi nhận sự tham gia đầy đủ của 05 thành viên: Phạm Linh Chi, Lê Thuý An, Nguyễn Yên Đông, Hoàng Thùy Dung, Nguyễn Hồng Hạnh.
+          </p>
+          <div style="margin-top: 1.2rem; display: inline-block; background: rgba(56, 189, 248, 0.15); border: 1px dashed #38bdf8; padding: 0.5rem 1.2rem; border-radius: 8px; font-size: 0.85rem; color: #38bdf8; font-weight: 600;">
+            [Khung lưu trữ: Sẵn sàng chèn ảnh chụp màn hình Zalo Meeting khi bạn tải ảnh lên]
+          </div>
+        </div>
+      </div>
+
+      <!-- ĐIỀU HƯỚNG TRANG -->
       <div class="pagination-nav">
-        <a href="bai-tap-3.html" class="btn btn-glass" style="color: var(--primary); border-color: var(--primary);">⬅ Bài tập 3</a>
-        <a href="bai-tap-5.html" class="btn btn-primary">Chuyển sang Bài tập 5 ➔</a>
+        <a href="bai-tap-3.html" class="btn btn-glass" style="color: var(--primary); border-color: var(--primary);">⬅ Bài tập 3: Kịch bản Prompt AI</a>
+        <a href="bai-tap-5.html" class="btn btn-primary">Chuyển sang Bài tập 5: Sáng tạo nội dung số ➔</a>
       </div>
     </div>
   </main>
@@ -90,17 +416,17 @@
   <footer class="site-footer">
     <div class="footer-grid">
       <div class="footer-col">
-        <h4>Hồ sơ Năng lực Số (E-Portfolio)</h4>
-        <p style="margin-bottom: 0.8rem; line-height: 1.6;">Học phần: <strong>Nhập môn Công nghệ số và ứng dụng trí tuệ nhân tạo (INF2501)</strong></p>
-        <p style="margin-bottom: 0.8rem; line-height: 1.6;">Chủ đề thực hành: <em>Ứng dụng AI tạo bản phối mới cho bài dân ca "Đi cấy" trong chương trình Âm nhạc lớp 7.</em></p>
-        <p style="color: #64748B; font-size: 0.85rem;">Trường Đại học Sư phạm Nghệ thuật Trung ương — Khoa Sư phạm Âm nhạc.</p>
+        <h4>Hồ sơ Năng lực Cá nhân (E-Portfolio)</h4>
+        <p style="margin-bottom: 0.8rem; line-height: 1.6;">Sinh viên chuyên ngành: <strong>Sư phạm Âm nhạc (Khóa K20D)</strong></p>
+        <p style="margin-bottom: 0.8rem; line-height: 1.6;">Trường Đại học Sư phạm Nghệ thuật Trung ương — Khoa Sư phạm Âm nhạc.</p>
+        <p style="color: #64748B; font-size: 0.85rem;">Học phần: Nhập môn CNS & Ứng dụng AI (INF2501) • GVHD: ThS. Vũ Việt Hoàng</p>
       </div>
       <div class="footer-col">
         <h4>Liên kết nhanh</h4>
         <ul>
           <li><a href="index.html">➔ Trang Giới thiệu (About Me)</a></li>
           <li><a href="projects.html">➔ Tổng quan 06 bài tập (Projects)</a></li>
-          <li><a href="bai-tap-3.html">➔ Kịch bản Prompt & Audio AI</a></li>
+          <li><a href="bai-tap-4.html">➔ Bài 4: Hợp tác trực tuyến nhóm</a></li>
           <li><a href="conclusion.html">➔ Tổng kết & Tự đánh giá</a></li>
         </ul>
       </div>
@@ -109,7 +435,7 @@
         <p style="margin-bottom: 0.4rem;"><strong>Họ và tên:</strong> Lê Thuý An</p>
         <p style="margin-bottom: 0.4rem;"><strong>Mã SV:</strong> 2552210166</p>
         <p style="margin-bottom: 0.4rem;"><strong>Lớp:</strong> K20D — Sư phạm Âm nhạc</p>
-        <p style="margin-bottom: 0.4rem;"><strong>GVHD:</strong> ThS. Vũ Việt Hoàng</p>
+        <p style="margin-bottom: 0.4rem;"><strong>Khoa:</strong> Sư phạm Âm nhạc</p>
         <p style="color: var(--accent-cyan); font-weight: 600; margin-top: 0.6rem;">✓ Xuất bản trên GitHub Pages</p>
       </div>
     </div>
