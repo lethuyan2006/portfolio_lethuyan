@@ -12,7 +12,7 @@
     /* Styling for Slide Showcase */
     .slide-showcase-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
       gap: 1.4rem;
       margin: 1.5rem 0;
     }
@@ -32,7 +32,7 @@
       border-color: #0284c7;
     }
     .slide-thumb {
-      height: 155px;
+      min-height: 140px;
       background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
       display: flex;
       flex-direction: column;
@@ -40,7 +40,7 @@
       justify-content: center;
       color: #38bdf8;
       position: relative;
-      padding: 1rem;
+      padding: 1.2rem 1rem;
       text-align: center;
       border-bottom: 2px solid #0284c7;
     }
@@ -57,22 +57,38 @@
       border: 1px solid rgba(56, 189, 248, 0.3);
     }
     .slide-content {
-      padding: 1.1rem;
+      padding: 1.2rem;
       flex-grow: 1;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
     .slide-title {
-      font-size: 1rem;
+      font-size: 1.02rem;
       font-weight: 700;
       color: var(--primary);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
     }
-    .slide-desc {
+    .slide-bullets {
+      margin: 0;
+      padding-left: 1.2rem;
       font-size: 0.88rem;
+      color: #475569;
+      line-height: 1.6;
+    }
+    .slide-bullets li {
+      margin-bottom: 0.35rem;
+    }
+    .slide-meta-box {
+      margin-top: 0.8rem;
+      padding-top: 0.75rem;
+      border-top: 1px dashed #e2e8f0;
+      font-size: 0.8rem;
       color: #64748b;
-      line-height: 1.55;
+      line-height: 1.5;
+    }
+    .slide-meta-box strong {
+      color: #0284c7;
     }
 
     /* Art Gallery with Prompts */
@@ -92,19 +108,19 @@
       flex-direction: column;
     }
     .art-preview-box {
-      min-height: 200px;
+      min-height: 180px;
       background: linear-gradient(135deg, #091e3a 0%, #1b3a5b 100%);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       color: #bae6fd;
-      padding: 2rem 1.5rem;
+      padding: 1.8rem 1.5rem;
       text-align: center;
       border-bottom: 1px solid #e2e8f0;
     }
     .art-preview-box .icon {
-      font-size: 2.5rem;
+      font-size: 2.4rem;
       margin-bottom: 0.5rem;
     }
     .art-info {
@@ -125,6 +141,29 @@
       line-height: 1.5;
       border-left: 3px solid var(--accent-gold);
       word-break: break-word;
+    }
+
+    /* Prompt Box Styled */
+    .prompt-showcase-box {
+      background: #091e3a;
+      border: 1px solid #1e3a8a;
+      border-radius: 10px;
+      padding: 1.4rem;
+      margin: 1rem 0;
+      color: #f1f5f9;
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+    .prompt-tag-badge {
+      display: inline-block;
+      background: #38bdf8;
+      color: #0f172a;
+      font-weight: 800;
+      font-size: 0.75rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      margin-right: 0.4rem;
+      margin-bottom: 0.3rem;
     }
 
     /* Table for AI Tools */
@@ -192,14 +231,16 @@
     </div>
   </header>
 
-  <!-- MAIN WRAPPER -->
-  <main class="main-wrapper" style="margin-top: 2.5rem;">
-    <div class="glass-panel reveal">
-      <div class="page-header-box">
-        <span class="badge-tag">Học phần INF2501 • Chương 5</span>
-        <h2 class="page-heading">BÀI TẬP 5: SỬ DỤNG AI TẠO SINH ĐỂ HỖ TRỢ SÁNG TẠO NỘI DUNG</h2>
+  <main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
+    <div class="assignment-wrapper">
+      <!-- BREADCRUMB & HEADER -->
+      <div style="margin-bottom: 1.5rem;">
+        <a href="projects.html" style="color: var(--primary); text-decoration: none; font-weight: 600; font-size: 0.9rem;">← Quay lại Danh mục Dự án</a>
+        <h2 style="font-size: 2rem; color: var(--primary); margin-top: 0.5rem; font-family: 'Playfair Display', serif;">
+          BÀI TẬP 5: SỬ DỤNG AI TẠO SINH ĐỂ HỖ TRỢ SÁNG TẠO NỘI DUNG
+        </h2>
         <p style="color: #64748b; font-size: 1.05rem; margin-top: 0.5rem; font-weight: 600;">
-          Chủ đề: Thiết kế bộ học liệu số đa phương tiện bài dân ca "Đi cấy" (Âm nhạc lớp 7)
+          Chủ đề: Thiết kế bộ Slide 10 trang bài giảng Âm nhạc lớp 7 & Học liệu số đa phương tiện bài dân ca "Đi cấy" (Dân ca Thanh Hóa)
         </p>
       </div>
 
@@ -207,7 +248,7 @@
       <div class="feature-box goal" style="margin-bottom: 2rem;">
         <h3>🎯 a) Mục tiêu bài tập</h3>
         <p style="line-height: 1.7; color: #334155;">
-          Rèn luyện kỹ năng ứng dụng các mô hình trí tuệ nhân tạo tạo sinh (Generative AI) trong quy trình thiết kế và sản xuất nội dung số phục vụ giáo dục nghệ thuật. Nắm vững kỹ thuật Prompting tạo hình ảnh và bố cục slide; kết hợp hài hòa giữa công nghệ hiện đại và thẩm mỹ âm nhạc dân tộc để hoàn thiện trọn bộ học liệu số trực quan, kích thích hứng thú cảm thụ bài dân ca Thanh Hóa <em>"Đi cấy"</em> cho học sinh lớp 7.
+          Rèn luyện kỹ năng tích hợp các công cụ Trí tuệ nhân tạo tạo sinh (Generative AI: Canva Magic Design, Text-to-Image, AI Sound Arrangement) vào quy trình thiết kế bài giảng điện tử và học liệu số tương tác môn Âm nhạc cấp THCS. Nắm vững kỹ thuật viết Prompt sư phạm để xây dựng trọn bộ Slide 10 trang chuẩn mực, kết hợp hài hòa giữa nhạc lý truyền thống (thang âm ngũ cung, nhịp 2/4) và bản phối Acoustic Lofi 88 BPM, đồng thời lồng ghép giáo dục 5 quy tắc vàng về đạo đức AI trong nhà trường.
         </p>
       </div>
 
@@ -215,38 +256,50 @@
       <div class="feature-box process" style="margin-bottom: 2rem;">
         <h3>⚙️ b) Tóm tắt quá trình thực hiện</h3>
         
-        <h4 style="color: var(--primary); font-size: 1.05rem; margin-top: 1rem; margin-bottom: 0.6rem;">1. Quy trình triển khai 4 bước chuẩn sư phạm:</h4>
+        <h4 style="color: var(--primary); font-size: 1.05rem; margin-top: 1rem; margin-bottom: 0.6rem;">1. Kịch bản Prompt thiết kế bài giảng trên Canva (Chuẩn hóa R-T-C-O-F):</h4>
+        <p style="color: #475569; font-size: 0.92rem; margin-bottom: 0.8rem;">
+          Để yêu cầu AI hỗ trợ soạn thảo nội dung bài giảng điện tử không bị lan man hay quá dài dòng trên từng slide, sinh viên đã thiết kế câu lệnh chuẩn mực theo khung R-T-C-O-F:
+        </p>
+
+        <div class="prompt-showcase-box">
+          <div><span class="prompt-tag-badge">ROLE</span> <strong>Chuyên gia sư phạm âm nhạc THCS & Thiết kế bài giảng điện tử tương tác trên Canva.</strong></div>
+          <div style="margin-top: 0.5rem;"><span class="prompt-tag-badge">CONTEXT</span> Thiết kế bộ Slide 10 trang cho tiết dạy Âm nhạc lớp 7 (bộ sách <em>Kết nối tri thức với cuộc sống</em>), chủ đề: "Ứng dụng Trí tuệ nhân tạo (AI) tạo bản phối mới cho bài dân ca Đi cấy (Dân ca Thanh Hóa)".</div>
+          <div style="margin-top: 0.5rem;"><span class="prompt-tag-badge">TASK</span> Soạn chi tiết nội dung chữ (text content), gợi ý bố cục thị giác/hình ảnh trực quan và lời dẫn giáo viên (Speaker notes) cho từng trang trong 10 slide trình chiếu.</div>
+          <div style="margin-top: 0.5rem;"><span class="prompt-tag-badge">CONSTRAINTS</span> 
+            (1) Mỗi slide tối đa 3–4 bullet points ngắn gọn dưới 15 từ, tối ưu tỷ lệ 16:9; 
+            (2) Nêu bật kiến thức cốt lõi: Nhịp 2/4 thong thả, thang âm ngũ cung Bắc Trung Bộ (Đô - Rê - Fa - Sol - La), bản phối mới Acoustic Lofi 88 BPM; 
+            (3) Tích hợp Slide chuyên đề về 5 quy tắc vàng đạo đức AI trong giáo dục.
+          </div>
+          <div style="margin-top: 0.5rem;"><span class="prompt-tag-badge">OUTPUT</span> Bảng kịch bản 10 slide rõ ràng: Tiêu đề slide • Bullet points • Gợi ý hình ảnh Canva • Lời dẫn giáo viên (Speaker Notes).</div>
+        </div>
+
+        <h4 style="color: var(--primary); font-size: 1.05rem; margin-top: 1.4rem; margin-bottom: 0.6rem;">2. Quy trình thực hiện 4 bước hoàn thiện sản phẩm:</h4>
         <ol style="margin-left: 1.5rem; color: #334155; line-height: 1.75; margin-bottom: 1.2rem;">
           <li style="margin-bottom: 0.6rem;">
-            <strong>Bước 1 — Xây dựng đề cương kịch bản sư phạm:</strong> 
-            Dựa trên SGK Âm nhạc 7 (bộ sách <em>Kết nối tri thức với cuộc sống</em>), phân chia bài dạy thành 5 hoạt động học tập: 
-            <em>Khởi động (Trò chơi tiết tấu) ➔ Khám phá (Xuất xứ dân ca Thanh Hóa) ➔ Luyện thanh & Đọc bản ký âm ➔ Tập hát câu theo câu kết hợp bản phối mới ➔ Hoạt động trải nghiệm sáng tạo (Gõ đệm theo nhịp 2/4)</em>.
+            <strong>Bước 1 — Khởi tạo kịch bản 10 slide:</strong> Sử dụng Prompt R-T-C-O-F để tạo dàn ý 10 slide sư phạm, phân bổ thời lượng 45 phút tiết học khoa học từ khởi động đến tổng kết.
           </li>
           <li style="margin-bottom: 0.6rem;">
-            <strong>Bước 2 — Sử dụng AI tạo sinh hình ảnh minh họa (Image Prompting):</strong> 
-            Sử dụng các công cụ như <strong>Canva Text to Image / Bing Image Creator (DALL-E 3)</strong> để tạo hình ảnh bối cảnh làng quê Bắc Trung Bộ thanh bình: trăng rằm chiếu sáng cánh đồng lúa, các cô thôn nữ với nón lá truyền thống, và không gian hồ sen đình làng cổ kính.
+            <strong>Bước 2 — Tạo sinh tư liệu hình ảnh với AI (Image Prompting):</strong> Dùng DALL-E 3 / Bing Image Creator vẽ tranh minh họa cánh đồng cấy lúa đêm trăng rằm, hoa sen chùa làng và không gian lớp học âm nhạc hiện đại.
           </li>
           <li style="margin-bottom: 0.6rem;">
-            <strong>Bước 3 — Thiết kế bộ Slide bài giảng điện tử trên Canva Magic Design:</strong> 
-            Sử dụng mẫu template giáo dục hiện đại, ứng dụng AI để gợi ý bố cục trực quan, tích hợp bản ký âm nốt nhạc, lời ca và nhúng tệp âm thanh bản phối Lofi 88 BPM từ Bài tập 3 vào từng trang bài giảng.
+            <strong>Bước 3 — Thiết kế mỹ thuật trên Canva Magic Design:</strong> Thiết lập tỷ lệ màn chiếu 16:9, áp dụng bộ màu nhận diện thương hiệu giáo dục: Xanh mạ non (#10B981) + Vàng ấm trăng rằm (#F59E0B) + Xanh navy (#0F172A).
           </li>
           <li>
-            <strong>Bước 4 — Thiết kế Infographic cẩm nang tổng kết:</strong> 
-            Sơ đồ hóa ngắn gọn kiến thức trọng tâm gồm điệu thức ngũ cung (Hò – Xự – Xang – Xê – Cống), nhịp 2/4 thong thả và giá trị nhân văn của lời ca để học sinh ghi nhớ nhanh.
+            <strong>Bước 4 — Tích hợp đa phương tiện & Xuất bản:</strong> Nhúng tệp âm thanh bản phối Lofi 88 BPM (thực hiện từ Bài 3) vào trực tiếp slide luyện hát, tạo mã QR liên kết bài tập về nhà.
           </li>
         </ol>
 
-        <h4 style="color: var(--primary); font-size: 1.05rem; margin-top: 1.4rem; margin-bottom: 0.6rem;">2. Khó khăn gặp phải & Giải pháp xử lý:</h4>
+        <h4 style="color: var(--primary); font-size: 1.05rem; margin-top: 1.4rem; margin-bottom: 0.6rem;">3. Khó khăn gặp phải & Biện pháp khắc phục:</h4>
         <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.2rem; line-height: 1.7; color: #334155;">
           <p style="margin-bottom: 0.8rem;">
-            <strong>⚠ Khó khăn 1 (AI sai lệch bản sắc văn hóa):</strong> Khi yêu cầu vẽ cảnh nông dân cấy lúa dưới trăng, AI thường tạo ra phong cảnh hoặc trang phục lai tạp phong cách Trung Quốc / Nhật Bản cổ trang.  
+            <strong>⚠ Khó khăn 1 (AI tạo quá nhiều chữ trên slide):</strong> Khi tạo slide tự động, AI đưa các đoạn văn dài gây rối mắt, học sinh ngồi xa khó quan sát.  
             <br>
-            <em>➔ Giải pháp:</em> Bổ sung các từ khóa định danh văn hóa thuần Việt chính xác trong Prompt: <code>"Vietnamese traditional conical hat (non la)", "rural northern central Vietnam village", "traditional Ao Ba Ba folk costume", "ancient Vietnamese village temple"</code>.
+            <em>➔ Giải pháp:</em> Thêm ràng buộc khống chế số từ (dưới 15 từ/ý), áp dụng nguyên tắc sư phạm trực quan <strong>60% hình ảnh sinh động — 40% từ khóa cô đọng</strong>.
           </p>
           <p>
-            <strong>⚠ Khó khăn 2 (Bố cục slide tự động bị rườm rà chữ):</strong> Công cụ tạo slide AI ban đầu chèn quá nhiều văn bản dài dòng, làm giảm tính thẩm mỹ của tiết học âm nhạc.  
+            <strong>⚠ Khó khăn 2 (AI vẽ sai chi tiết trang phục dân tộc):</strong> Tranh người nông dân cấy lúa ban đầu bị nhầm sang trang phục cổ trang hoặc nón lá phương Đông không đúng chất Việt Nam.  
             <br>
-            <em>➔ Giải pháp:</em> Áp dụng nguyên tắc sư phạm trực quan: <strong>60% hình ảnh sinh động — 40% từ khóa cô đọng</strong>, chọn font chữ Việt hóa rõ ràng (Plus Jakarta Sans) để học sinh lớp 7 dễ theo dõi từ xa.
+            <em>➔ Giải pháp:</em> Tinh chỉnh Prompt tiếng Anh chính xác: <code>"Vietnamese female farmers wearing traditional conical hats (non la) planting rice seedlings in water paddy field, peaceful full moonlight, watercolor art style"</code>.
           </p>
         </div>
       </div>
@@ -255,12 +308,12 @@
       <div class="feature-box product" style="margin-bottom: 2rem;">
         <h3>📦 c) Sản phẩm cuối cùng: Trưng bày học liệu số hoàn thiện</h3>
         
-        <!-- TRƯNG BÀY 1: BỘ SLIDE BÀI GIẢNG 12 TRANG -->
+        <!-- TRƯNG BÀY 1: TOÀN BỘ 10 SLIDE BÀI GIẢNG ĐIỆN TỬ -->
         <h4 style="color: var(--primary); font-size: 1.15rem; margin-top: 1rem; margin-bottom: 0.6rem;">
-          📑 1. Bộ Slide bài giảng điện tử đa phương tiện (12 trang trên Canva)
+          📑 1. Kịch bản chi tiết 10 Trang Slide Bài giảng điện tử (Thiết kế trên Canva)
         </h4>
         <p style="color: #64748b; font-size: 0.92rem; margin-bottom: 1rem;">
-          Thiết kế chuẩn kích thước 16:9, tối ưu màu sắc trang nhã, tích hợp đầy đủ hình ảnh minh họa và tệp âm thanh bản phối:
+          Mỗi slide được biên tập chuẩn mực gồm: Tiêu đề • Nội dung chiếu (Bullet points) • Gợi ý hình ảnh minh họa • Lời giảng giáo viên (Speaker notes):
         </p>
 
         <div class="slide-showcase-grid">
@@ -268,13 +321,23 @@
           <div class="slide-card">
             <div class="slide-thumb">
               <span class="slide-thumb-num">Slide 01</span>
-              <div style="font-size: 1.8rem; margin-bottom: 0.3rem;">🌾🌕</div>
-              <div style="font-weight: 700; font-size: 0.95rem;">TRANG BÌA BÀI HỌC</div>
-              <div style="font-size: 0.75rem; color: #94a3b8;">Học hát: Bài Đi cấy (Lớp 7)</div>
+              <div style="font-size: 1.8rem; margin-bottom: 0.2rem;">🌾🌕</div>
+              <div style="font-weight: 700; font-size: 0.95rem; color: #ffffff;">TRANG BÌA BÀI HỌC</div>
+              <div style="font-size: 0.75rem; color: #94a3b8;">Học hát: Bài Đi cấy (Âm nhạc 7)</div>
             </div>
             <div class="slide-content">
-              <div class="slide-title">Tiêu đề & Mục tiêu tiết dạy</div>
-              <div class="slide-desc">Giới thiệu bài học hát, thông tin học phần và hình ảnh chủ đạo ánh trăng làng quê.</div>
+              <div>
+                <div class="slide-title">Bài Dân ca "Đi cấy" (Bản phối mới AI)</div>
+                <ul class="slide-bullets">
+                  <li>Môn: Âm nhạc lớp 7 • Bộ sách Kết nối tri thức</li>
+                  <li>Khám phá giai điệu truyền thống qua lăng kính công nghệ AI</li>
+                  <li>Người thực hiện: Lê Thuý An – K20D Sư phạm Âm nhạc</li>
+                </ul>
+              </div>
+              <div class="slide-meta-box">
+                <strong>Gợi ý Canva:</strong> Tranh màu nước cánh đồng lúa nước dưới trăng rằm.<br>
+                <strong>Lời dẫn GV:</strong> <em>"Chào các em! Hôm nay chúng ta sẽ cùng đưa bài dân ca quen thuộc vào không gian âm thanh mới lạ."</em>
+              </div>
             </div>
           </div>
 
@@ -282,13 +345,23 @@
           <div class="slide-card">
             <div class="slide-thumb">
               <span class="slide-thumb-num">Slide 02</span>
-              <div style="font-size: 1.8rem; margin-bottom: 0.3rem;">🗺️🎵</div>
-              <div style="font-weight: 700; font-size: 0.95rem;">XUẤT XỨ DÂN CA</div>
-              <div style="font-size: 0.75rem; color: #94a3b8;">Vùng đất Thanh Hóa</div>
+              <div style="font-size: 1.8rem; margin-bottom: 0.2rem;">🗺️🏞️</div>
+              <div style="font-weight: 700; font-size: 0.95rem; color: #ffffff;">XUẤT XỨ & BỐI CẢNH</div>
+              <div style="font-size: 0.75rem; color: #94a3b8;">Vùng đất văn hiến Thanh Hóa</div>
             </div>
             <div class="slide-content">
-              <div class="slide-title">Bối cảnh lịch sử & Văn hóa</div>
-              <div class="slide-desc">Tìm hiểu tập quán cấy lúa đêm trăng của người nông dân Bắc Trung Bộ.</div>
+              <div>
+                <div class="slide-title">Nét đẹp Dân ca Bắc Trung Bộ</div>
+                <ul class="slide-bullets">
+                  <li>Xuất xứ: Dân ca Thanh Hóa – cái nôi văn hóa lâu đời</li>
+                  <li>Tập quán: Người nông dân cấy lúa đêm trăng thanh mát</li>
+                  <li>Tinh thần: Lạc quan, yêu đời, tin vào vụ mùa ấm no</li>
+                </ul>
+              </div>
+              <div class="slide-meta-box">
+                <strong>Gợi ý Canva:</strong> Bản đồ Thanh Hóa kết hợp hình người cấy lúa nón lá bên sông Mã.<br>
+                <strong>Lời dẫn GV:</strong> <em>"Bà con đi cấy vào đêm trăng vừa để tránh cái nắng gay gắt, vừa gửi gắm câu hò tiếng hát yêu đời."</em>
+              </div>
             </div>
           </div>
 
@@ -296,13 +369,23 @@
           <div class="slide-card">
             <div class="slide-thumb">
               <span class="slide-thumb-num">Slide 03</span>
-              <div style="font-size: 1.8rem; margin-bottom: 0.3rem;">🎼✨</div>
-              <div style="font-weight: 700; font-size: 0.95rem;">BẢN KÝ ÂM NỐT NHẠC</div>
-              <div style="font-size: 0.75rem; color: #94a3b8;">Nhịp 2/4 • Ngũ cung</div>
+              <div style="font-size: 1.8rem; margin-bottom: 0.2rem;">🎼✨</div>
+              <div style="font-weight: 700; font-size: 0.95rem; color: #ffffff;">ĐẶC TRƯNG ÂM NHẠC</div>
+              <div style="font-size: 0.75rem; color: #94a3b8;">Nhạc lý cơ bản & Điệu thức</div>
             </div>
             <div class="slide-content">
-              <div class="slide-title">Phân tích Nhạc lý cơ bản</div>
-              <div class="slide-desc">Hiển thị khuông nhạc, nốt nhạc và phân đoạn câu hát theo SGK Kết nối tri thức.</div>
+              <div>
+                <div class="slide-title">Nhịp 2/4 & Thang âm Ngũ cung</div>
+                <ul class="slide-bullets">
+                  <li>Nhịp 2/4 thong thả, nhịp nhàng theo bước chân cấy lúa</li>
+                  <li>Thang âm ngũ cung 5 nốt: <em>Đô – Rê – Fa – Sol – La</em></li>
+                  <li>Tính chất âm nhạc: Thanh thoát, trữ tình, đằm thắm</li>
+                </ul>
+              </div>
+              <div class="slide-meta-box">
+                <strong>Gợi ý Canva:</strong> Khuông nhạc 5 nốt ngũ cung bên cạnh hình ảnh Đàn tranh và Sáo trúc.<br>
+                <strong>Lời dẫn GV:</strong> <em>"Thang âm ngũ cung tạo nên âm hưởng mộc mạc, rất gần gũi với tâm hồn con người Việt Nam."</em>
+              </div>
             </div>
           </div>
 
@@ -310,30 +393,189 @@
           <div class="slide-card">
             <div class="slide-thumb">
               <span class="slide-thumb-num">Slide 04</span>
-              <div style="font-size: 1.8rem; margin-bottom: 0.3rem;">🎧🎹</div>
-              <div style="font-weight: 700; font-size: 0.95rem;">BẢN PHỐI MỚI AI</div>
-              <div style="font-size: 0.75rem; color: #94a3b8;">Acoustic Lofi 88 BPM</div>
+              <div style="font-size: 1.8rem; margin-bottom: 0.2rem;">🎤🪷</div>
+              <div style="font-weight: 700; font-size: 0.95rem; color: #ffffff;">HỌC HÁT LỜI CA GỐC</div>
+              <div style="font-size: 0.75rem; color: #94a3b8;">Luyện thanh & 4 câu hát</div>
             </div>
             <div class="slide-content">
-              <div class="slide-title">Hoạt động luyện hát theo nhạc</div>
-              <div class="slide-desc">Nhúng tệp âm thanh bản phối mới, học sinh hát kết hợp vỗ tay đệm tiết tấu.</div>
+              <div>
+                <div class="slide-title">Luyện giọng & Lời ca truyền thống</div>
+                <ul class="slide-bullets">
+                  <li>Luyện thanh ngũ cung trên nguyên âm 'A' và 'O'</li>
+                  <li>Câu 1: Lên chùa bẻ một cành sen...</li>
+                  <li>Câu 2: Ăn cơm bằng đèn đi cấy sáng trăng...</li>
+                  <li>Câu 3 & 4: Ba bốn cô có bạn cùng chăng... Chơi trăng ngoài thềm...</li>
+                </ul>
+              </div>
+              <div class="slide-meta-box">
+                <strong>Gợi ý Canva:</strong> Khung chữ lời ca rõ ràng, điểm xuyết đóa hoa sen hồng tinh tế.<br>
+                <strong>Lời dẫn GV:</strong> <em>"Các em chú ý lấy hơi sâu, hát tròn vành rõ chữ và giữ độ luyến mềm mại nhé."</em>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 5 -->
+          <div class="slide-card">
+            <div class="slide-thumb">
+              <span class="slide-thumb-num">Slide 05</span>
+              <div style="font-size: 1.8rem; margin-bottom: 0.2rem;">🤖💡</div>
+              <div style="font-weight: 700; font-size: 0.95rem; color: #ffffff;">ỨNG DỤNG CÔNG NGHỆ AI</div>
+              <div style="font-size: 0.75rem; color: #94a3b8;">Làm mới nhạc đệm dân ca</div>
+            </div>
+            <div class="slide-content">
+              <div>
+                <div class="slide-title">Vì sao làm mới nhạc đệm bằng AI?</div>
+                <ul class="slide-bullets">
+                  <li>Khắc phục nhạc đệm MIDI cũ đơn điệu, thiếu cảm xúc</li>
+                  <li>AI hỗ trợ phối khí nhanh, tạo không gian âm thanh mới</li>
+                  <li>Tạo hứng thú học tập, đưa dân ca gần gũi với lứa tuổi THCS</li>
+                </ul>
+              </div>
+              <div class="slide-meta-box">
+                <strong>Gợi ý Canva:</strong> Đồ họa sóng âm thanh số phát sáng kết nối với biểu tượng nốt nhạc.<br>
+                <strong>Lời dẫn GV:</strong> <em>"AI giúp chúng ta mở ra cánh cửa sáng tạo, làm phong phú thêm đời sống của làn điệu dân ca."</em>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 6 -->
+          <div class="slide-card">
+            <div class="slide-thumb">
+              <span class="slide-thumb-num">Slide 06</span>
+              <div style="font-size: 1.8rem; margin-bottom: 0.2rem;">🎧🎸</div>
+              <div style="font-weight: 700; font-size: 0.95rem; color: #ffffff;">BẢN PHỐI MỚI AI</div>
+              <div style="font-size: 0.75rem; color: #94a3b8;">Acoustic Lofi • Tempo 88 BPM</div>
+            </div>
+            <div class="slide-content">
+              <div>
+                <div class="slide-title">Phong cách Acoustic Lofi 88 BPM</div>
+                <ul class="slide-bullets">
+                  <li>Tốc độ 88 BPM: Êm dịu, vừa vặn hơi thở học sinh lớp 7</li>
+                  <li>Nhạc cụ dân tộc: Sáo trúc trong trẻo dạo đầu (Intro)</li>
+                  <li>Nhạc cụ hiện đại: Guitar mộc + Nhịp trống Lofi thư thái</li>
+                </ul>
+              </div>
+              <div class="slide-meta-box">
+                <strong>Gợi ý Canva:</strong> Trình phát âm thanh có sóng nhạc tương tác và nút Play nổi bật.<br>
+                <strong>Lời dẫn GV:</strong> <em>"Cùng lắng nghe giai điệu sáo trúc du dương hòa cùng tiếng guitar acoustic mộc mạc nào!"</em>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 7 -->
+          <div class="slide-card">
+            <div class="slide-thumb">
+              <span class="slide-thumb-num">Slide 07</span>
+              <div style="font-size: 1.8rem; margin-bottom: 0.2rem;">👏🥢</div>
+              <div style="font-weight: 700; font-size: 0.95rem; color: #ffffff;">THỰC HÀNH HÁT & GÕ ĐỆM</div>
+              <div style="font-size: 0.75rem; color: #94a3b8;">Hòa giọng cùng beat mới</div>
+            </div>
+            <div class="slide-content">
+              <div>
+                <div class="slide-title">Hát kết hợp gõ thanh phách nhịp 2/4</div>
+                <ul class="slide-bullets">
+                  <li>Hát hòa giọng đúng cao độ và tiết tấu 88 BPM</li>
+                  <li>Phách 1 (Mạnh): Gõ thanh phách vào lòng bàn tay</li>
+                  <li>Phách 2 (Nhẹ): Mở tay nhẹ nhàng sang hai bên</li>
+                  <li>Chia nhóm thực hành: Nhóm hát – Nhóm gõ đệm luân phiên</li>
+                </ul>
+              </div>
+              <div class="slide-meta-box">
+                <strong>Gợi ý Canva:</strong> Hình ảnh thanh phách gỗ và sơ đồ mũi tên phách Mạnh/Nhẹ.<br>
+                <strong>Lời dẫn GV:</strong> <em>"Các em chú ý nghe phách trống Lofi để bắt nhịp chuẩn xác ở phách mạnh đầu câu nhé!"</em>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 8 -->
+          <div class="slide-card">
+            <div class="slide-thumb">
+              <span class="slide-thumb-num">Slide 08</span>
+              <div style="font-size: 1.8rem; margin-bottom: 0.2rem;">💃🥁</div>
+              <div style="font-weight: 700; font-size: 0.95rem; color: #ffffff;">BODY PERCUSSION</div>
+              <div style="font-size: 0.75rem; color: #94a3b8;">Vận động cơ thể sáng tạo</div>
+            </div>
+            <div class="slide-content">
+              <div>
+                <div class="slide-title">Cảm thụ âm nhạc qua cơ thể</div>
+                <ul class="slide-bullets">
+                  <li>Động tác 1: Giậm chân giữ nhịp chân phương theo kick bass</li>
+                  <li>Động tác 2: Vỗ đùi mô phỏng bước chân đi cấy trên đồng</li>
+                  <li>Động tác 3: Vỗ tay thanh thoát ở cuối câu hát đón tiếng sáo</li>
+                </ul>
+              </div>
+              <div class="slide-meta-box">
+                <strong>Gợi ý Canva:</strong> Hoạt họa học sinh đang giậm chân, vỗ tay vui vẻ theo nhóm bạn bè.<br>
+                <strong>Lời dẫn GV:</strong> <em>"Hãy để cơ thể chuyển động nhịp nhàng như những bước chân thoăn thoắt cấy lúa!"</em>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 9 -->
+          <div class="slide-card">
+            <div class="slide-thumb">
+              <span class="slide-thumb-num">Slide 09</span>
+              <div style="font-size: 1.8rem; margin-bottom: 0.2rem;">🛡️⚖️</div>
+              <div style="font-weight: 700; font-size: 0.95rem; color: #ffffff;">ĐẠO ĐỨC & LIÊM CHÍNH AI</div>
+              <div style="font-size: 0.75rem; color: #94a3b8;">5 Nguyên tắc vàng trong giáo dục</div>
+            </div>
+            <div class="slide-content">
+              <div>
+                <div class="slide-title">Sử dụng AI có trách nhiệm</div>
+                <ul class="slide-bullets">
+                  <li><strong>1. Minh bạch:</strong> Luôn ghi chú nguồn gốc tác phẩm hỗ trợ bởi AI</li>
+                  <li><strong>2. Thẩm định:</strong> Con người kiểm soát giai điệu, không phó mặc cho máy</li>
+                  <li><strong>3. Tôn trọng di sản:</strong> Giữ trọn thang âm và nét đẹp văn hóa Việt</li>
+                  <li><strong>4. An toàn số:</strong> Bảo vệ dữ liệu cá nhân trên môi trường mạng</li>
+                  <li><strong>5. Vai trò chủ đạo:</strong> AI là trợ lý – Thầy cô và học trò là chủ thể sáng tạo</li>
+                </ul>
+              </div>
+              <div class="slide-meta-box">
+                <strong>Gợi ý Canva:</strong> Biểu tượng chiếc khiên bảo vệ công nghệ xanh ngọc với 5 ngôi sao đạo đức.<br>
+                <strong>Lời dẫn GV:</strong> <em>"Công nghệ chỉ thực sự có giá trị khi được soi chiếu bởi đạo đức và văn hóa."</em>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 10 -->
+          <div class="slide-card">
+            <div class="slide-thumb">
+              <span class="slide-thumb-num">Slide 10</span>
+              <div style="font-size: 1.8rem; margin-bottom: 0.2rem;">🌟📱</div>
+              <div style="font-weight: 700; font-size: 0.95rem; color: #ffffff;">TỔNG KẾT & NHIỆM VỤ</div>
+              <div style="font-size: 0.75rem; color: #94a3b8;">Dặn dò & Tài nguyên số</div>
+            </div>
+            <div class="slide-content">
+              <div>
+                <div class="slide-title">Củng cố & Nhiệm vụ về nhà</div>
+                <ul class="slide-bullets">
+                  <li>Ghi nhớ: Vẻ đẹp giai điệu ngũ cung & nhịp 2/4 bài "Đi cấy"</li>
+                  <li>Luyện tập: Tự tin hát đúng cao độ theo bản phối Lofi 88 BPM</li>
+                  <li>Nhiệm vụ: Quay video ngắn hát cùng beat nhạc gửi lên Padlet lớp</li>
+                  <li>Quét mã QR để nhận file nhạc đệm và lời bài hát đính kèm</li>
+                </ul>
+              </div>
+              <div class="slide-meta-box">
+                <strong>Gợi ý Canva:</strong> Mã QR nổi bật dẫn đến link Drive beat nhạc; lời chúc học tập ý nghĩa.<br>
+                <strong>Lời dẫn GV:</strong> <em>"Chúc các em có những giây phút hòa mình vào giai điệu quê hương thật vui tươi!"</em>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Nút mở Canva -->
-        <div style="text-align: center; margin: 1.5rem 0;">
-          <a href="https://canva.com" target="_blank" rel="noopener" class="btn btn-primary" style="padding: 0.7rem 1.6rem; font-size: 0.95rem;">
-            🔗 Xem toàn bộ 12 trang Slide trên nền tảng Canva (Chế độ công khai) ↗
+        <div style="text-align: center; margin: 1.8rem 0;">
+          <a href="https://canva.com" target="_blank" rel="noopener" class="btn btn-primary" style="padding: 0.75rem 1.8rem; font-size: 0.98rem; box-shadow: 0 4px 15px rgba(2, 132, 199, 0.3);">
+            🔗 Xem bộ Slide 10 trang thiết kế trên nền tảng Canva (Chế độ công khai) ↗
           </a>
         </div>
 
         <!-- TRƯNG BÀY 2: BỘ TRANH MINH HỌA SỐ TẠO BẰNG AI -->
-        <h4 style="color: var(--primary); font-size: 1.15rem; margin-top: 2rem; margin-bottom: 0.6rem;">
+        <h4 style="color: var(--primary); font-size: 1.15rem; margin-top: 2.2rem; margin-bottom: 0.6rem;">
           🖼️ 2. Bộ tác phẩm tranh minh họa số hỗ trợ bài giảng (AI Artworks)
         </h4>
         <p style="color: #64748b; font-size: 0.92rem; margin-bottom: 1rem;">
-          Các tác phẩm hình ảnh nghệ thuật tạo sinh từ Prompting AI, tái hiện sống động không gian văn hóa dân ca:
+          Các tác phẩm hình ảnh nghệ thuật tạo sinh từ kỹ thuật Prompting, tái hiện không gian văn hóa đồng quê Việt Nam:
         </p>
 
         <div class="art-grid">
@@ -359,7 +601,7 @@
             <div class="art-preview-box">
               <div class="icon">🪷🪈</div>
               <h5 style="color: #38bdf8; font-size: 1.1rem; margin-bottom: 0.3rem;">Bức tranh 02: Hồ sen đình làng & Sáo trúc</h5>
-              <p style="font-size: 0.85rem; color: #bae6fd;">Gắn liền với lời ca "Lên chùa bẻ một cành sen"</p>
+              <p style="font-size: 0.85rem; color: #bae6fd;">Gắn liền với câu hát "Lên chùa bẻ một cành sen"</p>
             </div>
             <div class="art-info">
               <div>
@@ -380,7 +622,7 @@
             </div>
             <div class="art-info">
               <div>
-                <strong>Mô tả nghệ thuật:</strong> Lớp học nghệ thuật hiện đại, học sinh lớp 7 vui tươi vừa hát vừa gõ thanh phách theo tiết tấu Lofi Acoustic, gắn kết truyền thống và hiện đại.
+                <strong>Mô tả nghệ thuật:</strong> Lớp học nghệ thuật hiện đại, học sinh lớp 7 vui tươi vừa hát vừa gõ thanh phách theo tiết tấu Lofi Acoustic, gắn kết truyền thống và công nghệ hiện đại.
                 <div class="prompt-mini-box">
                   <strong>Prompt AI:</strong> "Modern Vietnamese middle school music classroom, happy 7th grade students singing enthusiastically, holding wooden clappers and tambourines, music teacher at electric piano, bright friendly educational atmosphere, colorful, digital illustration style."
                 </div>
@@ -388,90 +630,79 @@
             </div>
           </div>
         </div>
-
       </div>
 
       <!-- d) BẢNG KÊ KHAI CÔNG CỤ AI SỬ DỤNG (THEO QUY ĐỊNH LIÊM CHÍNH HỌC THUẬT) -->
       <div class="feature-box goal" style="margin-bottom: 2rem;">
         <h3>🛡️ d) Bảng kê khai công cụ AI sử dụng & Mục đích (Liêm chính học thuật)</h3>
-        <p style="color: #334155; line-height: 1.7;">
-          Tuân thủ nghiêm ngặt quy định tại <strong>Mục IV.3 của Đề thi INF2501</strong> về việc công khai minh bạch mọi công cụ AI được sử dụng trong quá trình sáng tạo nội dung số:
+        <p style="line-height: 1.6; color: #334155;">
+          Thực hiện đúng quy định về liêm chính học thuật của học phần INF2501, sinh viên kê khai chi tiết các công cụ AI được sử dụng làm phương tiện hỗ trợ trong quá trình hoàn thiện Bài tập 5:
         </p>
-
         <div style="overflow-x: auto;">
           <table class="table-ai">
             <thead>
               <tr>
-                <th style="width: 22%;">Tên công cụ AI</th>
-                <th style="width: 28%;">Mục đích sử dụng cụ thể</th>
-                <th style="width: 50%;">Mức độ can thiệp & Trách nhiệm của sinh viên</th>
+                <th style="width: 25%;">Công cụ AI</th>
+                <th style="width: 25%;">Nội dung hỗ trợ</th>
+                <th style="width: 50%;">Mục đích sử dụng & Vai trò kiểm soát của sinh viên</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td><span class="badge-tool">Canva Magic Design</span></td>
-                <td>Gợi ý bố cục bài giảng và bảng màu trực quan cho slide bài học.</td>
-                <td>Sinh viên chọn lọc mẫu, viết lại toàn bộ nội dung học thuật, thay thế hình ảnh và căn chỉnh cấu trúc chuẩn phương pháp dạy học âm nhạc.</td>
-              </tr>
-              <tr>
-                <td><span class="badge-tool">Bing Creator (DALL-E 3)</span></td>
-                <td>Tạo sinh các bức tranh minh họa bối cảnh văn hóa dân gian theo kịch bản.</td>
-                <td>Sinh viên trực tiếp viết câu lệnh Prompt R-T-C-O-F, kiểm duyệt độ chính xác về trang phục, văn hóa và loại bỏ các chi tiết không phù hợp.</td>
+                <td>Gợi ý bố cục Slide 16:9 & Bảng màu</td>
+                <td>Hỗ trợ định hình giao diện trực quan, bảng màu nhận diện. Sinh viên tự biên tập nội dung, chia bullet points và căn chỉnh thẩm mỹ.</td>
               </tr>
               <tr>
                 <td><span class="badge-tool">ChatGPT / Gemini</span></td>
-                <td>Gợi ý các câu hỏi thảo luận và ý tưởng trò chơi tiết tấu cho học sinh.</td>
-                <td>Sinh viên thẩm định tính vừa sức với học sinh lớp 7, đối chiếu chuẩn xác với Chương trình Giáo dục phổ thông 2018 môn Âm nhạc.</td>
+                <td>Kịch bản sư phạm 10 slide & Prompting</td>
+                <td>Gợi ý cấu trúc hoạt động dạy học 45 phút và viết prompt tiếng Anh. Sinh viên rà soát tính chuẩn xác của kiến thức nhạc lý SGK.</td>
               </tr>
               <tr>
-                <td><span class="badge-tool">Suno AI / Udio</span></td>
-                <td>Tạo sinh bản phối nhạc đệm thử nghiệm phong cách Acoustic Lofi 88 BPM.</td>
-                <td>Sinh viên kiểm tra cao độ, trường độ, nhịp 2/4 và bảo đảm tuyệt đối không làm sai lệch thang âm ngũ cung dân tộc.</td>
+                <td><span class="badge-tool">Bing Image / DALL-E 3</span></td>
+                <td>Tạo sinh 03 tranh minh họa văn hóa</td>
+                <td>Tạo chất liệu hình ảnh đồng quê dưới trăng phục vụ thị giác học sinh. Sinh viên tinh chỉnh Prompt để giữ đúng trang phục thuần Việt.</td>
+              </tr>
+              <tr>
+                <td><span class="badge-tool">Suno AI (từ Bài 3)</span></td>
+                <td>Bản phối mới Acoustic Lofi 88 BPM</td>
+                <td>Cung cấp tệp âm thanh nhúng vào Slide 06. Sinh viên dùng tai nghe và kiến thức ngũ cung để thẩm định và xuất bản.</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
 
-      <!-- ĐIỀU HƯỚNG TRANG -->
-      <div class="pagination-nav">
-        <a href="bai-tap-4.html" class="btn btn-glass" style="color: var(--primary); border-color: var(--primary);">⬅ Bài tập 4: Hợp tác trực tuyến</a>
-        <a href="bai-tap-6.html" class="btn btn-primary">Chuyển sang Bài tập 6: Liêm chính AI ➔</a>
+      <!-- FOOTER NAVIGATION -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #e2e8f0; flex-wrap: wrap; gap: 1rem;">
+        <a href="bai-tap-4.html" class="btn btn-secondary" style="padding: 0.6rem 1.4rem; font-size: 0.92rem;">
+          ⬅ Bài tập 4: Hợp tác trực tuyến
+        </a>
+        <a href="projects.html" style="color: var(--primary); text-decoration: none; font-weight: 700; font-size: 0.95rem;">
+          📂 Danh mục Dự án
+        </a>
+        <a href="bai-tap-6.html" class="btn btn-primary" style="padding: 0.6rem 1.4rem; font-size: 0.92rem;">
+          Chuyển sang Bài tập 6 ➔
+        </a>
       </div>
     </div>
   </main>
 
-  <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="footer-grid">
+    <div class="footer-container">
       <div class="footer-col">
-        <h4>Hồ sơ Năng lực Cá nhân (E-Portfolio)</h4>
-        <p style="margin-bottom: 0.8rem; line-height: 1.6;">Sinh viên chuyên ngành: <strong>Sư phạm Âm nhạc (Khóa K20D)</strong></p>
-        <p style="margin-bottom: 0.8rem; line-height: 1.6;">Trường Đại học Sư phạm Nghệ thuật Trung ương — Khoa Sư phạm Âm nhạc.</p>
-        <p style="color: #64748B; font-size: 0.85rem;">Học phần: Nhập môn CNS & Ứng dụng AI (INF2501) • GVHD: ThS. Vũ Việt Hoàng</p>
+        <h4>Lê Thuý An • E-Portfolio</h4>
+        <p>Sinh viên K20D Sư phạm Âm nhạc<br>Trường Đại học Sư phạm Nghệ thuật Trung ương</p>
       </div>
       <div class="footer-col">
-        <h4>Liên kết nhanh</h4>
-        <ul>
-          <li><a href="index.html">➔ Trang Giới thiệu (About Me)</a></li>
-          <li><a href="projects.html">➔ Tổng quan 06 bài tập (Projects)</a></li>
-          <li><a href="bai-tap-5.html">➔ Bài 5: Sáng tạo nội dung số với AI</a></li>
-          <li><a href="conclusion.html">➔ Tổng kết & Tự đánh giá</a></li>
-        </ul>
+        <h4>Học phần</h4>
+        <p>Nhập môn Công nghệ số và ứng dụng trí tuệ nhân tạo (INF2501)<br>Giảng viên hướng dẫn: ThS. Vũ Việt Hoàng</p>
       </div>
       <div class="footer-col">
-        <h4>Thông tin sinh viên</h4>
-        <p style="margin-bottom: 0.4rem;"><strong>Họ và tên:</strong> Lê Thuý An</p>
-        <p style="margin-bottom: 0.4rem;"><strong>Mã SV:</strong> 2552210166</p>
-        <p style="margin-bottom: 0.4rem;"><strong>Lớp:</strong> K20D — Sư phạm Âm nhạc</p>
-        <p style="margin-bottom: 0.4rem;"><strong>Khoa:</strong> Sư phạm Âm nhạc</p>
-        <p style="color: var(--accent-cyan); font-weight: 600; margin-top: 0.6rem;">✓ Xuất bản trên GitHub Pages</p>
+        <h4>Thông tin cá nhân</h4>
+        <p>Mã sinh viên: <strong>2552210166</strong><br>Email: 2552210166@nuae.edu.vn<br>Bản quyền © 2026 Lê Thuý An</p>
       </div>
-    </div>
-    <div class="footer-credit">
-      <p>© 2026 Lê Thuý An — Mã SV: 2552210166 — Trường ĐH Sư phạm Nghệ thuật Trung ương. Tuân thủ Liêm chính học thuật.</p>
     </div>
   </footer>
-  <script src="js/main.js"></script>
 </body>
 </html>
