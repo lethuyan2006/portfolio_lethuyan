@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>E-Portfolio | Lê Thuý An - Sư phạm Âm nhạc</title>
+  <title>Bài tập 6: Sử dụng AI có Trách nhiệm | Lê Thuý An - Sư phạm Âm nhạc</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +14,204 @@
       document.documentElement.setAttribute('data-theme', savedTheme);
     })();
   </script>
+  <style>
+    /* Scoped styles for Bai tap 6 */
+    .meta-box-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1.2rem;
+      background: var(--bg-card);
+      border: 1px solid var(--primary-border);
+      border-radius: var(--radius-md);
+      padding: 1.4rem;
+      margin: 1.2rem 0;
+    }
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .meta-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: 0.5px;
+    }
+    .meta-value {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--text-heading);
+    }
+    .process-step-card {
+      background: var(--bg-card);
+      border: 1px solid var(--primary-border);
+      border-radius: var(--radius-md);
+      padding: 1.3rem;
+      margin-bottom: 1.2rem;
+      transition: var(--transition-normal);
+    }
+    .process-step-card:hover {
+      border-color: var(--primary);
+      box-shadow: 0 4px 20px var(--primary-glow-subtle);
+    }
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 0.6rem;
+    }
+    .step-num-badge {
+      width: 32px;
+      height: 32px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .step-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin: 0;
+    }
+    .rule-card {
+      background: var(--bg-card);
+      border: 1px solid var(--primary-border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      margin-bottom: 1.4rem;
+      border-left: 5px solid var(--primary);
+      transition: var(--transition-normal);
+    }
+    .rule-card:hover {
+      border-color: var(--primary-light);
+      box-shadow: 0 8px 30px var(--primary-glow-subtle);
+      transform: translateY(-2px);
+    }
+    .rule-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 0.8rem;
+    }
+    .rule-title-group {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .rule-icon {
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+    .rule-name {
+      font-size: 1.18rem;
+      font-weight: 800;
+      color: var(--text-heading);
+      margin: 0;
+    }
+    .rule-tag {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      background: var(--primary-glow-subtle);
+      color: var(--primary-light);
+      border: 1px solid var(--primary-border);
+    }
+    .rule-desc {
+      color: var(--text-body);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    .rule-details-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .rule-subbox {
+      background: var(--bg-card-alt);
+      border: 1px solid var(--primary-border);
+      border-radius: 8px;
+      padding: 1rem 1.1rem;
+    }
+    .rule-subbox-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--primary-light);
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .rule-subbox p, .rule-subbox ul {
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--text-body);
+    }
+    .rule-subbox ul {
+      padding-left: 1.1rem;
+    }
+    .pledge-banner {
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(6, 182, 212, 0.1));
+      border: 2px solid var(--primary);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      margin: 2rem 0;
+      position: relative;
+    }
+    .pledge-stamp {
+      display: inline-block;
+      border: 2px dashed #10B981;
+      color: #10B981;
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      font-weight: 800;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 1rem;
+    }
+    .citation-box {
+      background: var(--bg-card-alt);
+      border: 1px solid var(--primary-border);
+      border-left: 4px solid var(--secondary);
+      border-radius: 8px;
+      padding: 1.2rem;
+      margin-bottom: 1rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88rem;
+      line-height: 1.65;
+      color: var(--text-body);
+    }
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px dashed var(--primary-border);
+    }
+    .checklist-item:last-child {
+      border-bottom: none;
+    }
+    .check-icon {
+      color: #10B981;
+      font-weight: 800;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+  </style>
 </head>
 <body>
   <!-- HEADER & NAVIGATION -->
@@ -29,7 +227,7 @@
       <button class="mobile-toggle" aria-label="Toggle menu">☰</button>
       <nav>
         <ul class="nav-menu">
-          <li class="nav-item"><a href="index.html" class="nav-link ">Giới thiệu - About Me</a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link">Giới thiệu - About Me</a></li>
           <li class="nav-item dropdown">
             <a href="projects.html" class="nav-link active">Dự án - Projects ▾</a>
             <ul class="dropdown-menu">
@@ -39,69 +237,502 @@
               <li><a href="bai-tap-3.html" class="dropdown-item">⚡ Bài 3: Prompt Engineering & AI nhạc</a></li>
               <li><a href="bai-tap-4.html" class="dropdown-item">👥 Bài 4: Hợp tác trực tuyến dự án nhóm</a></li>
               <li><a href="bai-tap-5.html" class="dropdown-item">🎨 Bài 5: Sáng tạo nội dung số với AI</a></li>
-              <li><a href="bai-tap-6.html" class="dropdown-item">🛡️ Bài 6: Đạo đức & Liêm chính AI</a></li>
+              <li><a href="bai-tap-6.html" class="dropdown-item active">🛡️ Bài 6: Đạo đức & Liêm chính AI</a></li>
             </ul>
           </li>
-          <li class="nav-item"><a href="conclusion.html" class="nav-link ">Tổng kết - Conclusion</a></li>
+          <li class="nav-item"><a href="conclusion.html" class="nav-link">Tổng kết - Conclusion</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
+  <!-- MAIN CONTENT -->
   <main class="main-wrapper" style="margin-top: 2.5rem;">
     <div class="glass-panel reveal">
+      
+      <!-- PAGE HEADER -->
       <div class="page-header-box">
         <span class="badge-tag">Chương 6: An toàn và liêm chính học thuật trong môi trường số</span>
-        <h2 class="page-heading">BÀI TẬP 6 (MỤC 6.4): SỬ DỤNG AI CÓ TRÁCH NHIỆM TRONG HỌC TẬP VÀ NGHIÊN CỨU</h2>
+        <h2 class="page-heading">BÀI TẬP 4 (MỤC 6.4): SỬ DỤNG AI CÓ TRÁCH NHIỆM TRONG HỌC TẬP VÀ NGHIÊN CỨU</h2>
+        <p class="hero-tagline" style="font-size: 1.05rem; margin-top: 0.5rem; color: var(--text-muted);">
+          Xây dựng Bộ nguyên tắc cá nhân về Đạo đức AI, An toàn dữ liệu số và Liêm chính học thuật trong Sư phạm Âm nhạc
+        </p>
       </div>
 
-      <div class="feature-box goal" style="margin-bottom: 2rem;">
+      <!-- METADATA BOX -->
+      <div class="meta-box-grid">
+        <div class="meta-item">
+          <span class="meta-label">Sinh viên thực hiện</span>
+          <span class="meta-value">Lê Thuý An (2552210166)</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Chuyên ngành đào tạo</span>
+          <span class="meta-value">K20D Sư phạm Âm nhạc</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Giảng viên hướng dẫn</span>
+          <span class="meta-value">ThS. Vũ Việt Hoàng</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Khung pháp lý & Tiêu chuẩn</span>
+          <span class="meta-value" style="color: var(--primary-light);">UNESCO (2023) & TPACK & APA 7th</span>
+        </div>
+      </div>
+
+      <!-- a) MỤC TIÊU BÀI TẬP -->
+      <div class="feature-box goal" style="margin-bottom: 2.2rem;">
         <h3>🎯 a) Mục tiêu bài tập</h3>
-        <p>Phân tích và thực hành nghiêm túc các chuẩn mực đạo đức số, an toàn dữ liệu cá nhân và liêm chính học thuật; vận dụng <strong>5 Quy tắc vàng của AI</strong> để đảm bảo sự cân bằng giữa đổi mới công nghệ và gìn giữ bản sắc di sản âm nhạc dân tộc.</p>
+        <p style="color: var(--text-body); font-size: 0.96rem; line-height: 1.7; margin-bottom: 1rem;">
+          Nghiên cứu, hệ thống hóa và ban hành <strong>Bộ nguyên tắc cá nhân về sử dụng AI có trách nhiệm</strong> dựa trên các chuẩn mực quốc tế và đặc thù của chuyên ngành Sư phạm Âm nhạc; thiết lập ranh giới rõ ràng giữa việc ứng dụng công nghệ để nâng cao chất lượng dạy học và việc bảo tồn nguyên vẹn giá trị di sản văn hóa dân tộc.
+        </p>
+
+        <h4 style="font-size: 1.05rem; color: var(--primary-light); margin: 1.2rem 0 0.6rem;">
+          Các kỹ năng số & sư phạm được rèn luyện:
+        </h4>
+        <div class="grid-2" style="gap: 1rem;">
+          <div style="background: var(--bg-card-alt); border: 1px solid var(--primary-border); padding: 1rem 1.2rem; border-radius: 8px;">
+            <strong style="color: var(--primary-light); font-size: 0.95rem;">1. Kỹ năng thẩm định & Kiểm soát chất lượng (Human-in-the-loop):</strong>
+            <p style="margin: 0.4rem 0 0; font-size: 0.9rem; color: var(--text-body); line-height: 1.6;">
+              Rèn luyện năng lực sử dụng tai nghe chuyên môn, kiến thức nhạc lý ngũ cung và đàn tranh thực tế để kiểm tra, phát hiện lỗi sai về cao độ, phách nhịp trong các sản phẩm do AI tạo ra.
+            </p>
+          </div>
+          <div style="background: var(--bg-card-alt); border: 1px solid var(--primary-border); padding: 1rem 1.2rem; border-radius: 8px;">
+            <strong style="color: var(--primary-light); font-size: 0.95rem;">2. Kỹ năng minh bạch học thuật & Dán nhãn nội dung:</strong>
+            <p style="margin: 0.4rem 0 0; font-size: 0.9rem; color: var(--text-body); line-height: 1.6;">
+              Thực hành trích dẫn nguồn gốc prompt, công bố tỷ lệ can thiệp của AI theo chuẩn APA 7th và dán nhãn bản quyền rõ ràng trên mọi tệp âm thanh, giáo án điện tử.
+            </p>
+          </div>
+          <div style="background: var(--bg-card-alt); border: 1px solid var(--primary-border); padding: 1rem 1.2rem; border-radius: 8px;">
+            <strong style="color: var(--primary-light); font-size: 0.95rem;">3. Kỹ năng bảo mật dữ liệu & Quyền riêng tư học sinh:</strong>
+            <p style="margin: 0.4rem 0 0; font-size: 0.9rem; color: var(--text-body); line-height: 1.6;">
+              Nắm vững quy tắc an toàn không gian mạng: không cung cấp thông tin cá nhân, hình ảnh hoặc giọng thu âm của học sinh THCS lên các máy chủ AI đám mây công cộng.
+            </p>
+          </div>
+          <div style="background: var(--bg-card-alt); border: 1px solid var(--primary-border); padding: 1rem 1.2rem; border-radius: 8px;">
+            <strong style="color: var(--primary-light); font-size: 0.95rem;">4. Kỹ năng gìn giữ bản sắc âm nhạc dân tộc:</strong>
+            <p style="margin: 0.4rem 0 0; font-size: 0.9rem; color: var(--text-body); line-height: 1.6;">
+              Định hướng sáng tạo có trách nhiệm, ngăn chặn tình trạng lai căng hóa hoặc biến dạng giai điệu dân ca khi hòa âm bằng các thuật toán được đào tạo theo âm nhạc phương Tây.
+            </p>
+          </div>
+        </div>
       </div>
 
-      <div class="feature-box process" style="margin-bottom: 2rem;">
+      <!-- b) TÓM TẮT QUÁ TRÌNH THỰC HIỆN -->
+      <div class="feature-box process" style="margin-bottom: 2.2rem;">
         <h3>⚙️ b) Tóm tắt quá trình thực hiện</h3>
-        <p>Nghiên cứu văn bản hướng dẫn của UNESCO (2023) về AI tạo sinh trong giáo dục; rà soát chuẩn trích dẫn APA 7th; tự xây dựng bảng cam kết 5 điểm và áp dụng trực tiếp vào từng bài tập của học phần.</p>
-      </div>
+        <p style="color: var(--text-body); font-size: 0.95rem; line-height: 1.65; margin-bottom: 1.5rem;">
+          Quá trình xây dựng và hoàn thiện bộ quy tắc đạo đức AI được thực hiện qua 04 giai đoạn có tính kế thừa và gắn liền với thực tiễn các bài tập trước trong học phần:
+        </p>
 
-      <div class="feature-box product">
-        <h3>📦 c) Sản phẩm cuối cùng: Bộ 5 Quy tắc vàng sử dụng AI có trách nhiệm</h3>
-        
-        <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
-          <div class="feature-box" style="margin-bottom: 0; padding: 1.2rem 1.5rem;">
-            <strong style="color: #A78BFA; font-size: 1.05rem;">Quy tắc 1 – Minh bạch và Ghi nhận nguồn gốc:</strong>
-            <p style="color: var(--text-body); margin-top: 0.3rem;">Ghi chú công khai mọi nội dung, hình ảnh, âm thanh do AI hỗ trợ tạo sinh; ghi rõ tên công cụ (Gemini, Suno, Canva) và dán nhãn 'Bản phối thử nghiệm hỗ trợ bởi AI'.</p>
+        <!-- BƯỚC 1 -->
+        <div class="process-step-card">
+          <div class="step-header">
+            <span class="step-num-badge">1</span>
+            <h4 class="step-title">Bước 1: Nghiên cứu khung lý thuyết & Chuẩn mực đạo đức AI quốc tế</h4>
           </div>
-          <div class="feature-box" style="margin-bottom: 0; padding: 1.2rem 1.5rem;">
-            <strong style="color: #A78BFA; font-size: 1.05rem;">Quy tắc 2 – Thẩm định chuyên môn và Chịu trách nhiệm:</strong>
-            <p style="color: var(--text-body); margin-top: 0.3rem;">Không tin tưởng tuyệt đối vào kết quả từ AI; sinh viên trực tiếp sử dụng tai nghe chuyên môn và đàn tranh thực tế để kiểm tra cao độ, điệu thức ngũ cung và phách nhịp 2/4.</p>
-          </div>
-          <div class="feature-box" style="margin-bottom: 0; padding: 1.2rem 1.5rem;">
-            <strong style="color: #A78BFA; font-size: 1.05rem;">Quy tắc 3 – Tôn trọng bản sắc văn hóa dân tộc:</strong>
-            <p style="color: var(--text-body); margin-top: 0.3rem;">Ứng dụng AI với mục tiêu tôn vinh vẻ đẹp bài dân ca Thanh Hóa; tuyệt đối không tạo ra các bản phối lai căng, méo mó làm biến dạng tinh thần lao động lạc quan.</p>
-          </div>
-          <div class="feature-box" style="margin-bottom: 0; padding: 1.2rem 1.5rem;">
-            <strong style="color: #A78BFA; font-size: 1.05rem;">Quy tắc 4 – An toàn dữ liệu và Quyền riêng tư:</strong>
-            <p style="color: var(--text-body); margin-top: 0.3rem;">Chỉ nhập từ khóa chuyên môn học thuật công khai; tuyệt đối không tải dữ liệu cá nhân, thông tin học sinh lên các hệ thống AI công cộng.</p>
-          </div>
-          <div class="feature-box" style="margin-bottom: 0; padding: 1.2rem 1.5rem;">
-            <strong style="color: #A78BFA; font-size: 1.05rem;">Quy tắc 5 – AI hỗ trợ, Con người giữ vai trò chủ đạo:</strong>
-            <p style="color: var(--text-body); margin-top: 0.3rem;">AI chỉ đóng vai trò trợ lý hòa âm tiết tấu; cảm xúc nghệ thuật, tâm hồn âm nhạc và phương pháp truyền cảm hứng luôn thuộc về người thầy giáo đứng lớp.</p>
+          <p style="font-size: 0.92rem; color: var(--text-body); line-height: 1.65; margin: 0 0 0.8rem;">
+            Khảo sát các tài liệu nền tảng về đạo đức công nghệ: Hướng dẫn của UNESCO (2023) về <em>Generative AI in Education and Research</em>; Khung năng lực sư phạm công nghệ TPACK (Mishra & Koehler, 2006); Luật Sở hữu trí tuệ Việt Nam số 50/2005/QH11 (sửa đổi, bổ sung 2022); và Chỉ thị về Liêm chính học thuật trong giáo dục đại học của Bộ GD&ĐT.
+          </p>
+          <div style="font-size: 0.88rem; color: var(--text-muted); background: var(--bg-card-alt); padding: 0.6rem 1rem; border-radius: 6px; border-left: 3px solid var(--primary);">
+            📌 <em>Đúc kết: AI không phải là đồng tác giả (non-author), mọi quyền và nghĩa vụ pháp lý, chuyên môn hoàn toàn thuộc về người sử dụng.</em>
           </div>
         </div>
 
-        <div class="upload-placeholder" style="margin-top: 1.8rem;">
-          <div class="icon">🛡️</div>
-          <h4>Bảng cam kết Liêm chính học thuật & Trích dẫn nguồn theo chuẩn APA 7th</h4>
-          <p>Cam kết tuân thủ tuyệt đối chuẩn mực đạo đức số trong nghiên cứu khoa học.</p>
+        <!-- BƯỚC 2 -->
+        <div class="process-step-card">
+          <div class="step-header">
+            <span class="step-num-badge">2</span>
+            <h4 class="step-title">Bước 2: Phân tích các vùng rủi ro đặc thù trong Sư phạm Âm nhạc</h4>
+          </div>
+          <p style="font-size: 0.92rem; color: var(--text-body); line-height: 1.65; margin: 0 0 0.8rem;">
+            Từ thảo luận nhóm ở Bài tập 4, nhóm đã xác định 4 vùng rủi ro lớn nhất mà sinh viên Sư phạm Âm nhạc phải đối mặt:
+          </p>
+          <ul style="padding-left: 1.2rem; font-size: 0.91rem; color: var(--text-body); line-height: 1.65; margin: 0;">
+            <li><strong>Rủi ro sai lệch thang âm:</strong> AI thường mặc định thang âm 12 bán âm (Equal Temperament), dễ dẫn đến sai lệch luyến láy tinh tế của thang âm ngũ cung Bắc Bộ (Hò - Xự - Xang - Xê - Cống).</li>
+            <li><strong>Rủi ro xói mòn cảm xúc:</strong> Học sinh nếu chỉ nghe và hát theo nhạc beat AI tự động sẽ đánh mất kỹ năng cảm thụ tinh tế và khả năng tương tác trực tiếp với giáo viên.</li>
+            <li><strong>Rủi ro bản quyền bài hát:</strong> Nguy cơ sử dụng các bản ghi hoặc phong cách thuộc quyền sở hữu trí tuệ của nhạc sĩ, nghệ sĩ biểu diễn mà không được phép.</li>
+            <li><strong>Rủi ro an toàn không gian mạng:</strong> Tải hình ảnh lớp học hoặc thông tin của trẻ vị thành niên lên các công cụ trực tuyến không rõ nguồn gốc.</li>
+          </ul>
+        </div>
+
+        <!-- BƯỚC 3 -->
+        <div class="process-step-card">
+          <div class="step-header">
+            <span class="step-num-badge">3</span>
+            <h4 class="step-title">Bước 3: Dự thảo và Tối ưu hóa Bộ 5 Quy tắc vàng cá nhân</h4>
+          </div>
+          <p style="font-size: 0.92rem; color: var(--text-body); line-height: 1.65; margin: 0;">
+            Chắt lọc từ lý thuyết và thực tiễn để định hình <strong>Bộ 5 Quy tắc vàng</strong> ngắn gọn, dễ nhớ, có tiêu chí định lượng và hành động cụ thể để áp dụng vào tiết dạy Âm nhạc lớp 7.
+          </p>
+        </div>
+
+        <!-- BƯỚC 4 -->
+        <div class="process-step-card">
+          <div class="step-header">
+            <span class="step-num-badge">4</span>
+            <h4 class="step-title">Bước 4: Kiểm chứng thực tế xuyên suốt Portfolio học tập</h4>
+          </div>
+          <p style="font-size: 0.92rem; color: var(--text-body); line-height: 1.65; margin: 0;">
+            Áp dụng trực tiếp bộ quy tắc vào từng sản phẩm: Dán nhãn AI trên file audio 88 BPM (Bài 3); kiểm soát bảo mật thông tin cuộc họp trực tuyến (Bài 4); công khai toàn bộ 3 prompt tranh AI và đường liên kết Canva học liệu (Bài 5).
+          </p>
+        </div>
+
+        <!-- BẢNG KÊ CÔNG CỤ SỬ DỤNG & MỤC ĐÍCH SỬ DỤNG AI -->
+        <h4 style="font-size: 1.05rem; color: var(--text-heading); margin-top: 1.8rem; margin-bottom: 0.6rem;">
+          📊 Bảng kê Công cụ sử dụng & Mục đích ứng dụng AI (Minh bạch học thuật)
+        </h4>
+        <div style="overflow-x: auto;">
+          <table class="craap-table" style="font-size: 0.9rem; margin: 0.5rem 0 1.2rem;">
+            <thead>
+              <tr>
+                <th style="width: 22%;">Tên công cụ / Nền tảng</th>
+                <th style="width: 25%;">Phân loại công nghệ</th>
+                <th style="width: 35%;">Mục đích sử dụng cụ thể</th>
+                <th style="width: 18%;">Mức độ can thiệp của AI</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>ChatGPT (OpenAI)</strong></td>
+                <td>Mô hình ngôn ngữ lớn (LLM)</td>
+                <td>Tra cứu, tóm tắt các văn bản hướng dẫn của UNESCO (2023) và gợi ý các tình huống đạo đức số trong lớp học âm nhạc.</td>
+                <td><span class="rule-tag">Hỗ trợ gợi ý (30%)</span></td>
+              </tr>
+              <tr>
+                <td><strong>Perplexity AI</strong></td>
+                <td>Công cụ tìm kiếm AI học thuật</td>
+                <td>Tìm kiếm văn bản pháp luật, tài liệu nghiên cứu về bản quyền âm nhạc số kèm nguồn trích dẫn học thuật đã kiểm chứng.</td>
+                <td><span class="rule-tag">Tra cứu tư liệu (25%)</span></td>
+              </tr>
+              <tr>
+                <td><strong>Google Docs & Canva</strong></td>
+                <td>Nền tảng cộng tác & Đồ họa</td>
+                <td>Soạn thảo văn bản cam kết, thiết kế Infographic 5 Quy tắc vàng và sơ đồ ma trận rủi ro đạo đức số.</td>
+                <td><span class="rule-tag">Công cụ trình bày (10%)</span></td>
+              </tr>
+              <tr>
+                <td><strong>Nhạc cụ thực tế & Ký âm</strong></td>
+                <td>Con người trực tiếp thực hiện</td>
+                <td>Đọc bản nhạc, xướng âm, đối chiếu thang âm ngũ cung bằng tai nghe và kinh nghiệm nhạc lý Sư phạm Âm nhạc.</td>
+                <td><span class="rule-tag" style="background: rgba(16, 185, 129, 0.2); color: #34D399; border-color: rgba(16, 185, 129, 0.4);">Con người làm chủ (100%)</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- KHÓ KHĂN VÀ CÁCH GIẢI QUYẾT -->
+        <h4 style="font-size: 1.05rem; color: var(--text-heading); margin-top: 1.8rem; margin-bottom: 0.6rem;">
+          💡 Khó khăn gặp phải và Giải pháp khắc phục
+        </h4>
+        <div class="grid-2" style="gap: 1rem;">
+          <div style="background: var(--bg-card-alt); border: 1px solid var(--primary-border); padding: 1.1rem; border-radius: 8px;">
+            <strong style="color: #F87171; font-size: 0.95rem;">⚠️ Khó khăn 1: Thiếu quy chuẩn riêng cho âm nhạc dân tộc</strong>
+            <p style="font-size: 0.9rem; color: var(--text-body); line-height: 1.6; margin-top: 0.4rem;">
+              Hầu hết các tài liệu đạo đức AI quốc tế (UNESCO, IEEE) đều viết cho các tác vụ ngôn ngữ hoặc STEM, chưa có hướng dẫn chi tiết về bảo tồn âm nhạc cổ truyền bản địa.
+            </p>
+            <p style="font-size: 0.88rem; color: #34D399; margin-top: 0.4rem; font-weight: 600;">
+              ➔ Giải pháp: Vận dụng nguyên lý bảo tồn di sản của UNESCO kết hợp tư vấn giảng viên chuyên ngành để tự xây dựng tiêu chuẩn "Tôn trọng bản sắc văn hóa dân tộc" trong Quy tắc số 3.
+            </p>
+          </div>
+          <div style="background: var(--bg-card-alt); border: 1px solid var(--primary-border); padding: 1.1rem; border-radius: 8px;">
+            <strong style="color: #F87171; font-size: 0.95rem;">⚠️ Khó khăn 2: Ranh giới bản quyền của sản phẩm AI phái sinh</strong>
+            <p style="font-size: 0.9rem; color: var(--text-body); line-height: 1.6; margin-top: 0.4rem;">
+              Chưa có quy định pháp lý rõ ràng về quyền tác giả đối với giai điệu do AI tạo ra từ một bài dân ca truyền thống thuộc sở hữu toàn dân.
+            </p>
+            <p style="font-size: 0.88rem; color: #34D399; margin-top: 0.4rem; font-weight: 600;">
+              ➔ Giải pháp: Dán nhãn công khai "Bản phối học tập thể nghiệm phi thương mại", ghi rõ tác giả ca khúc gốc là "Dân ca Thanh Hóa" và minh bạch prompt đầu vào.
+            </p>
+          </div>
         </div>
       </div>
 
-      <div class="pagination-nav">
-        <a href="bai-tap-5.html" class="btn btn-glass" style="color: #A78BFA; border-color: #A78BFA;">⬅ Bài tập 5</a>
-        <a href="conclusion.html" class="btn btn-primary">Chuyển sang Trang Tổng kết ➔</a>
+      <!-- c) SẢN PHẨM CUỐI CÙNG -->
+      <div class="feature-box product" style="margin-bottom: 2rem;">
+        <h3>📦 c) Sản phẩm cuối cùng: Bộ nguyên tắc cá nhân về sử dụng AI có trách nhiệm</h3>
+        <p style="color: var(--text-body); font-size: 0.96rem; line-height: 1.7; margin-bottom: 1.8rem;">
+          Được đúc kết từ nghiên cứu khoa học và thực hành sư phạm, <strong>Bộ 5 Quy tắc vàng</strong> dưới đây là kim chỉ nam định hướng toàn bộ hoạt động học tập, nghiên cứu và giảng dạy âm nhạc của sinh viên Lê Thuý An:
+        </p>
+
+        <!-- QUY TẮC 1 -->
+        <div class="rule-card">
+          <div class="rule-header">
+            <div class="rule-title-group">
+              <span class="rule-icon">🔍</span>
+              <div>
+                <h4 class="rule-name">Quy tắc 1: Minh bạch & Ghi nhận nguồn gốc (Transparency & Attribution)</h4>
+                <span style="font-size: 0.85rem; color: var(--text-muted);">Nguyên tắc cốt lõi về liêm chính học thuật</span>
+              </div>
+            </div>
+            <span class="rule-tag">Bắt buộc 100%</span>
+          </div>
+          <p class="rule-desc">
+            Công khai tuyệt đối vai trò và mức độ can thiệp của AI trong mọi sản phẩm học tập và giảng dạy. Không bao giờ nhận sản phẩm do AI tạo sinh là tác phẩm tự thân của cá nhân.
+          </p>
+          <div class="rule-details-grid">
+            <div class="rule-subbox">
+              <div class="rule-subbox-title">Hành động cụ thể:</div>
+              <ul>
+                <li>Dán nhãn rõ ràng: <em>"Bản phối thử nghiệm được tạo với sự hỗ trợ của Suno AI & hoàn thiện bởi giáo viên"</em> trên mọi tệp âm thanh.</li>
+                <li>Công bố toàn văn câu lệnh Prompt, các tham số kỹ thuật (BPM, Style, Key) và tỷ lệ đóng góp của AI trong giáo án.</li>
+                <li>Trích dẫn công cụ AI theo đúng định dạng học thuật quốc tế (APA 7th Edition).</li>
+              </ul>
+            </div>
+            <div class="rule-subbox">
+              <div class="rule-subbox-title">Minh chứng thực tế trên Portfolio:</div>
+              <p>Trang Bài tập 3 đã công khai bảng so sánh Prompt v1 vs Prompt v2 kèm file âm thanh có dán nhãn; Bài tập 5 liệt kê chi tiết 3 câu lệnh tạo tranh minh họa số.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- QUY TẮC 2 -->
+        <div class="rule-card" style="border-left-color: #38BDF8;">
+          <div class="rule-header">
+            <div class="rule-title-group">
+              <span class="rule-icon">🛡️</span>
+              <div>
+                <h4 class="rule-name">Quy tắc 2: Thẩm định Chuyên môn & Chịu trách nhiệm (Human-in-the-loop & Accountability)</h4>
+                <span style="font-size: 0.85rem; color: var(--text-muted);">Trách nhiệm nghề nghiệp của nhà giáo</span>
+              </div>
+            </div>
+            <span class="rule-tag" style="background: rgba(56, 189, 248, 0.15); color: #38BDF8; border-color: rgba(56, 189, 248, 0.4);">Trách nhiệm cá nhân</span>
+          </div>
+          <p class="rule-desc">
+            Tuyệt đối không sử dụng trực tiếp sản phẩm của AI lên lớp học khi chưa được tai nghe sư phạm thẩm định và đối chiếu nhạc lý. Con người là chủ thể chịu trách nhiệm duy nhất về tính chuẩn xác của bài giảng.
+          </p>
+          <div class="rule-details-grid">
+            <div class="rule-subbox">
+              <div class="rule-subbox-title">Hành động cụ thể:</div>
+              <ul>
+                <li>Nghe từng ô nhịp để phát hiện nốt sai, phách lệch hoặc hòa âm xung đột với giai điệu chính.</li>
+                <li>Sử dụng đàn phím hoặc đàn tranh để kiểm âm trực tiếp trước khi đưa bản beat vào tiết dạy cho học sinh hát theo.</li>
+                <li>Sẵn sàng giải trình và chịu trách nhiệm sư phạm trước nhà trường và phụ huynh về mọi tài liệu dạy học.</li>
+              </ul>
+            </div>
+            <div class="rule-subbox">
+              <div class="rule-subbox-title">Minh chứng thực tế trên Portfolio:</div>
+              <p>Ở Bài tập 3, sau khi Suno AI tạo ra bản phối có tiếng Bass điện tử lấn át giọng hát, sinh viên đã xử lý hậu kỳ trên Audacity, giảm -3dB dải trầm để làm nổi bật tiếng sáo trúc và lời ca.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- QUY TẮC 3 -->
+        <div class="rule-card" style="border-left-color: #F59E0B;">
+          <div class="rule-header">
+            <div class="rule-title-group">
+              <span class="rule-icon">🎋</span>
+              <div>
+                <h4 class="rule-name">Quy tắc 3: Tôn trọng Bản sắc & Giữ gìn Văn hóa Dân tộc (Cultural Integrity)</h4>
+                <span style="font-size: 0.85rem; color: var(--text-muted);">Bảo vệ linh hồn di sản âm nhạc</span>
+              </div>
+            </div>
+            <span class="rule-tag" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B; border-color: rgba(245, 158, 11, 0.4);">Bản sắc dân gian</span>
+          </div>
+          <p class="rule-desc">
+            Ứng dụng công nghệ mới nhằm mục đích làm cho dân ca gần gũi hơn với thế hệ trẻ, nhưng phải bảo tồn nguyên vẹn tính chuẩn xác của giai điệu, lời ca, cấu trúc thang âm ngũ cung và tinh thần lao động lạc quan của dân tộc.
+          </p>
+          <div class="rule-details-grid">
+            <div class="rule-subbox">
+              <div class="rule-subbox-title">Hành động cụ thể:</div>
+              <ul>
+                <li>Tuyệt đối không làm biến dạng bài dân ca "Đi cấy" thành các thể loại phản cảm, dung tục hoặc lai căng mất gốc.</li>
+                <li>Giữ đúng điệu thức ngũ cung Bắc Bộ đặc trưng, chỉ cách tân ở bè đệm tiết tấu (Acoustic Lofi 88 BPM nhẹ nhàng, trong sáng).</li>
+                <li>Giáo dục học sinh thái độ trân trọng nguồn cội văn hóa khi tiếp xúc với các công nghệ số hiện đại.</li>
+              </ul>
+            </div>
+            <div class="rule-subbox">
+              <div class="rule-subbox-title">Minh chứng thực tế trên Portfolio:</div>
+              <p>Slide số 10 của Bài tập 5 mang thông điệp: <em>"Trân trọng dân ca, sáng tạo có trách nhiệm"</em>; tôn vinh nét đẹp lao động của người nông dân cấy lúa dưới ánh trăng thanh bình.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- QUY TẮC 4 -->
+        <div class="rule-card" style="border-left-color: #EC4899;">
+          <div class="rule-header">
+            <div class="rule-title-group">
+              <span class="rule-icon">🔒</span>
+              <div>
+                <h4 class="rule-name">Quy tắc 4: An toàn Dữ liệu & Quyền riêng tư của Học sinh (Data Privacy & Child Safety)</h4>
+                <span style="font-size: 0.85rem; color: var(--text-muted);">Bảo vệ môi trường sư phạm an toàn</span>
+              </div>
+            </div>
+            <span class="rule-tag" style="background: rgba(236, 72, 153, 0.15); color: #EC4899; border-color: rgba(236, 72, 153, 0.4);">Bảo mật số</span>
+          </div>
+          <p class="rule-desc">
+            Tuân thủ tuyệt đối các quy định về an toàn thông tin mạng và Luật Trẻ em: Không bao giờ cung cấp dữ liệu định danh, hình ảnh khuôn mặt, hay giọng hát chưa xin phép của học sinh lên các nền tảng AI công cộng.
+          </p>
+          <div class="rule-details-grid">
+            <div class="rule-subbox">
+              <div class="rule-subbox-title">Hành động cụ thể:</div>
+              <ul>
+                <li>Chỉ nhập các câu lệnh mang tính khái niệm, nhạc lý học thuật công khai vào các công cụ AI.</li>
+                <li>Che mờ hoặc ẩn danh mọi dữ liệu của học sinh khi làm minh chứng nghiên cứu sư phạm.</li>
+                <li>Không bắt buộc học sinh đăng ký các tài khoản AI thương mại đòi hỏi cung cấp số điện thoại hoặc thẻ thanh toán.</li>
+              </ul>
+            </div>
+            <div class="rule-subbox">
+              <div class="rule-subbox-title">Minh chứng thực tế trên Portfolio:</div>
+              <p>Mọi hình ảnh minh chứng trong Bài tập 4 và Bài tập 5 chỉ sử dụng hình ảnh minh họa số đồ họa (vector/AI art) hoặc ảnh của chính sinh viên trong nhóm, bảo mật 100% không gian trường học.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- QUY TẮC 5 -->
+        <div class="rule-card" style="border-left-color: #10B981;">
+          <div class="rule-header">
+            <div class="rule-title-group">
+              <span class="rule-icon">🌟</span>
+              <div>
+                <h4 class="rule-name">Quy tắc 5: AI là Trợ lý — Con người giữ vai trò Chủ đạo (Pedagogical Primacy)</h4>
+                <span style="font-size: 0.85rem; color: var(--text-muted);">Bản chất nghệ thuật & Cảm xúc người thầy</span>
+              </div>
+            </div>
+            <span class="rule-tag" style="background: rgba(16, 185, 129, 0.15); color: #10B981; border-color: rgba(16, 185, 129, 0.4);">Trọng tâm giáo dục</span>
+          </div>
+          <p class="rule-desc">
+            Âm nhạc là nghệ thuật của tâm hồn, cảm xúc và sự gắn kết giữa con người với con người. Công nghệ AI chỉ đóng vai trò phương tiện hỗ trợ chuẩn bị; người thầy giáo đứng lớp luôn là linh hồn thắp sáng tình yêu âm nhạc cho học trò.
+          </p>
+          <div class="rule-details-grid">
+            <div class="rule-subbox">
+              <div class="rule-subbox-title">Hành động cụ thể:</div>
+              <ul>
+                <li>Dành phần lớn thời lượng tiết học cho học sinh thực hành: cất tiếng hát, gõ đệm phách nhịp, vận động cơ thể và trao đổi cảm xúc.</li>
+                <li>Không để màn hình máy tính hay loa phát tự động thay thế giọng hát mẫu truyền cảm và tiếng đàn trực tiếp của người giáo viên.</li>
+                <li>Rèn luyện cho học sinh tư duy phản biện: biết lắng nghe, nhận xét và phát hiện điểm hay, điểm dở trong âm nhạc số.</li>
+              </ul>
+            </div>
+            <div class="rule-subbox">
+              <div class="rule-subbox-title">Minh chứng thực tế trên Portfolio:</div>
+              <p>Bản phối "Đi cấy" 88 BPM được thiết kế ở mức độ nhạc đệm nền nhẹ nhàng, nhường toàn bộ không gian âm thanh cho giọng hát tự nhiên và trong sáng của các em học sinh lớp 7.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- BẢNG CAM KẾT LIÊM CHÍNH HỌC THUẬT -->
+        <div class="pledge-banner">
+          <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem;">
+            <span style="font-size: 2rem;">📜</span>
+            <h4 style="font-size: 1.3rem; margin: 0; color: var(--text-heading); font-weight: 800;">
+              BẢN CAM KẾT LIÊM CHÍNH HỌC THUẬT VÀ ĐẠO ĐỨC SỐ
+            </h4>
+          </div>
+          <p style="color: var(--text-body); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem;">
+            Tôi, <strong>Lê Thuý An</strong>, sinh viên lớp K20D ngành Sư phạm Âm nhạc – Trường Đại học Sư phạm Nghệ thuật Trung ương, xin cam kết:
+          </p>
+          <ol style="padding-left: 1.3rem; color: var(--text-body); font-size: 0.93rem; line-height: 1.75; margin-bottom: 1.2rem;">
+            <li>Toàn bộ các sản phẩm thực hành từ Bài 1 đến Bài 6 trong Hồ sơ Năng lực số (E-Portfolio) này đều do tôi tự thực hiện dựa trên kiến thức đã tiếp thu được từ học phần <em>Nhập môn Công nghệ số và Ứng dụng AI</em>.</li>
+            <li>Mọi sự tham gia của các công cụ Trí tuệ nhân tạo (ChatGPT, Suno, Canva, Moises) đều được công bố công khai, minh bạch về prompt và mục đích sử dụng.</li>
+            <li>Không sao chép, đạo văn, mua bán học liệu hoặc sử dụng kết quả của người khác làm sản phẩm của mình dưới bất kỳ hình thức nào.</li>
+            <li>Tuyệt đối chịu trách nhiệm chuyên môn và kỷ luật học thuật cao nhất trước Giảng viên hướng dẫn và Hội đồng chấm thi nếu phát hiện bất kỳ sự gian lận nào.</li>
+          </ol>
+          <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; border-top: 1px dashed var(--primary-border); padding-top: 1rem;">
+            <div>
+              <span class="pledge-stamp">✓ Verified Academic Integrity</span>
+              <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.4rem;">
+                Thời gian cam kết: Tháng 11/2026 • Hà Nội
+              </div>
+            </div>
+            <div style="text-align: right;">
+              <div style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.3rem;">Người cam kết (Ký và ghi rõ họ tên):</div>
+              <div style="font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; font-weight: 800; color: var(--primary-light);">
+                Lê Thuý An
+              </div>
+              <div style="font-size: 0.82rem; color: var(--text-muted);">Mã SV: 2552210166</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- HƯỚNG DẪN TRÍCH DẪN NGUỒN AI CHUẨN APA 7TH -->
+        <h4 style="font-size: 1.15rem; color: var(--text-heading); margin-top: 2rem; margin-bottom: 0.8rem;">
+          📚 Quy chuẩn Trích dẫn Công cụ AI theo Chuẩn học thuật Quốc tế (APA 7th Edition)
+        </h4>
+        <p style="color: var(--text-body); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1rem;">
+          Theo hướng dẫn chính thức của Hiệp hội Tâm lý học Hoa Kỳ (American Psychological Association - APA, 2023), các sản phẩm và dữ liệu tạo ra từ AI tạo sinh được trích dẫn theo định dạng chuẩn như sau:
+        </p>
+
+        <!-- Trích dẫn ChatGPT -->
+        <div class="citation-box">
+          <span style="color: var(--primary-light); font-weight: 700;">1. Trích dẫn mô hình ngôn ngữ (ChatGPT / Gemini):</span><br>
+          OpenAI. (2024). <em>ChatGPT</em> (Phiên bản GPT-4o) [Mô hình ngôn ngữ lớn]. https://chatgpt.com<br>
+          <span style="color: var(--text-muted); font-size: 0.82rem;">➔ Trích dẫn trong bài (In-text): (OpenAI, 2024) - Lời nhắc: "Gợi ý tiến trình dạy học bài dân ca Đi cấy lớp 7".</span>
+        </div>
+
+        <!-- Trích dẫn Suno AI -->
+        <div class="citation-box">
+          <span style="color: var(--primary-light); font-weight: 700;">2. Trích dẫn công cụ âm thanh số (Suno AI):</span><br>
+          Suno Inc. (2024). <em>Suno AI Music Generator</em> (Phiên bản v3.5) [Phần mềm tạo âm thanh trí tuệ nhân tạo]. https://suno.com<br>
+          <span style="color: var(--text-muted); font-size: 0.82rem;">➔ Trích dẫn trong bài: (Suno Inc., 2024) - Lời nhắc: "Acoustic Lofi beat, Vietnamese folk song Đi cấy, 88 BPM, flute and acoustic guitar".</span>
+        </div>
+
+        <!-- Trích dẫn Canva Magic -->
+        <div class="citation-box">
+          <span style="color: var(--primary-light); font-weight: 700;">3. Trích dẫn công cụ thiết kế học liệu (Canva Magic Studio):</span><br>
+          Canva Pty Ltd. (2024). <em>Canva Magic Design & Magic Media</em> [Công cụ thiết kế đồ họa hỗ trợ bởi AI]. https://www.canva.com<br>
+          <span style="color: var(--text-muted); font-size: 0.82rem;">➔ Trích dẫn trong bài: (Canva, 2024) - Bộ slide bài giảng điện tử Âm nhạc lớp 7.</span>
+        </div>
+
+        <!-- CHECKLIST 10 TIÊU CHÍ -->
+        <h4 style="font-size: 1.15rem; color: var(--text-heading); margin-top: 2rem; margin-bottom: 0.8rem;">
+          📋 Bảng kiểm định (Checklist) 10 Tiêu chí Đạo đức AI dành cho Giáo viên Âm nhạc
+        </h4>
+        <div style="background: var(--bg-card); border: 1px solid var(--primary-border); border-radius: var(--radius-md); padding: 1.2rem 1.5rem;">
+          <div class="checklist-item">
+            <span class="check-icon">✓</span>
+            <div style="font-size: 0.92rem; color: var(--text-body);"><strong>1.</strong> Đã nghe và kiểm tra từng nốt nhạc trên đàn phím trước khi đưa file beat vào lớp học?</div>
+          </div>
+          <div class="checklist-item">
+            <span class="check-icon">✓</span>
+            <div style="font-size: 0.92rem; color: var(--text-body);"><strong>2.</strong> Giai điệu gốc của bài dân ca "Đi cấy" có được giữ nguyên vẹn, không bị đảo phách sai lệch?</div>
+          </div>
+          <div class="checklist-item">
+            <span class="check-icon">✓</span>
+            <div style="font-size: 0.92rem; color: var(--text-body);"><strong>3.</strong> Âm lượng nhạc đệm có cân đối vừa phải, tôn vinh giọng hát mộc mạc của học sinh?</div>
+          </div>
+          <div class="checklist-item">
+            <span class="check-icon">✓</span>
+            <div style="font-size: 0.92rem; color: var(--text-body);"><strong>4.</strong> Đã công khai thông tin "bản phối có sự hỗ trợ của AI" trên slide trình chiếu bài giảng?</div>
+          </div>
+          <div class="checklist-item">
+            <span class="check-icon">✓</span>
+            <div style="font-size: 0.92rem; color: var(--text-body);"><strong>5.</strong> Đã trích dẫn rõ ràng tác giả bài hát là "Dân ca Thanh Hóa"?</div>
+          </div>
+          <div class="checklist-item">
+            <span class="check-icon">✓</span>
+            <div style="font-size: 0.92rem; color: var(--text-body);"><strong>6.</strong> Không sử dụng bất kỳ thông tin riêng tư, hình ảnh thật của học sinh làm câu lệnh AI?</div>
+          </div>
+          <div class="checklist-item">
+            <span class="check-icon">✓</span>
+            <div style="font-size: 0.92rem; color: var(--text-body);"><strong>7.</strong> Tiết học có bố trí thời gian để giáo viên hát mẫu và đệm đàn trực tiếp cho học sinh nghe?</div>
+          </div>
+          <div class="checklist-item">
+            <span class="check-icon">✓</span>
+            <div style="font-size: 0.92rem; color: var(--text-body);"><strong>8.</strong> Có câu hỏi khuyến khích học sinh phát hiện điểm hạn chế hoặc nhận xét bản phối của AI?</div>
+          </div>
+          <div class="checklist-item">
+            <span class="check-icon">✓</span>
+            <div style="font-size: 0.92rem; color: var(--text-body);"><strong>9.</strong> Các hình ảnh minh họa trên slide có trong sáng, phù hợp với tâm sinh lý lứa tuổi học sinh THCS?</div>
+          </div>
+          <div class="checklist-item">
+            <span class="check-icon">✓</span>
+            <div style="font-size: 0.92rem; color: var(--text-body);"><strong>10.</strong> Giáo viên có hoàn toàn làm chủ tiến trình lớp học mà không phụ thuộc vào kết nối Internet?</div>
+          </div>
+        </div>
+
       </div>
+
+      <!-- ĐIỀU HƯỚNG TRANG (NAVIGATION) -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--primary-border); flex-wrap: wrap; gap: 1rem;">
+        <a href="bai-tap-5.html" class="btn btn-secondary" style="padding: 0.65rem 1.4rem; font-size: 0.92rem;">
+          ⬅ Bài tập 5: Sáng tạo nội dung với AI
+        </a>
+        <a href="projects.html" style="color: var(--primary-light); text-decoration: none; font-weight: 700; font-size: 0.95rem;">
+          📂 Danh mục 06 Bài tập
+        </a>
+        <a href="conclusion.html" class="btn btn-primary" style="padding: 0.65rem 1.4rem; font-size: 0.92rem;">
+          Chuyển sang Trang Tổng kết (Conclusion) ➔
+        </a>
+      </div>
+
     </div>
   </main>
 
@@ -112,14 +743,14 @@
         <h4>Hồ sơ Năng lực Số (E-Portfolio)</h4>
         <p style="margin-bottom: 0.8rem; line-height: 1.6;">Học phần: <strong>Nhập môn Công nghệ số và ứng dụng trí tuệ nhân tạo (INF2501)</strong></p>
         <p style="margin-bottom: 0.8rem; line-height: 1.6;">Chủ đề thực hành: <em>Ứng dụng AI tạo bản phối mới cho bài dân ca "Đi cấy" trong chương trình Âm nhạc lớp 7.</em></p>
-        <p style="color: #64748B; font-size: 0.85rem;">Trường Đại học Sư phạm Nghệ thuật Trung ương — Khoa Sư phạm Âm nhạc.</p>
+        <p style="color: var(--text-muted); font-size: 0.85rem;">Trường Đại học Sư phạm Nghệ thuật Trung ương — Khoa Sư phạm Âm nhạc.</p>
       </div>
       <div class="footer-col">
         <h4>Liên kết nhanh</h4>
         <ul>
           <li><a href="index.html">➔ Trang Giới thiệu (About Me)</a></li>
           <li><a href="projects.html">➔ Tổng quan 06 bài tập (Projects)</a></li>
-          <li><a href="bai-tap-3.html">➔ Kịch bản Prompt & Audio AI</a></li>
+          <li><a href="bai-tap-5.html">➔ Bộ Slide Canva bài giảng 'Đi cấy'</a></li>
           <li><a href="conclusion.html">➔ Tổng kết & Tự đánh giá</a></li>
         </ul>
       </div>
@@ -136,6 +767,7 @@
       <p>© 2026 Lê Thuý An — Mã SV: 2552210166 — Trường ĐH Sư phạm Nghệ thuật Trung ương. Tuân thủ Liêm chính học thuật.</p>
     </div>
   </footer>
+
   <script src="js/main.js"></script>
 </body>
 </html>
