@@ -102,136 +102,70 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 6. Persistent Bottom Audio Player Initialization
-  let globalAudio = document.getElementById('global-kvolt-audio');
-  if (!globalAudio) {
-    globalAudio = document.createElement('audio');
-    globalAudio.id = 'global-kvolt-audio';
-    globalAudio.src = 'audio/di_cay_88bpm.m4a';
-    globalAudio.preload = 'metadata';
-    document.body.appendChild(globalAudio);
-  }
-
-  // Inject persistent bottom player if not present in HTML
-  let bottomPlayer = document.querySelector('.kvolt-bottom-player');
-  if (!bottomPlayer) {
-    bottomPlayer = document.createElement('div');
-    bottomPlayer.className = 'kvolt-bottom-player';
-    bottomPlayer.innerHTML = `
-      <div class="player-left">
-        <div class="player-art">🌾</div>
-        <div class="player-meta">
-          <h4>Đi cấy (Dân ca Thanh Hóa)</h4>
-          <span>Acoustic Lofi · 88 BPM • Bản phối mới AI</span>
-        </div>
-      </div>
-      <div class="player-center">
-        <div class="player-controls">
-          <button class="player-btn-circle" id="kvolt-play-btn" title="Phát / Dừng bản phối">▶</button>
-        </div>
-        <div class="player-timeline">
-          <span class="player-time" id="kvolt-time-current">0:00</span>
-          <div class="player-progress-bar" id="kvolt-progress-track">
-            <div class="player-progress-fill" id="kvolt-progress-fill"></div>
-          </div>
-          <span class="player-time" id="kvolt-time-total">0:34</span>
-        </div>
-      </div>
-      <div class="player-right">
-        <a href="audio/di_cay_88bpm.m4a" download class="player-action-btn">⬇ Tải Audio (.m4a)</a>
-      </div>
-    `;
-    document.body.appendChild(bottomPlayer);
-  }
-
-  const playBtn = document.getElementById('kvolt-play-btn');
-  const progressTrack = document.getElementById('kvolt-progress-track');
-  const progressFill = document.getElementById('kvolt-progress-fill');
-  const timeCurrent = document.getElementById('kvolt-time-current');
-  const timeTotal = document.getElementById('kvolt-time-total');
+  // 6. In-Page Audio Player (for Bai tap 3 - không gim cố định ở chân trang)
+  const inPageAudio = document.getElementById('audio-player-element');
+  const inPagePlayBtn = document.querySelector('.play-toggle-btn');
+  const inPageProgressTrack = document.querySelector('.progress-track');
+  const inPageProgressFill = document.querySelector('.progress-fill');
+  const inPageTimeCurrent = document.querySelector('.time-current');
+  const inPageTimeTotal = document.querySelector('.time-total');
   const visualizerBars = document.querySelectorAll('.music-visualizer .bar');
 
-  // Also sync with in-page player if present (e.g. on bai-tap-3.html)
-  const inPagePlayBtn = document.querySelector('.play-toggle-btn');
-
-  function updatePlayState(isPlaying) {
-    if (playBtn) {
-      playBtn.innerHTML = isPlaying ? '❚❚' : '▶';
-      playBtn.style.boxShadow = isPlaying ? '0 0 20px var(--primary-glow)' : '';
-    }
-    if (inPagePlayBtn) {
+  if (inPageAudio && inPagePlayBtn) {
+    function updateInPageState(isPlaying) {
       inPagePlayBtn.innerHTML = isPlaying ? '❚❚' : '▶';
-    }
-    visualizerBars.forEach(bar => {
-      bar.style.animationPlayState = isPlaying ? 'running' : 'paused';
-    });
-  }
-
-  if (globalAudio) {
-    globalAudio.addEventListener('loadedmetadata', () => {
-      if (timeTotal && globalAudio.duration) {
-        const m = Math.floor(globalAudio.duration / 60);
-        const s = Math.floor(globalAudio.duration % 60);
-        timeTotal.innerText = `${m}:${s < 10 ? '0' : ''}${s}`;
-      }
-    });
-
-    globalAudio.addEventListener('timeupdate', () => {
-      if (globalAudio.duration) {
-        const percent = (globalAudio.currentTime / globalAudio.duration) * 100;
-        if (progressFill) progressFill.style.width = percent + '%';
-        if (timeCurrent) {
-          const m = Math.floor(globalAudio.currentTime / 60);
-          const s = Math.floor(globalAudio.currentTime % 60);
-          timeCurrent.innerText = `${m}:${s < 10 ? '0' : ''}${s}`;
-        }
-      }
-    });
-
-    globalAudio.addEventListener('ended', () => {
-      updatePlayState(false);
-      if (progressFill) progressFill.style.width = '0%';
-      if (timeCurrent) timeCurrent.innerText = '0:00';
-    });
-
-    if (playBtn) {
-      playBtn.addEventListener('click', () => {
-        if (globalAudio.paused) {
-          globalAudio.play().then(() => {
-            updatePlayState(true);
-            showToast('Đang phát bản phối: Đi cấy (Acoustic Lofi 88 BPM)');
-          }).catch(err => {
-            console.warn('Audio play error:', err);
-          });
-        } else {
-          globalAudio.pause();
-          updatePlayState(false);
-          showToast('Đã tạm dừng bản phối');
-        }
+      visualizerBars.forEach(bar => {
+        bar.style.animationPlayState = isPlaying ? 'running' : 'paused';
       });
     }
 
-    if (progressTrack) {
-      progressTrack.addEventListener('click', (e) => {
-        const rect = progressTrack.getBoundingClientRect();
+    inPagePlayBtn.addEventListener('click', () => {
+      if (inPageAudio.paused) {
+        inPageAudio.play().then(() => {
+          updateInPageState(true);
+          showToast('Đang phát bản phối: Đi cấy (Acoustic Lofi 88 BPM)');
+        }).catch(err => {
+          console.warn('Audio play error:', err);
+        });
+      } else {
+        inPageAudio.pause();
+        updateInPageState(false);
+        showToast('Đã tạm dừng bản phối');
+      }
+    });
+
+    inPageAudio.addEventListener('loadedmetadata', () => {
+      if (inPageTimeTotal && inPageAudio.duration) {
+        const m = Math.floor(inPageAudio.duration / 60);
+        const s = Math.floor(inPageAudio.duration % 60);
+        inPageTimeTotal.innerText = `${m}:${s < 10 ? '0' : ''}${s}`;
+      }
+    });
+
+    inPageAudio.addEventListener('timeupdate', () => {
+      if (inPageAudio.duration) {
+        const percent = (inPageAudio.currentTime / inPageAudio.duration) * 100;
+        if (inPageProgressFill) inPageProgressFill.style.width = percent + '%';
+        if (inPageTimeCurrent) {
+          const m = Math.floor(inPageAudio.currentTime / 60);
+          const s = Math.floor(inPageAudio.currentTime % 60);
+          inPageTimeCurrent.innerText = `${m}:${s < 10 ? '0' : ''}${s}`;
+        }
+      }
+    });
+
+    inPageAudio.addEventListener('ended', () => {
+      updateInPageState(false);
+      if (inPageProgressFill) inPageProgressFill.style.width = '0%';
+      if (inPageTimeCurrent) inPageTimeCurrent.innerText = '0:00';
+    });
+
+    if (inPageProgressTrack) {
+      inPageProgressTrack.addEventListener('click', (e) => {
+        const rect = inPageProgressTrack.getBoundingClientRect();
         const clickPos = (e.clientX - rect.left) / rect.width;
-        if (globalAudio.duration) {
-          globalAudio.currentTime = clickPos * globalAudio.duration;
-        }
-      });
-    }
-
-    // Connect in-page player button if on Bai tap 3
-    if (inPagePlayBtn) {
-      inPagePlayBtn.addEventListener('click', () => {
-        if (globalAudio.paused) {
-          globalAudio.play().then(() => {
-            updatePlayState(true);
-            showToast('Đang phát bản phối âm thanh: Đi cấy (Acoustic Lofi 88 BPM)');
-          });
-        } else {
-          globalAudio.pause();
-          updatePlayState(false);
+        if (inPageAudio.duration) {
+          inPageAudio.currentTime = clickPos * inPageAudio.duration;
         }
       });
     }
