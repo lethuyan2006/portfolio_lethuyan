@@ -105,26 +105,74 @@
       margin-top: 0.3rem;
       border: 1px solid var(--primary-border);
     }
-    /* Chat Dialog Styles */
-    .dialog-item {
+    /* Academic Report Summary Cards */
+    .report-topic-card {
+      background: var(--bg-card);
+      border: 1px solid var(--primary-border);
+      border-radius: var(--radius-md);
+      padding: 1.4rem;
+      margin-bottom: 1.3rem;
+      transition: var(--transition-normal);
+    }
+    .report-topic-card:hover {
+      border-color: var(--primary);
+      box-shadow: 0 4px 20px var(--primary-glow-subtle);
+    }
+    .topic-header {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.4rem;
+    }
+    .topic-header h4 {
+      font-size: 1.12rem;
+      color: var(--text-heading);
+      margin: 0;
+      font-weight: 700;
+    }
+    .topic-badge {
+      display: inline-block;
+      background: var(--primary-glow-subtle);
+      color: var(--primary-light);
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.2rem 0.6rem;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--primary-border);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .topic-intro {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-bottom: 0.8rem;
+    }
+    .subtopic-box {
       background: var(--bg-card-alt);
       border: 1px solid var(--primary-border);
       border-radius: 8px;
-      padding: 1rem 1.2rem;
-      margin-bottom: 0.9rem;
-      line-height: 1.65;
+      padding: 1rem 1.1rem;
+      line-height: 1.6;
     }
-    .dialog-speaker {
+    .subtopic-title {
       font-weight: 700;
       color: var(--primary-light);
-      margin-bottom: 0.3rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
     }
-    .dialog-text {
+    .subtopic-box p {
+      font-size: 0.9rem;
       color: var(--text-body);
-      font-size: 0.93rem;
+      margin: 0;
+      line-height: 1.6;
+    }
+    .benefit-col {
+      background: var(--bg-card-alt);
+      border: 1px solid var(--primary-border);
+      border-radius: 8px;
+      padding: 1.2rem;
     }
   </style>
   <script>
@@ -337,116 +385,174 @@
         </ul>
       </div>
 
-      <!-- II. KỊCH BẢN CHI TIẾT CUỘC HỌP -->
+      <!-- II. TÓM TẮT NỘI DUNG CUỘC HỌP THEO BÁO CÁO CHUYÊN MÔN -->
       <div class="feature-box process" style="margin-bottom: 2rem;">
-        <h3>💬 II. Kịch bản Chi tiết & Diễn biến Thảo luận Cuộc họp</h3>
-        <p style="color: var(--text-body); font-size: 0.95rem; margin-bottom: 1.2rem;">
-          Toàn văn diễn biến trao đổi của 05 thành viên trích từ kịch bản cuộc họp trực tuyến chính thức:
+        <h3>📝 II. Tóm tắt Nội dung Cuộc họp Chuyên môn (Tổng hợp theo Báo cáo Sư phạm)</h3>
+        <p style="color: var(--text-body); font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.65;">
+          Buổi họp trực tuyến của nhóm được triển khai dựa trên kịch bản điều phối và định hướng chuyên môn sâu sắc. Dưới đây là nội dung tóm tắt các vấn đề cốt lõi đã được 05 thành viên thảo luận, phản biện và thống nhất trong báo cáo học thuật <em>"Ứng dụng Trí tuệ nhân tạo (AI) trong dạy học môn Âm nhạc"</em>:
         </p>
 
-        <!-- PHẦN 1: KHAI MẠC -->
-        <h4 style="font-size: 1.1rem; color: var(--primary); margin: 1.2rem 0 0.6rem;">
-          📍 GIAI ĐOẠN 1: KHAI MẠC CUỘC HỌP (3 PHÚT)
-        </h4>
-        
-        <div class="dialog-item">
-          <div class="dialog-speaker">👑 Tường An (Chủ trì):</div>
-          <div class="dialog-text">
-            "Xin chào cô và các bạn! Hôm nay, nhóm chúng ta tổ chức một buổi họp trực tuyến để cùng thảo luận về chủ đề <strong>'Ứng dụng trí tuệ nhân tạo (AI) trong dạy học môn Âm nhạc'</strong>. Đây là một chủ đề rất gần gũi và thiết thực trong thời đại công nghệ số hiện nay, đặc biệt đối với sinh viên ngành Sư phạm Âm nhạc. Mục tiêu của buổi họp là tìm hiểu những ứng dụng của AI trong việc giảng dạy, học tập âm nhạc, đồng thời phân tích những lợi ích, hạn chế và đề xuất giải pháp sử dụng AI hiệu quả. Trước tiên, mình xin giới thiệu các thành viên tham gia hôm nay gồm có Hà An, Minh Anh, Phương Anh, Thúy An và mình là Tường An. Mọi người đã sẵn sàng chưa?"
+        <!-- 1. CÁC HƯỚNG ỨNG DỤNG AI TIÊU BIỂU -->
+        <div class="report-topic-card">
+          <div class="topic-header">
+            <span class="topic-badge">Nội dung 1</span>
+            <h4>1. Các hướng ứng dụng Trí tuệ nhân tạo (AI) trong dạy học môn Âm nhạc</h4>
+          </div>
+          <p class="topic-intro">
+            (Báo cáo chuyên đề bởi thành viên <strong>Lê Minh Anh</strong>)
+          </p>
+          <div class="grid-2" style="gap: 1rem; margin-top: 1rem;">
+            <div class="subtopic-box">
+              <div class="subtopic-title">🤖 1.1. Thiết kế bài dạy & Xây dựng bài tập (ChatGPT / Gemini)</div>
+              <p>Gợi ý tiến trình tiết dạy, hệ thống câu hỏi củng cố nhạc lý, thiết kế trò chơi âm nhạc (phân biệt phách mạnh - nhẹ trong nhịp 2/4, 3/4) và nhiệm vụ thực hành phân hóa theo năng lực học sinh.</p>
+            </div>
+            <div class="subtopic-box">
+              <div class="subtopic-title">🎵 1.2. Sáng tạo giai điệu & Phối khí mới (Suno AI / Udio)</div>
+              <p>Tạo các đoạn beat đệm, bài hát mẫu có lời hoặc không lời từ mô tả văn bản (phong cách Lofi, Acoustic, Pop). Giáo viên dùng làm ngữ liệu so sánh sắc thái, tốc độ; học sinh dùng làm cảm hứng đặt lời mới.</p>
+            </div>
+            <div class="subtopic-box">
+              <div class="subtopic-title">🎛️ 1.3. Chuẩn bị nhạc đệm & Tách bè luyện tập (Moises)</div>
+              <p>Tách giọng hát (Vocal) khỏi bè đệm, tách riêng từng nhạc cụ (Guitar, Trống, Piano), điều chỉnh nâng/hạ Tone và giảm Tempo ở những câu nhạc khó, giúp học sinh luyện hát theo đúng âm vực.</p>
+            </div>
+            <div class="subtopic-box">
+              <div class="subtopic-title">🎼 1.4. Nhận diện nốt nhạc & Phân tích âm thanh (Spotify Basic Pitch)</div>
+              <p>Chuyển đổi âm thanh trực tiếp sang dữ liệu MIDI, trực quan hóa cao độ và trường độ nốt nhạc xuất hiện. Hỗ trợ học sinh thu âm câu hát để tự kiểm tra độ chuẩn xác khi luyện xướng âm.</p>
+            </div>
+          </div>
+          <div class="subtopic-box" style="margin-top: 1rem;">
+            <div class="subtopic-title">🖼️ 1.5. Xây dựng học liệu đa phương tiện trực quan (Canva Magic)</div>
+            <p>Hỗ trợ thiết kế Slide bài giảng điện tử sinh động, đồ họa Infographic tiến trình âm nhạc, tạo thẻ bài học tương tác và trò chơi ghép nối nhạc cụ dân tộc với âm thanh tương ứng.</p>
           </div>
         </div>
 
-        <div class="dialog-item">
-          <div class="dialog-speaker">📝 Hà An (Thư ký):</div>
-          <div class="dialog-text">
-            "Mình đã sẵn sàng. Mình sẽ phụ trách ghi chép nội dung cuộc họp, các ý kiến đóng góp và những quyết định mà nhóm thống nhất."
+        <!-- 2. LỢI ÍCH SƯ PHẠM -->
+        <div class="report-topic-card" style="margin-top: 1.5rem;">
+          <div class="topic-header">
+            <span class="topic-badge">Nội dung 2</span>
+            <h4>2. Đánh giá Lợi ích Sư phạm đối với Giáo viên & Học sinh</h4>
+          </div>
+          <p class="topic-intro">
+            (Thảo luận chuyên sâu bởi thành viên <strong>Vũ Phương Anh</strong> cùng các thành viên trong nhóm)
+          </p>
+          <div class="grid-2" style="gap: 1.2rem; margin-top: 1rem;">
+            <div class="benefit-col">
+              <h5 style="color: var(--primary-light); margin-bottom: 0.6rem; font-size: 0.98rem; font-weight: 700;">
+                👩‍🏫 Đối với Giáo viên Âm nhạc:
+              </h5>
+              <ul style="padding-left: 1.2rem; line-height: 1.65; font-size: 0.92rem; color: var(--text-body); margin: 0;">
+                <li><strong>Tiết kiệm thời gian chuẩn bị:</strong> Rút ngắn khâu tìm kiếm ý tưởng, soạn giáo án điện tử và tạo tư liệu nghe nhìn minh họa.</li>
+                <li><strong>Làm phong phú phương tiện dạy học:</strong> Dễ dàng tạo các đoạn nhạc đệm mẫu ở nhiều tốc độ, sắc thái mà nhạc cụ thông thường khó thể hiện.</li>
+                <li><strong>Hỗ trợ dạy học phân hóa:</strong> AI gợi ý hệ thống bài tập theo nhiều mức độ nhận thức, giúp thầy cô điều chỉnh nhiệm vụ linh hoạt cho từng đối tượng học sinh.</li>
+              </ul>
+            </div>
+            <div class="benefit-col">
+              <h5 style="color: var(--secondary); margin-bottom: 0.6rem; font-size: 0.98rem; font-weight: 700;">
+                👨‍🎓 Đối với Học sinh THCS:
+              </h5>
+              <ul style="padding-left: 1.2rem; line-height: 1.65; font-size: 0.92rem; color: var(--text-body); margin: 0;">
+                <li><strong>Tăng hứng thú và tính chủ động:</strong> Âm thanh và hình ảnh số hiện đại giúp tiết học bớt khô khan, thu hút các em khám phá bài hát mới.</li>
+                <li><strong>Cá nhân hóa việc luyện tập:</strong> Học sinh có thể chủ động luyện nghe, nhận diện cao độ, tiết tấu và luyện tập hát theo nhịp độ riêng tại nhà.</li>
+                <li><strong>Phát triển tư duy phản biện:</strong> Khi được giao nhiệm vụ nhận xét và tìm lỗi sai trong sản phẩm của AI, học sinh nâng cao năng lực thẩm mỹ và cảm thụ âm nhạc.</li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <div class="dialog-item">
-          <div class="dialog-speaker">🎤 Lê Minh Anh (Người trình bày):</div>
-          <div class="dialog-text">
-            "Mình đã chuẩn bị một số nội dung về khái niệm AI và những công cụ AI có thể ứng dụng trong dạy học Âm nhạc để trình bày với nhóm."
+        <!-- 3. HẠN CHẾ & THÁCH THỨC -->
+        <div class="report-topic-card" style="margin-top: 1.5rem;">
+          <div class="topic-header">
+            <span class="topic-badge" style="background: rgba(239, 68, 68, 0.15); color: #f87171; border-color: rgba(239, 68, 68, 0.4);">Nội dung 3</span>
+            <h4>3. Hạn chế, Thách thức & Nguy cơ khi ứng dụng AI</h4>
+          </div>
+          <p class="topic-intro">
+            (Phân tích phản biện bởi thành viên <strong>Lê Thuý An</strong>)
+          </p>
+          <ul style="padding-left: 1.2rem; line-height: 1.7; font-size: 0.93rem; color: var(--text-body); margin-top: 0.8rem; margin-bottom: 0;">
+            <li><strong>Nguy cơ thụ động nghệ thuật:</strong> Nếu quá lạm dụng sản phẩm âm nhạc tự động của AI, học sinh dễ ỷ lại, giảm thời lượng tự cất tiếng hát, gõ phách và tự biểu đạt cảm xúc chân thật.</li>
+            <li><strong>Chênh lệch hạ tầng thiết bị:</strong> Điều kiện máy tính, loa và đường truyền Internet giữa các trường, các vùng miền chưa đồng đều; năng lực ứng dụng công nghệ của giáo viên còn khoảng cách.</li>
+            <li><strong>Sai lệch kiến thức nhạc lý & bản sắc dân tộc:</strong> Các mô hình AI quốc tế dễ tạo ra lỗi sai về ký âm, nhịp phách, hoặc phối sai thang âm ngũ cung của dân ca Việt Nam (nhầm lẫn giữa âm hưởng phương Tây và âm hưởng dân gian Bắc Bộ / Nam Bộ).</li>
+            <li><strong>Vấn đề bản quyền & quyền riêng tư:</strong> Nguy cơ vi phạm quyền tác giả khi khai thác bản ghi âm mẫu, đồng thời cần tuyệt đối bảo mật thông tin và hình ảnh học sinh trên các nền tảng trực tuyến.</li>
+          </ul>
+        </div>
+
+        <!-- 4. GIẢI PHÁP VÀ BÀI HỌC KINH NGHIỆM -->
+        <div class="report-topic-card" style="margin-top: 1.5rem;">
+          <div class="topic-header">
+            <span class="topic-badge" style="background: rgba(16, 185, 129, 0.15); color: #34d399; border-color: rgba(16, 185, 129, 0.4);">Nội dung 4</span>
+            <h4>4. Định hướng Giải pháp Sư phạm & Bài học Kinh nghiệm</h4>
+          </div>
+          <p class="topic-intro">
+            (Giải pháp do <strong>Lê Thuý An</strong> đề xuất và được toàn thể nhóm thống nhất)
+          </p>
+          <div class="grid-2" style="gap: 1rem; margin-top: 1rem;">
+            <div class="subtopic-box">
+              <div class="subtopic-title">🎯 4.1. Xác định AI là công cụ hỗ trợ</div>
+              <p>AI tuyệt đối không thay thế được người giáo viên. Mọi sản phẩm âm thanh, hình ảnh do AI tạo ra đều phải qua khâu thẩm định, kiểm tra độ chuẩn xác của giáo viên trước khi đưa vào tiết dạy.</p>
+            </div>
+            <div class="subtopic-box">
+              <div class="subtopic-title">📚 4.2. Bồi dưỡng năng lực số chuyên biệt</div>
+              <p>Giáo viên cần được tập huấn gắn với thực tế môn Âm nhạc (tạo nhạc đệm, tách bè, soạn câu hỏi tương tác) kết hợp hiểu biết về bản quyền và an toàn dữ liệu số.</p>
+            </div>
+            <div class="subtopic-box">
+              <div class="subtopic-title">🔍 4.3. Phát huy tư duy phản biện của học sinh</div>
+              <p>Giao nhiệm vụ cho học sinh đối chiếu sản phẩm AI với bản nhạc chuẩn, phát hiện nốt sai, hòa thanh chưa hợp lý để biến lỗi của AI thành cơ hội học tập tích cực.</p>
+            </div>
+            <div class="subtopic-box">
+              <div class="subtopic-title">🎻 4.4. Hài hòa công nghệ với thực hành trực tiếp</div>
+              <p>Dù có nhạc đệm AI sinh động, tiết dạy Âm nhạc vẫn phải lấy hoạt động hát, vận động cơ thể, gõ đệm nhạc cụ dân tộc và cảm nhận thẩm mỹ của người học làm cốt lõi.</p>
+            </div>
           </div>
         </div>
 
-        <div class="dialog-item">
-          <div class="dialog-speaker">💡 Vũ Phương Anh:</div>
-          <div class="dialog-text">
-            "Mình cũng đã chuẩn bị một số ý kiến về lợi ích của AI đối với giáo viên và học sinh trong quá trình dạy và học môn Âm nhạc."
+        <!-- 5. KẾT LUẬN & PHÂN CÔNG NHIỆM VỤ -->
+        <div class="report-topic-card" style="margin-top: 1.5rem;">
+          <div class="topic-header">
+            <span class="topic-badge">Nội dung 5</span>
+            <h4>5. Kết luận Cuộc họp & Phân công Hoàn thiện Báo cáo</h4>
           </div>
-        </div>
-
-        <div class="dialog-item">
-          <div class="dialog-speaker">🛡️ Lê Thuý An:</div>
-          <div class="dialog-text">
-            "Mình sẽ tập trung vào những hạn chế khi sử dụng AI và đề xuất một số giải pháp để ứng dụng công nghệ này một cách hợp lý."
-          </div>
-        </div>
-
-        <!-- PHẦN 2: TRÌNH BÀY -->
-        <h4 style="font-size: 1.1rem; color: var(--primary); margin: 1.5rem 0 0.6rem;">
-          📍 GIAI ĐOẠN 2: BÁO CÁO CÁC CÔNG CỤ AI ỨNG DỤNG (5 PHÚT)
-        </h4>
-
-        <div class="dialog-item">
-          <div class="dialog-speaker">🎤 Lê Minh Anh:</div>
-          <div class="dialog-text">
-            "Theo mình, trí tuệ nhân tạo (AI) là công nghệ có khả năng hỗ trợ con người thông qua việc phân tích dữ liệu, xử lý âm thanh và tạo sinh nội dung. Trong dạy học Âm nhạc, AI có thể hỗ trợ 5 mảng chính:<br>
-            1. <strong>Hỗ trợ sáng tác và tạo giai điệu mới (Suno AI, Udio):</strong> Giúp tạo các đoạn beat hoặc bài hát mẫu theo chủ đề.<br>
-            2. <strong>Tạo nhạc đệm luyện hát (Moises):</strong> Tách giọng hát, tách nhạc cụ, điều chỉnh cao độ và tempo phù hợp âm vực học sinh.<br>
-            3. <strong>Nhận diện nốt nhạc (Basic Pitch):</strong> Chuyển file âm thanh thành dữ liệu MIDI, hỗ trợ học sinh kiểm tra cao độ khi xướng âm.<br>
-            4. <strong>Thiết kế bài dạy & Trò chơi âm nhạc (ChatGPT / Gemini):</strong> Gợi ý tiến trình dạy học, câu hỏi đố vui nhạc lý.<br>
-            5. <strong>Tạo hình ảnh và video bài giảng (Canva Magic):</strong> Xây dựng học liệu trực quan, sinh động."
-          </div>
-        </div>
-
-        <!-- PHẦN 3: LỢI ÍCH -->
-        <h4 style="font-size: 1.1rem; color: var(--primary); margin: 1.5rem 0 0.6rem;">
-          📍 GIAI ĐOẠN 3: THẢO LUẬN VỀ LỢI ÍCH SƯ PHẠM (7 PHÚT)
-        </h4>
-
-        <div class="dialog-item">
-          <div class="dialog-speaker">💡 Vũ Phương Anh:</div>
-          <div class="dialog-text">
-            "AI mang lại 3 lợi ích thiết thực: Thứ nhất là tiết kiệm thời gian chuẩn bị giáo án cho giáo viên. Thứ hai là giúp bài học trở nên sinh động, học sinh hào hứng hơn nhờ các bản phối mới mẻ. Thứ ba là kích thích khả năng sáng tạo âm nhạc của các em học sinh THCS."
-          </div>
-        </div>
-
-        <div class="dialog-item">
-          <div class="dialog-speaker">📝 Hà An:</div>
-          <div class="dialog-text">
-            "Mình bổ sung thêm là AI giúp <strong>cá nhân hóa việc học âm nhạc</strong>. Học sinh còn yếu về cao độ có thể luyện nghe lại nhiều lần với phần mềm nhận diện nốt, còn những bạn có năng khiếu có thể thử sáng tạo giai điệu riêng."
-          </div>
-        </div>
-
-        <!-- PHẦN 4: HẠN CHẾ & GIẢI PHÁP -->
-        <h4 style="font-size: 1.1rem; color: var(--primary); margin: 1.5rem 0 0.6rem;">
-          📍 GIAI ĐOẠN 4: HẠN CHẾ VÀ ĐỀ XUẤT GIẢI PHÁP CỦA LÊ THUÝ AN (7 PHÚT)
-        </h4>
-
-        <div class="dialog-item">
-          <div class="dialog-speaker">🛡️ Lê Thuý An:</div>
-          <div class="dialog-text">
-            "Theo mình, bên cạnh lợi ích thì có 4 hạn chế lớn: Thứ nhất là sự chênh lệch điều kiện thiết bị giữa các trường. Thứ hai là thông tin AI tạo ra đôi khi sai lệch về thang âm, nhạc lý hoặc tác giả. Thứ ba là nguy cơ học sinh ỷ lại, giảm rèn luyện cảm xúc thật. Thứ tư là vấn đề bản quyền và bảo mật dữ liệu học sinh.<br>
-            <strong>Giải pháp đề xuất:</strong> Giáo viên phải luôn kiểm định lại mọi sản phẩm AI; kết hợp hài hòa với phương pháp dạy học truyền thống (hát mẫu, đệm đàn trực tiếp); giáo dục học sinh tính liêm chính và chỉ xem AI là trợ lý, con người mới là chủ thể nghệ thuật."
-          </div>
-        </div>
-
-        <!-- PHẦN 5: TỔNG KẾT & PHÂN CÔNG -->
-        <h4 style="font-size: 1.1rem; color: var(--primary); margin: 1.5rem 0 0.6rem;">
-          📍 GIAI ĐOẠN 5: TỔNG KẾT VÀ PHÂN CÔNG NHIỆM VỤ (5 PHÚT)
-        </h4>
-
-        <div class="dialog-item">
-          <div class="dialog-speaker">👑 Tường An (Chủ trì):</div>
-          <div class="dialog-text">
-            "Cảm ơn các ý kiến rất thiết thực! Về phân công nhiệm vụ hoàn thiện báo cáo nhóm sau buổi họp:<br>
-            • <strong>Tường An:</strong> Tổng hợp toàn bộ nội dung và biên tập báo cáo chung.<br>
-            • <strong>Hà An:</strong> Hoàn thiện biên bản cuộc họp chính thức.<br>
-            • <strong>Lê Minh Anh:</strong> Tổng hợp mục các công cụ AI trong dạy học Âm nhạc.<br>
-            • <strong>Vũ Phương Anh:</strong> Tổng hợp mục lợi ích và ví dụ minh họa thực tế.<br>
-            • <strong>Lê Thuý An:</strong> Tổng hợp mục hạn chế, giải pháp đạo đức AI và bài học kinh nghiệm."
+          <p class="topic-intro">
+            (Tổng hợp bởi Thư ký <strong>Hà An</strong> và kết luận của Chủ trì <strong>Tường An</strong>)
+          </p>
+          <p style="color: var(--text-body); font-size: 0.93rem; line-height: 1.65; margin-top: 0.8rem;">
+            Toàn bộ 05 thành viên đã biểu quyết thống nhất các định hướng ứng dụng AI có chọn lọc, có trách nhiệm và tuân thủ liêm chính học thuật. Nhóm trưởng Tường An chính thức phân công nhiệm vụ hoàn thiện sản phẩm chung:
+          </p>
+          <div style="overflow-x: auto; margin-top: 1rem;">
+            <table class="table-tasks">
+              <thead>
+                <tr>
+                  <th style="width: 25%;">Thành viên</th>
+                  <th style="width: 25%;">Vai trò cuộc họp</th>
+                  <th style="width: 50%;">Nhiệm vụ cụ thể sau cuộc họp</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Tường An</strong></td>
+                  <td>Chủ trì / Nhóm trưởng</td>
+                  <td>Tổng hợp toàn bộ nội dung thảo luận, biên tập, rà soát và hoàn thiện báo cáo chung của nhóm.</td>
+                </tr>
+                <tr>
+                  <td><strong>Hà An</strong></td>
+                  <td>Thư ký cuộc họp</td>
+                  <td>Hoàn thiện biên bản cuộc họp chính thức, lấy chữ ký xác nhận của các thành viên.</td>
+                </tr>
+                <tr>
+                  <td><strong>Lê Minh Anh</strong></td>
+                  <td>Người trình bày</td>
+                  <td>Tổng hợp chuyên sâu mục ứng dụng các công cụ AI trong dạy học Âm nhạc (ChatGPT, Suno, Moises, Basic Pitch).</td>
+                </tr>
+                <tr>
+                  <td><strong>Vũ Phương Anh</strong></td>
+                  <td>Thảo luận Lợi ích</td>
+                  <td>Tổng hợp mục đánh giá lợi ích đối với giáo viên, học sinh và xây dựng các ví dụ minh họa thực tế.</td>
+                </tr>
+                <tr>
+                  <td><strong>Lê Thuý An</strong></td>
+                  <td>Thảo luận Hạn chế & Giải pháp</td>
+                  <td>Tổng hợp mục phân tích hạn chế, xây dựng hệ thống giải pháp sư phạm, đạo đức AI và bài học kinh nghiệm.</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
