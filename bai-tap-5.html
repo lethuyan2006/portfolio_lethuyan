@@ -17,7 +17,7 @@
       margin: 1.5rem 0;
     }
     .slide-card {
-      background: #1A1A2E; color: #CBD5E1;
+      background: var(--bg-card); color: var(--text-body);
       border: 1px solid rgba(139, 92, 246, 0.22);
       border-radius: var(--radius-md);
       overflow: hidden;
@@ -73,7 +73,7 @@
       margin: 0;
       padding-left: 1.2rem;
       font-size: 0.88rem;
-      color: #CBD5E1;
+      color: var(--text-body);
       line-height: 1.6;
     }
     .slide-bullets li {
@@ -84,7 +84,7 @@
       padding-top: 0.75rem;
       border-top: 1px dashed #e2e8f0;
       font-size: 0.8rem;
-      color: #94A3B8;
+      color: var(--text-muted);
       line-height: 1.5;
     }
     .slide-meta-box strong {
@@ -99,7 +99,7 @@
       margin: 1.5rem 0;
     }
     .art-card {
-      background: #1A1A2E; color: #CBD5E1;
+      background: var(--bg-card); color: var(--text-body);
       border: 1px solid rgba(139, 92, 246, 0.22);
       border-radius: var(--radius-md);
       overflow: hidden;
@@ -185,7 +185,7 @@
       font-weight: 700;
     }
     .table-ai tr:nth-child(even) {
-      background: #141426; color: #CBD5E1;
+      background: var(--bg-card-alt); color: var(--text-body);
     }
     .badge-tool {
       display: inline-block;
@@ -197,6 +197,12 @@
       font-size: 0.82rem;
     }
   </style>
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
 </head>
 <body>
   <!-- HEADER & NAVIGATION -->
@@ -239,7 +245,7 @@
         <h2 style="font-size: 2rem; color: #A78BFA; margin-top: 0.5rem; font-family: 'Playfair Display', serif;">
           BÀI TẬP 5: SỬ DỤNG AI TẠO SINH ĐỂ HỖ TRỢ SÁNG TẠO NỘI DUNG
         </h2>
-        <p style="color: #94A3B8; font-size: 1.05rem; margin-top: 0.5rem; font-weight: 600;">
+        <p style="color: var(--text-muted); font-size: 1.05rem; margin-top: 0.5rem; font-weight: 600;">
           Chủ đề: Thiết kế bộ Slide 10 trang bài giảng Âm nhạc lớp 7 & Học liệu số đa phương tiện bài dân ca "Đi cấy" (Dân ca Thanh Hóa)
         </p>
       </div>
@@ -247,7 +253,7 @@
       <!-- a) MỤC TIÊU BÀI TẬP -->
       <div class="feature-box goal" style="margin-bottom: 2rem;">
         <h3>🎯 a) Mục tiêu bài tập</h3>
-        <p style="line-height: 1.7; color: #CBD5E1;">
+        <p style="line-height: 1.7; color: var(--text-body);">
           Rèn luyện kỹ năng tích hợp các công cụ Trí tuệ nhân tạo tạo sinh (Generative AI: Canva Magic Design, Text-to-Image, AI Sound Arrangement) vào quy trình thiết kế bài giảng điện tử và học liệu số tương tác môn Âm nhạc cấp THCS. Nắm vững kỹ thuật viết Prompt sư phạm để xây dựng trọn bộ Slide 10 trang chuẩn mực, kết hợp hài hòa giữa nhạc lý truyền thống (thang âm ngũ cung, nhịp 2/4) và bản phối Acoustic Lofi 88 BPM, đồng thời lồng ghép giáo dục 5 quy tắc vàng về đạo đức AI trong nhà trường.
         </p>
       </div>
@@ -257,7 +263,7 @@
         <h3>⚙️ b) Tóm tắt quá trình thực hiện</h3>
         
         <h4 style="color: #A78BFA; font-size: 1.05rem; margin-top: 1rem; margin-bottom: 0.6rem;">1. Kịch bản Prompt thiết kế bài giảng trên Canva (Chuẩn hóa R-T-C-O-F):</h4>
-        <p style="color: #CBD5E1; font-size: 0.92rem; margin-bottom: 0.8rem;">
+        <p style="color: var(--text-body); font-size: 0.92rem; margin-bottom: 0.8rem;">
           Để yêu cầu AI hỗ trợ soạn thảo nội dung bài giảng điện tử không bị lan man hay quá dài dòng trên từng slide, sinh viên đã thiết kế câu lệnh chuẩn mực theo khung R-T-C-O-F:
         </p>
 
@@ -274,7 +280,7 @@
         </div>
 
         <h4 style="color: #A78BFA; font-size: 1.05rem; margin-top: 1.4rem; margin-bottom: 0.6rem;">2. Quy trình thực hiện 4 bước hoàn thiện sản phẩm:</h4>
-        <ol style="margin-left: 1.5rem; color: #CBD5E1; line-height: 1.75; margin-bottom: 1.2rem;">
+        <ol style="margin-left: 1.5rem; color: var(--text-body); line-height: 1.75; margin-bottom: 1.2rem;">
           <li style="margin-bottom: 0.6rem;">
             <strong>Bước 1 — Khởi tạo kịch bản 10 slide:</strong> Sử dụng Prompt R-T-C-O-F để tạo dàn ý 10 slide sư phạm, phân bổ thời lượng 45 phút tiết học khoa học từ khởi động đến tổng kết.
           </li>
@@ -290,7 +296,7 @@
         </ol>
 
         <h4 style="color: #A78BFA; font-size: 1.05rem; margin-top: 1.4rem; margin-bottom: 0.6rem;">3. Khó khăn gặp phải & Biện pháp khắc phục:</h4>
-        <div style="background: #141426; color: #CBD5E1; border: 1px solid rgba(139, 92, 246, 0.22); border-radius: 8px; padding: 1.2rem; line-height: 1.7; color: #CBD5E1;">
+        <div style="background: var(--bg-card-alt); color: var(--text-body); border: 1px solid rgba(139, 92, 246, 0.22); border-radius: 8px; padding: 1.2rem; line-height: 1.7; color: var(--text-body);">
           <p style="margin-bottom: 0.8rem;">
             <strong>⚠ Khó khăn 1 (AI tạo quá nhiều chữ trên slide):</strong> Khi tạo slide tự động, AI đưa các đoạn văn dài gây rối mắt, học sinh ngồi xa khó quan sát.  
             <br>
@@ -312,7 +318,7 @@
         <h4 style="color: #A78BFA; font-size: 1.15rem; margin-top: 1rem; margin-bottom: 0.6rem;">
           📑 1. Kịch bản chi tiết 10 Trang Slide Bài giảng điện tử (Thiết kế trên Canva)
         </h4>
-        <p style="color: #94A3B8; font-size: 0.92rem; margin-bottom: 1rem;">
+        <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1rem;">
           Mỗi slide được biên tập chuẩn mực gồm: Tiêu đề • Nội dung chiếu (Bullet points) • Gợi ý hình ảnh minh họa • Lời giảng giáo viên (Speaker notes):
         </p>
 
@@ -574,7 +580,7 @@
         <h4 style="color: #A78BFA; font-size: 1.15rem; margin-top: 2.2rem; margin-bottom: 0.6rem;">
           🖼️ 2. Bộ tác phẩm tranh minh họa số hỗ trợ bài giảng (AI Artworks)
         </h4>
-        <p style="color: #94A3B8; font-size: 0.92rem; margin-bottom: 1rem;">
+        <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1rem;">
           Các tác phẩm hình ảnh nghệ thuật tạo sinh từ kỹ thuật Prompting, tái hiện không gian văn hóa đồng quê Việt Nam:
         </p>
 
@@ -635,7 +641,7 @@
       <!-- d) BẢNG KÊ KHAI CÔNG CỤ AI SỬ DỤNG (THEO QUY ĐỊNH LIÊM CHÍNH HỌC THUẬT) -->
       <div class="feature-box goal" style="margin-bottom: 2rem;">
         <h3>🛡️ d) Bảng kê khai công cụ AI sử dụng & Mục đích (Liêm chính học thuật)</h3>
-        <p style="line-height: 1.6; color: #CBD5E1;">
+        <p style="line-height: 1.6; color: var(--text-body);">
           Thực hiện đúng quy định về liêm chính học thuật của học phần INF2501, sinh viên kê khai chi tiết các công cụ AI được sử dụng làm phương tiện hỗ trợ trong quá trình hoàn thiện Bài tập 5:
         </p>
         <div style="overflow-x: auto;">

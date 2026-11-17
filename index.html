@@ -8,6 +8,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
 </head>
 <body>
   <!-- HEADER & NAVIGATION -->
@@ -108,7 +114,7 @@
             <li><strong>Học phần bổ trợ:</strong> Nhập môn CNS & Ứng dụng AI (INF2501)</li>
             <li><strong>Giảng viên hướng dẫn:</strong> ThS. Vũ Việt Hoàng</li>
           </ul>
-          <p style="font-style: italic; color: #CBD5E1; margin-top: 0.8rem; border-left: 3px solid var(--accent-cyan); padding-left: 12px; line-height: 1.6;">
+          <p style="font-style: italic; color: var(--text-body); margin-top: 0.8rem; border-left: 3px solid var(--accent-cyan); padding-left: 12px; line-height: 1.6;">
             "Âm nhạc dân gian là cội nguồn tâm hồn dân tộc. Sứ mệnh của một người giáo viên nghệ thuật tương lai là dùng cả trái tim và công nghệ hiện đại để thắp sáng tình yêu âm nhạc quê hương trong lòng thế hệ trẻ."
           </p>
         </div>
@@ -119,7 +125,7 @@
         <div class="feature-box goal">
           <h3>🎵 Năng lực Âm nhạc & Biểu diễn</h3>
           <p>Nền tảng kiến thức nhạc lý vững chắc và kỹ năng biểu diễn thực hành:</p>
-          <ul style="margin-left: 1.2rem; margin-top: 0.6rem; color: #CBD5E1; font-size: 0.95rem; line-height: 1.6;">
+          <ul style="margin-left: 1.2rem; margin-top: 0.6rem; color: var(--text-body); font-size: 0.95rem; line-height: 1.6;">
             <li><strong>Thanh nhạc & Hợp xướng:</strong> Kỹ thuật lấy hơi, nhả chữ tròn vành rõ tiếng, tham gia hòa ca hợp xướng học đường.</li>
             <li><strong>Nhạc cụ truyền thống:</strong> Yêu thích và diễn tấu các nhạc cụ dân tộc như đàn tranh, sáo trúc với điệu thức ngũ cung.</li>
             <li><strong>Ký xướng âm & Xử lý giai điệu:</strong> Khả năng cảm âm, ký âm và thị tấu bản nhạc chính xác.</li>
@@ -129,7 +135,7 @@
         <div class="feature-box process">
           <h3>🎓 Nghiệp vụ Sư phạm Nghệ thuật</h3>
           <p>Định hướng phát triển toàn diện kỹ năng sư phạm âm nhạc THCS và THPT:</p>
-          <ul style="margin-left: 1.2rem; margin-top: 0.6rem; color: #CBD5E1; font-size: 0.95rem; line-height: 1.6;">
+          <ul style="margin-left: 1.2rem; margin-top: 0.6rem; color: var(--text-body); font-size: 0.95rem; line-height: 1.6;">
             <li><strong>Phương pháp dạy học đổi mới:</strong> Bám sát Chương trình GDPT 2018, lấy học sinh làm trung tâm của tiết học nghệ thuật.</li>
             <li><strong>Kỹ năng đệm đàn trong lớp học:</strong> Vận dụng đàn Organ/Keyboard để bắt nhịp, luyện thanh và đệm hát linh hoạt cho học sinh.</li>
             <li><strong>Tổ chức hoạt động âm nhạc:</strong> Thiết kế trò chơi tiết tấu, sinh hoạt câu lạc bộ và dàn dựng tiết mục biểu diễn văn nghệ.</li>
@@ -139,7 +145,7 @@
         <div class="feature-box product">
           <h3>💻 Kỹ năng Số & Đổi mới Sáng tạo</h3>
           <p>Chủ động ứng dụng công nghệ để nâng cao chất lượng dạy và học âm nhạc:</p>
-          <ul style="margin-left: 1.2rem; margin-top: 0.6rem; color: #CBD5E1; font-size: 0.95rem; line-height: 1.6;">
+          <ul style="margin-left: 1.2rem; margin-top: 0.6rem; color: var(--text-body); font-size: 0.95rem; line-height: 1.6;">
             <li><strong>Phần mềm chép nhạc & âm thanh:</strong> Sử dụng các công cụ kỹ thuật số hỗ trợ soạn sheet nhạc và làm nhạc nền.</li>
             <li><strong>Ứng dụng AI có trách nhiệm:</strong> Thực hành thiết kế câu lệnh (Prompt Engineering) tạo bản phối mới cho bài học dân ca một cách có chọn lọc.</li>
             <li><strong>Hồ sơ năng lực điện tử (E-Portfolio):</strong> Tự xây dựng và quản lý website trên GitHub Pages phục vụ học tập suốt đời.</li>
@@ -152,7 +158,7 @@
         <div class="feature-box goal">
           <h3>🎯 Mục tiêu rèn luyện tại giảng đường</h3>
           <p>Từng bước hoàn thiện phẩm chất và kỹ năng của người giáo viên nghệ thuật:</p>
-          <ul style="margin-left: 1.2rem; margin-top: 0.6rem; color: #CBD5E1; font-size: 0.95rem; line-height: 1.6;">
+          <ul style="margin-left: 1.2rem; margin-top: 0.6rem; color: var(--text-body); font-size: 0.95rem; line-height: 1.6;">
             <li>Tốt nghiệp xuất sắc chuyên ngành Cử nhân Sư phạm Âm nhạc tại Trường ĐH Sư phạm Nghệ thuật Trung ương.</li>
             <li>Không ngừng rèn luyện kỹ năng thanh nhạc, thị tấu và phong thái biểu diễn tự tin trước công chúng.</li>
             <li>Hoàn thành xuất sắc học phần <strong>Nhập môn CNS & Ứng dụng AI (INF2501)</strong> dưới sự hướng dẫn của <strong>ThS. Vũ Việt Hoàng</strong>.</li>
@@ -162,7 +168,7 @@
         <div class="feature-box product">
           <h3>🌟 Định hướng nghề nghiệp tương lai</h3>
           <p>Mong muốn cống hiến cho sự nghiệp giáo dục âm nhạc thế hệ trẻ:</p>
-          <ul style="margin-left: 1.2rem; margin-top: 0.6rem; color: #CBD5E1; font-size: 0.95rem; line-height: 1.6;">
+          <ul style="margin-left: 1.2rem; margin-top: 0.6rem; color: var(--text-body); font-size: 0.95rem; line-height: 1.6;">
             <li>Trở thành người giáo viên dạy Âm nhạc truyền cảm hứng tại trường Trung học cơ sở / Trung học phổ thông.</li>
             <li>Bảo tồn và lan tỏa các giá trị di sản âm nhạc dân tộc Việt Nam đến học sinh bằng những phương pháp trực quan, sinh động.</li>
             <li>Xây dựng môi trường lớp học nghệ thuật thân thiện, nơi mọi học sinh đều được tự do khám phá và bộc lộ năng khiếu.</li>
@@ -173,7 +179,7 @@
       <!-- BANNER DẪN SANG DỰ ÁN MÔN HỌC -->
       <div style="margin-top: 2.5rem; padding: 2rem; background: linear-gradient(135deg, #1A1A2E 0%, #141426 100%); border: 1px solid rgba(139, 92, 246, 0.35); border-radius: var(--radius-md); text-align: center;">
         <h3 style="color: #A78BFA; font-size: 1.3rem; margin-bottom: 0.5rem;">📂 Khám phá Dự án Học phần INF2501</h3>
-        <p style="color: #CBD5E1; max-width: 700px; margin: 0 auto 1.2rem auto; font-size: 0.95rem; line-height: 1.6;">
+        <p style="color: var(--text-body); max-width: 700px; margin: 0 auto 1.2rem auto; font-size: 0.95rem; line-height: 1.6;">
           Trang web này đồng thời lưu trữ toàn bộ <strong>06 bài tập thực hành</strong> và các sản phẩm số ứng dụng AI trong học phần do <strong>ThS. Vũ Việt Hoàng</strong> hướng dẫn.
         </p>
         <a href="projects.html" class="btn btn-primary">Xem chi tiết 06 Bài tập Thực hành (Projects) ➔</a>

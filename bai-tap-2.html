@@ -53,7 +53,7 @@
       margin: 1.5rem 0;
     }
     .craap-card {
-      background: #1A1A2E; color: #CBD5E1;
+      background: var(--bg-card); color: var(--text-body);
       border: 1px solid rgba(139, 92, 246, 0.22);
       border-radius: var(--radius-md);
       padding: 1.4rem;
@@ -87,7 +87,7 @@
       margin-bottom: 0.5rem;
     }
     .craap-card p {
-      color: #CBD5E1;
+      color: var(--text-body);
       font-size: 0.92rem;
       line-height: 1.6;
     }
@@ -110,7 +110,7 @@
       font-weight: 700;
     }
     .table-craap tr:nth-child(even) {
-      background: #141426; color: #CBD5E1;
+      background: var(--bg-card-alt); color: var(--text-body);
     }
     /* Evidence Image */
     .img-evidence-box {
@@ -131,8 +131,8 @@
       cursor: zoom-in;
     }
     .img-caption {
-      background: #141426; color: #CBD5E1;
-      color: #CBD5E1;
+      background: var(--bg-card-alt); color: var(--text-body);
+      color: var(--text-body);
       font-size: 0.88rem;
       font-weight: 700;
       padding: 0.75rem 1rem;
@@ -140,6 +140,12 @@
       display: block;
     }
   </style>
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
 </head>
 <body>
   <!-- HEADER & NAVIGATION -->
@@ -185,7 +191,7 @@
       <!-- a) MỤC TIÊU -->
       <div class="feature-box goal" style="margin-bottom: 2rem;">
         <h3>🎯 a) Mục tiêu bài tập</h3>
-        <p style="line-height: 1.7; color: #CBD5E1;">
+        <p style="line-height: 1.7; color: var(--text-body);">
           Phát triển kỹ năng tìm kiếm và đánh giá thông tin học thuật từ các nguồn đáng tin cậy. Nắm vững phương pháp khai thác cơ sở dữ liệu khoa học bằng các toán tử Boolean nâng cao và vận dụng bộ tiêu chuẩn quốc tế <strong>CRAAP</strong> để thẩm định tính xác thực, độ tin cậy của tài liệu nghiên cứu.
         </p>
       </div>
@@ -193,10 +199,10 @@
       <!-- 1. MỤC TIÊU TÌM KIẾM THÔNG TIN -->
       <div class="feature-box process" style="margin-bottom: 2rem;">
         <h3>📌 1. Mục tiêu tìm kiếm thông tin</h3>
-        <p style="color: #CBD5E1; line-height: 1.7;">
+        <p style="color: var(--text-body); line-height: 1.7;">
           Thu thập hệ thống tài liệu khoa học, giáo trình và các nghiên cứu đáng tin cậy nhằm giải quyết hai khía cạnh cốt lõi của đề tài <em>"Ứng dụng AI tạo bản phối mới cho bài dân ca Đi cấy (Âm nhạc lớp 7)"</em>:
         </p>
-        <ul style="margin-left: 1.5rem; margin-top: 0.6rem; color: #CBD5E1; line-height: 1.7;">
+        <ul style="margin-left: 1.5rem; margin-top: 0.6rem; color: var(--text-body); line-height: 1.7;">
           <li style="margin-bottom: 0.6rem;">
             <strong>Cơ sở âm nhạc học và sư phạm:</strong> Đặc trưng âm nhạc của dân ca Thanh Hóa / Bắc Trung Bộ (hệ thống điệu thức ngũ cung, tiết tấu nhịp 2/4 thong thả, tính chất trữ tình trong sáng của bài <em>"Đi cấy"</em>) và yêu cầu cần đạt của chương trình Giáo dục phổ thông môn Âm nhạc lớp 7 (theo Thông tư 32/2018/TT-BGDĐT).
           </li>
@@ -209,7 +215,7 @@
       <!-- 2. CHIẾN LƯỢC TÌM KIẾM VÀ TRUY VẤN NÂNG CAO -->
       <div class="feature-box goal" style="margin-bottom: 2rem;">
         <h3>🔍 2. Chiến lược tìm kiếm và Truy vấn nâng cao (Search Queries)</h3>
-        <p style="color: #CBD5E1; line-height: 1.7; margin-bottom: 1.2rem;">
+        <p style="color: var(--text-body); line-height: 1.7; margin-bottom: 1.2rem;">
           Để tối ưu hóa kết quả trên các cơ sở dữ liệu học thuật (Google Scholar, ResearchGate, IEEE Xplore, Thư viện Quốc gia Việt Nam, Tạp chí Nghiên cứu Âm nhạc), quá trình tìm kiếm sử dụng các toán tử Boolean (<code>AND</code>, <code>OR</code>, <code>""</code>, <code>site:</code>):
         </p>
 
@@ -247,7 +253,7 @@
       <!-- 3. BẢNG TỔNG HỢP THÔNG TIN HỌC THUẬT THU THẬP ĐƯỢC -->
       <div class="feature-box product" style="margin-bottom: 2rem;">
         <h3>📊 3. Bảng tổng hợp thông tin học thuật thu thập được</h3>
-        <p style="color: #CBD5E1; line-height: 1.7;">
+        <p style="color: var(--text-body); line-height: 1.7;">
           Hệ thống 04 nguồn tài liệu học thuật trọng tâm được thu thập từ các cơ sở dữ liệu uy tín trong nước và quốc tế:
         </p>
 
@@ -306,7 +312,7 @@
       <!-- 4. ĐÁNH GIÁ ĐỘ TIN CẬY CỦA NGUỒN THÔNG TIN (TIÊU CHUẨN CRAAP) -->
       <div class="feature-box process" style="margin-bottom: 2rem;">
         <h3>🛡️ 4. Đánh giá độ tin cậy của nguồn thông tin (Áp dụng tiêu chuẩn CRAAP)</h3>
-        <p style="color: #CBD5E1; line-height: 1.7;">
+        <p style="color: var(--text-body); line-height: 1.7;">
           Để đảm bảo tính chuẩn xác về mặt khoa học và sư phạm, các tài liệu trên được thẩm định qua 5 tiêu chí CRAAP (Currency – Relevance – Authority – Accuracy – Purpose):
         </p>
 
@@ -361,10 +367,10 @@
       <!-- 5. KẾT LUẬN RÚT RA TỪ QUÁ TRÌNH KHAI THÁC THÔNG TIN -->
       <div class="feature-box goal" style="margin-bottom: 2rem;">
         <h3>💡 5. Kết luận rút ra từ quá trình khai thác thông tin</h3>
-        <p style="color: #CBD5E1; line-height: 1.75; font-size: 0.98rem;">
+        <p style="color: var(--text-body); line-height: 1.75; font-size: 0.98rem;">
           Thông qua việc tổng hợp và đánh giá các nguồn học thuật trên, có thể khẳng định việc <strong>ứng dụng AI để tạo bản phối mới cho bài dân ca "Đi cấy" trong chương trình Âm nhạc lớp 7 là hoàn toàn khả thi và có giá trị sư phạm cao</strong>. 
         </p>
-        <p style="color: #CBD5E1; line-height: 1.75; font-size: 0.98rem; margin-top: 0.8rem; border-left: 3px solid var(--accent-cyan); padding-left: 12px; background: rgba(56, 189, 248, 0.08); padding-top: 8px; padding-bottom: 8px;">
+        <p style="color: var(--text-body); line-height: 1.75; font-size: 0.98rem; margin-top: 0.8rem; border-left: 3px solid var(--accent-cyan); padding-left: 12px; background: rgba(56, 189, 248, 0.08); padding-top: 8px; padding-bottom: 8px;">
           <em>* Nguyên tắc ứng dụng thực tiễn:</em> AI chỉ nên đóng vai trò tạo phần nền tiết tấu hiện đại (như Acoustic, Lofi nhẹ), còn phần giai điệu chính và âm sắc nhạc cụ dân tộc (sáo trúc, đàn tranh) cần được giáo viên kiểm soát chặt chẽ để bảo toàn hồn cốt làn điệu dân ca quê hương.
         </p>
       </div>

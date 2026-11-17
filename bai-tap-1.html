@@ -20,7 +20,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1.8rem;
-      background: #1A1A2E; color: #CBD5E1;
+      background: var(--bg-card); color: var(--text-body);
       border: 1px solid rgba(139, 92, 246, 0.22);
       border-radius: var(--radius-md);
       padding: 1.6rem;
@@ -53,7 +53,7 @@
       margin-bottom: 0.5rem;
     }
     .step-desc {
-      color: #CBD5E1;
+      color: var(--text-body);
       font-size: 0.95rem;
       line-height: 1.65;
     }
@@ -105,8 +105,8 @@
       transform: scale(1.02);
     }
     .img-caption {
-      background: #141426; color: #CBD5E1;
-      color: #CBD5E1;
+      background: var(--bg-card-alt); color: var(--text-body);
+      color: var(--text-body);
       font-size: 0.82rem;
       font-weight: 700;
       padding: 0.55rem 0.85rem;
@@ -146,6 +146,12 @@
       }
     }
   </style>
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
 </head>
 <body>
   <!-- HEADER & NAVIGATION -->
@@ -194,7 +200,7 @@
       <!-- I. MỤC TIÊU BÀI TẬP -->
       <div class="feature-box goal" style="margin-bottom: 2rem;">
         <h3>🎯 I. Mục tiêu bài tập</h3>
-        <p style="line-height: 1.7; color: #CBD5E1;">
+        <p style="line-height: 1.7; color: var(--text-body);">
           Rèn luyện kỹ năng tạo, đổi tên, sao chép, di chuyển, xóa tệp tin và thư mục một cách thành thạo trên hệ điều hành <strong>macOS</strong> (sử dụng trình quản lý <strong>Finder</strong> và các phím tắt hệ thống chuẩn của Apple). Nắm vững bản chất của các thao tác hệ thống tệp và tổ chức không gian lưu trữ khoa học phục vụ học tập.
         </p>
       </div>
@@ -209,7 +215,7 @@
     ├── 📄 <span class="file">Ghichuquantrong.txt</span> (Bản sao tạo từ phím tắt ⌘C và ⌘V)
     └── 📄 <span class="file">DiChuyen.txt</span> (Tệp di chuyển bằng phím tắt ⌥⌘V)
         </div>
-        <p style="font-size: 0.9rem; color: #94A3B8; margin-top: 0.5rem;">
+        <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.5rem;">
           <em>* Sinh viên: Lê Thuý An — Mã sinh viên: 2552210166 — Lớp: K20D Sư phạm Âm nhạc</em>
         </p>
       </div>
@@ -219,7 +225,7 @@
         <h3 style="color: #A78BFA; font-size: 1.4rem; margin-bottom: 0.5rem;">
           📸 II. Quy trình 12 bước thực hiện trên macOS kèm ảnh minh chứng thực tế
         </h3>
-        <p style="color: #94A3B8; font-size: 0.95rem; margin-bottom: 1.5rem;">
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
           Toàn bộ các bước thực hành đã được sinh viên thực hiện trực tiếp trên hệ điều hành macOS và đính kèm ảnh chụp màn hình minh chứng đầy đủ:
         </p>
 

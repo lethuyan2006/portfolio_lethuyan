@@ -1,19 +1,60 @@
 // ===================================================================
 // KVOLT-INSPIRED AUDIO-FORWARD INTERACTIVE SCRIPTS
+// With Light / Dark Theme Switcher & Enhanced Text Contrast
 // Le Thuy An E-Portfolio (Music Education & AI)
 // ===================================================================
 
+// Early Theme Setup
+(function() {
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Mobile Menu Toggle
-  const toggleBtn = document.querySelector('.mobile-toggle');
+  // 1. Theme Toggle Setup
   const navMenu = document.querySelector('.nav-menu');
+  let currentTheme = localStorage.getItem('theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', currentTheme);
+
+  // Inject Theme Toggle Button if not already in HTML
+  if (navMenu && !document.getElementById('theme-toggle')) {
+    const toggleLi = document.createElement('li');
+    toggleLi.className = 'nav-item';
+    toggleLi.innerHTML = `
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="Chuyển chế độ Sáng / Tối" title="Chuyển chế độ Sáng / Tối">
+        <span class="theme-icon">${currentTheme === 'light' ? '☀️' : '🌙'}</span>
+        <span class="theme-label">${currentTheme === 'light' ? 'Sáng' : 'Tối'}</span>
+      </button>
+    `;
+    navMenu.appendChild(toggleLi);
+  }
+
+  const themeToggleBtn = document.getElementById('theme-toggle');
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+      const activeTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+      const newTheme = activeTheme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+
+      const iconSpan = themeToggleBtn.querySelector('.theme-icon');
+      const labelSpan = themeToggleBtn.querySelector('.theme-label');
+      if (iconSpan) iconSpan.innerText = newTheme === 'light' ? '☀️' : '🌙';
+      if (labelSpan) labelSpan.innerText = newTheme === 'light' ? 'Sáng' : 'Tối';
+
+      showToast(newTheme === 'light' ? 'Đã chuyển sang chế độ Sáng (Light Mode)' : 'Đã chuyển sang chế độ Tối (Dark Mode)');
+    });
+  }
+
+  // 2. Mobile Menu Toggle
+  const toggleBtn = document.querySelector('.mobile-toggle');
   if (toggleBtn && navMenu) {
     toggleBtn.addEventListener('click', () => {
       navMenu.classList.toggle('active');
     });
   }
 
-  // 2. Navbar Scroll Effect
+  // 3. Navbar Scroll Effect
   const header = document.querySelector('.site-header');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 40) {
@@ -23,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 3. Toast Notification Helper
+  // 4. Toast Notification Helper
   function showToast(message) {
     let toast = document.querySelector('.toast-msg');
     if (!toast) {
@@ -31,14 +72,14 @@ document.addEventListener('DOMContentLoaded', () => {
       toast.className = 'toast-msg';
       document.body.appendChild(toast);
     }
-    toast.innerHTML = `<span style="color: #10B981;">✓</span> <span>${message}</span>`;
+    toast.innerHTML = `<span style="color: var(--accent-emerald);">✓</span> <span>${message}</span>`;
     toast.classList.add('show');
     setTimeout(() => {
       toast.classList.remove('show');
     }, 2800);
   }
 
-  // 4. Prompt Copy to Clipboard
+  // 5. Prompt Copy to Clipboard
   const copyButtons = document.querySelectorAll('.copy-btn');
   copyButtons.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -48,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
         navigator.clipboard.writeText(textToCopy).then(() => {
           const original = btn.innerText;
           btn.innerText = '✓ Đã sao chép';
-          btn.style.background = '#8B5CF6';
+          btn.style.background = 'var(--primary)';
           btn.style.color = '#fff';
           showToast('Đã sao chép câu lệnh Prompt vào bộ nhớ tạm!');
           setTimeout(() => {
@@ -61,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 5. Persistent Bottom Audio Player Initialization
+  // 6. Persistent Bottom Audio Player Initialization
   let globalAudio = document.getElementById('global-kvolt-audio');
   if (!globalAudio) {
     globalAudio = document.createElement('audio');
@@ -116,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function updatePlayState(isPlaying) {
     if (playBtn) {
       playBtn.innerHTML = isPlaying ? '❚❚' : '▶';
-      playBtn.style.boxShadow = isPlaying ? '0 0 20px rgba(139, 92, 246, 0.8)' : '';
+      playBtn.style.boxShadow = isPlaying ? '0 0 20px var(--primary-glow)' : '';
     }
     if (inPagePlayBtn) {
       inPagePlayBtn.innerHTML = isPlaying ? '❚❚' : '▶';

@@ -8,6 +8,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
 </head>
 <body>
   <!-- HEADER & NAVIGATION -->
@@ -110,7 +116,7 @@
       <div class="feature-box process" style="margin-top: 2rem;">
         <h3>🏆 Tự đánh giá mức độ hoàn thành</h3>
         <p><strong>Mức xếp loại tự đánh giá:</strong> <span style="color: #10B981; font-weight: 800; font-size: 1.2rem;">Xuất sắc (Hoàn thành toàn diện các mục tiêu học phần)</span></p>
-        <p style="margin-top: 0.5rem; color: #CBD5E1;">Website đáp ứng trọn vẹn 09 trang độc lập, xuất bản trên GitHub Pages với tên miền riêng, giao diện hiện đại phong cách Glassmorphism với hiệu ứng animation chuyển động mượt mà, hỗ trợ Responsive toàn diện trên cả điện thoại và máy tính để bàn, minh bạch tuyệt đối về nguồn gốc học liệu AI.</p>
+        <p style="margin-top: 0.5rem; color: var(--text-body);">Website đáp ứng trọn vẹn 09 trang độc lập, xuất bản trên GitHub Pages với tên miền riêng, giao diện hiện đại phong cách Glassmorphism với hiệu ứng animation chuyển động mượt mà, hỗ trợ Responsive toàn diện trên cả điện thoại và máy tính để bàn, minh bạch tuyệt đối về nguồn gốc học liệu AI.</p>
       </div>
 
       <div class="pagination-nav">
